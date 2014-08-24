@@ -5,5 +5,5 @@ require_once base_path().'/src/constants.php';
 require_once base_path().'/src/filters.php';
 require_once base_path().'/src/forms.php';
 require_once base_path().'/src/observers.php';
-require_once base_path().'/src/routes.php';
+require base_path().'/src/routes.php';
 require_once base_path().'/src/services.php';

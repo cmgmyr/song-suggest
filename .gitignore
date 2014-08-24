@@ -8,5 +8,4 @@ Thumbs.db
 /files
 /bower_components
 /node_modules
-tests/_output/*
-tests/_output/*
+tests/codeception/_output/*

@@ -35,9 +35,7 @@ class AuthController extends BaseController
         );
 
         if (Auth::attempt($credentials)) {
-            $user = Auth::user();
-
-            return Redirect::to('/');
+            return Redirect::home();
         } else {
             Flash::error('Sorry, your login credentials were not correct, or you are not allowed to log in');
 

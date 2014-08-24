@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Song Suggest</a>
+            <a class="navbar-brand" href="{{URL::to('')}}">Song Suggest</a>
         </div>
 
         @if(Auth::check())

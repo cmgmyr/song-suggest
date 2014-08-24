@@ -2,7 +2,7 @@
 
 return array(
 
-    'default' => 'sqlite',
+    /*'default' => 'sqlite',
 
 	'connections' => array(
 
@@ -12,6 +12,6 @@ return array(
             'prefix'   => '',
         ),
 
-	),
+	),*/
 
 );

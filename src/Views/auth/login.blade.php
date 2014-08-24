@@ -14,7 +14,7 @@
             {{Form::password('password', array('class' => 'form-control', 'placeholder' => 'Enter Password'))}}
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Login</button>
     </fieldset>
     {{Form::close()}}
 </div>

@@ -55,7 +55,7 @@ Route::filter('auth.admin', function()
             $user = Auth::user();
 
             if($user->is_admin != 'y')
-                return Redirect::to('/');
+                return Redirect::home();
         }
     });
 

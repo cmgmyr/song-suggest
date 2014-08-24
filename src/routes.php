@@ -3,7 +3,7 @@
 
 Route::group(array('before' => 'auth'), function()
 {
-    Route::get('/', APPCONTROLLERS . '\HomeController@showWelcome');
+    Route::get('/', array('as' => 'home', 'uses' => APPCONTROLLERS . '\HomeController@showWelcome'));
 });
 
 Route::get('login', array('as' => 'login', 'uses' => APPCONTROLLERS . '\AuthController@login'));

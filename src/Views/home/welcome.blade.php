@@ -1,3 +1,3 @@
 @section('content')
-This is the new welcome page!
+Welcome to the song suggester!
 @stop

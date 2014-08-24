@@ -1,4 +1,4 @@
-## Laravel songs suggestions for bands
+## Laravel song suggestions for bands
 
 * Laravel
 * Bootstrap
