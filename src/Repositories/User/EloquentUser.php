@@ -82,8 +82,14 @@ class EloquentUser implements UserInterface
         $user->first_name = $data['first_name'];
         $user->last_name = $data['last_name'];
         $user->email = $data['email'];
-        $user->is_active = $data['is_active'];
-        $user->is_admin = $data['is_admin'];
+
+        if (isset($data['is_active'])) {
+            $user->is_active = $data['is_active'];
+        }
+
+        if (isset($data['is_admin'])) {
+            $user->is_admin = $data['is_admin'];
+        }
 
         if ($data['password']) {
             $user->password = $data['password'];

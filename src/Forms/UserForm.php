@@ -1,7 +1,9 @@
 <?php
-namespace Ss\Services\Validation;
+namespace Ss\Forms;
 
-class User extends FormValidator
+use Ss\Services\Validation\FormValidator;
+
+class UserForm extends FormValidator
 {
 
     protected $rules = array(

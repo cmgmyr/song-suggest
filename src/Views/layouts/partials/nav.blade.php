@@ -14,8 +14,8 @@
         @if(Auth::check())
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="#">Add Song</a></li>
-                <li><a href="#">Update Account</a></li>
+                <li><a href="#">Add Song</a></li>
+                <li class="{{ Route::is('account') ? 'active' : '' }}">{{link_to_route('account', 'Update Account')}}</li>
                 <li>{{link_to_route('logout', 'Logout')}}</li>
             </ul>
         </div>

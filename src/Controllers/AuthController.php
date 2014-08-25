@@ -1,6 +1,8 @@
 <?php
 namespace Ss\Controllers;
 
+use Ss\Forms\UserForm;
+use Ss\Repositories\User\UserInterface;
 use Ss\Services\Notifications\Flash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
@@ -10,6 +12,22 @@ use Illuminate\Support\Facades\View;
 
 class AuthController extends BaseController
 {
+
+    /**
+     * @var \Ss\Repositories\User\UserInterface
+     */
+    protected $user;
+
+    /**
+     * @var \Ss\Forms\UserForm
+     */
+    protected $userForm;
+
+    function __construct(UserInterface $user, UserForm $userForm)
+    {
+        $this->user = $user;
+        $this->userForm = $userForm;
+    }
 
     /**
      * Display a login form
@@ -53,5 +71,28 @@ class AuthController extends BaseController
         Auth::logout();
 
         return Redirect::route('login');
+    }
+
+    public function account()
+    {
+        $user = $this->user->byId(Auth::id());
+
+        $this->layout->content = View::make('auth.account', compact('user'));
+    }
+
+    public function accountUpdate()
+    {
+        $id = Auth::id();
+        $v = $this->userForm->updateUser($id);
+
+        if (Input::has('password')) {
+            $v->checkPassword();
+        }
+
+        $v->validate();
+
+        $this->user->save(array_merge(Input::all(), array('id' => $id)));
+
+        return $this->redirectRouteWithSuccess('home', 'Your account has been updated!');
     }
 } 

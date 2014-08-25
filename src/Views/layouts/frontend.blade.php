@@ -17,8 +17,8 @@
 </head>
 <body>
     @include('layouts.partials.nav')
-    @include('common.flash')
     <div class="container">
+        @include('common.flash')
         @yield('content')
     </div>
 
