@@ -2,6 +2,7 @@
 namespace Ss\Repositories\Song;
 
 use Laracasts\Commander\Events\EventGenerator;
+use Ss\Domain\Suggestion\Events\SongEdited;
 use Ss\Domain\Suggestion\Events\SongSuggested;
 use Ss\Models\BaseModel;
 
@@ -37,6 +38,16 @@ class Song extends BaseModel
         $song = new static(compact('artist', 'title', 'user_id'));
 
         $song->raise(new SongSuggested($song));
+
+        return $song;
+    }
+
+    public static function edit(Song $song, $artist, $title)
+    {
+        $song->artist = $artist;
+        $song->title = $title;
+
+        $song->raise(new SongEdited($song));
 
         return $song;
     }
