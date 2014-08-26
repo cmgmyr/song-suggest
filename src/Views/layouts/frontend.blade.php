@@ -19,6 +19,7 @@
     @include('layouts.partials.nav')
     <div class="container">
         @include('common.flash')
+        <h1 class="page-header">@yield('pageTitle')</h1>
         @yield('content')
     </div>
 

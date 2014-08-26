@@ -2,6 +2,8 @@
 namespace Ss\Repositories;
 
 use Ss\Models\User;
+use Ss\Repositories\Song\EloquentSong;
+use Ss\Repositories\Song\Song;
 use Ss\Repositories\User\EloquentUser;
 use Illuminate\Support\ServiceProvider;
 
@@ -16,6 +18,17 @@ class RepositoryServiceProvider extends ServiceProvider
     public function register()
     {
         $app = $this->app;
+
+        $app->bind(
+            'Ss\Repositories\Song\SongInterface',
+            function () {
+                $model = new EloquentSong(
+                    new Song
+                );
+
+                return $model;
+            }
+        );
 
         $app->bind(
             'Ss\Repositories\User\UserInterface',

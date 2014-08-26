@@ -1,3 +1,5 @@
+@section('pageTitle', 'Update Account')
+
 @section('content')
 {{ Form::model($user, array('route' => array('account.update', $user->id),  'method' => 'put')) }}
 <div class="row">

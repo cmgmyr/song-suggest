@@ -1,3 +1,5 @@
+@section('pageTitle', 'Log In')
+
 @section('content')
 <div id="login-form" class="row">
     {{Form::open(array('route' => 'attemptLogin', 'class' => 'col-lg-4 col-lg-offset-4'))}}
