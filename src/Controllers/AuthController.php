@@ -27,6 +27,8 @@ class AuthController extends BaseController
     {
         $this->user = $user;
         $this->userForm = $userForm;
+
+        $this->beforeFilter('guest', array('only' => array('login', 'attemptLogin')));
     }
 
     /**

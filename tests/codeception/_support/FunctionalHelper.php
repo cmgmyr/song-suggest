@@ -16,8 +16,8 @@ class FunctionalHelper extends \Codeception\Module
     public function login(FunctionalTester $i, $email, $password)
     {
         $i->amOnRoute('login');
-        $i->fillField('Email Address', $email);
-        $i->fillField('Password', $password);
+        $i->fillField('email', $email);
+        $i->fillField('password', $password);
         $i->click('Login');
         $i->seeAuthentication();
 

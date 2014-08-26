@@ -6,7 +6,7 @@
 
         <div class="form-group">
             {{Form::label('email', 'Email Address')}}
-            {{Form::text('email', null, array('class' => 'form-control focus', 'placeholder' => 'Enter Email'))}}
+            {{Form::email('email', null, array('class' => 'form-control focus', 'placeholder' => 'Enter Email'))}}
         </div>
 
         <div class="form-group">
