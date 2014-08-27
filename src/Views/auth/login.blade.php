@@ -4,8 +4,6 @@
 <div id="login-form" class="row">
     {{Form::open(array('route' => 'attemptLogin', 'class' => 'col-lg-4 col-lg-offset-4'))}}
     <fieldset>
-        <legend class="">Login</legend>
-
         <div class="form-group">
             {{Form::label('email', 'Email Address')}}
             {{Form::email('email', null, array('class' => 'form-control focus', 'placeholder' => 'Enter Email'))}}
