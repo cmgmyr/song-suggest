@@ -5,22 +5,36 @@ namespace Codeception\Module;
 // all public methods declared in helper class will be available in $I
 
 use FunctionalTester;
+use Laracasts\TestDummy\Factory as TestDummy;
 
 class FunctionalHelper extends \Codeception\Module
 {
-    public function loginUser(FunctionalTester $i)
+
+    public function haveAnAccount($overrides = [])
     {
-        $this->login($i, 'test@test.com', 'test123');
+        TestDummy::create('Ss\Models\User', $overrides);
     }
 
-    public function login(FunctionalTester $i, $email, $password)
+    public function signIn()
     {
-        $i->amOnRoute('login');
-        $i->fillField('email', $email);
-        $i->fillField('password', $password);
-        $i->click('Login');
-        $i->seeAuthentication();
+        $email = 'test@test.com';
+        $password = 'test123';
 
-        $i->amOnRoute('home');
+        $this->haveAnAccount(compact('email', 'password'));
+
+        $I = $this->getModule('Laravel4');
+
+        $I->amOnRoute('login');
+        $I->fillField('email', $email);
+        $I->fillField('password', $password);
+        $I->click('Login');
+        $I->seeAuthentication();
+
+        $I->amOnRoute('home');
+    }
+
+    public function haveASong()
+    {
+        return TestDummy::create('Ss\Repositories\Song\Song');
     }
 }

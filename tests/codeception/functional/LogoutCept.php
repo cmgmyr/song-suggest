@@ -4,7 +4,7 @@ $I = new FunctionalTester($scenario);
 $I->am('user');
 $I->wantTo('log out of the application');
 
-$I->loginUser($I);
+$I->signIn();
 
 $I->click('Logout');
 

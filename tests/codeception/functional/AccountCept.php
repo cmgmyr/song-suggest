@@ -4,7 +4,7 @@ $I = new FunctionalTester($scenario);
 $I->am('guest');
 $I->wantTo('update my account');
 
-$I->loginUser($I);
+$I->signIn();
 
 $I->click('Update Account');
 

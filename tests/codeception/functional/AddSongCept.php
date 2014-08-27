@@ -4,7 +4,7 @@ $I = new FunctionalTester($scenario);
 $I->am('user');
 $I->wantTo('add a new song');
 
-$I->loginUser($I);
+$I->signIn();
 
 $I->click('Add Song');
 $I->amOnRoute('songs.create');

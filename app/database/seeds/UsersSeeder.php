@@ -22,20 +22,8 @@ class UsersSeeder extends Seeder
             )
         );
 
-        // create test user
-        User::create(
-            array(
-                'first_name' => 'Test',
-                'last_name'  => 'User',
-                'email'      => 'test@test.com',
-                'password'   => 'test123',
-                'is_admin'   => 'n',
-                'is_active'  => 'y',
-            )
-        );
-
         // create 5 more users
-        foreach (range(1, 5) as $index) {
+        /*foreach (range(1, 5) as $index) {
             User::create(
                 array(
                     'first_name' => $faker->firstName,
@@ -46,6 +34,6 @@ class UsersSeeder extends Seeder
                     'is_active'  => $faker->randomElement(array('y', 'n')),
                 )
             );
-        }
+        }*/
     }
 } 

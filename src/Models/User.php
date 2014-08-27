@@ -44,12 +44,12 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     }
 
     /**
-     * Defines the user's relationship with the blog posts
+     * User has many songs
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function blogPosts()
+    public function songs()
     {
-        return $this->hasMany('BlogPost');
+        return $this->hasMany('Ss\Repositories\Song\Song');
     }
 }

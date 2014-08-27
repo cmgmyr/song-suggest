@@ -4,9 +4,10 @@ $I = new FunctionalTester($scenario);
 $I->am('user');
 $I->wantTo('edit a song');
 
-$I->loginUser($I);
+$I->signIn();
+$song = $I->haveASong();
 
-$I->amOnRoute('songs.edit', array('id' => 1));
+$I->amOnRoute('songs.edit', array('id' => $song->id));
 
 $I->fillField('artist', 'Metallica');
 $I->fillField('title', 'Enter Sandman');

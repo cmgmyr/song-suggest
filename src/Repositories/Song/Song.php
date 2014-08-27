@@ -25,6 +25,16 @@ class Song extends BaseModel
     protected $fillable = array('artist', 'title', 'user_id');
 
     /**
+     * Each song belongs to a user
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo('Ss\Models\User');
+    }
+
+    /**
      * Suggest a new song
      *
      * @param $artist

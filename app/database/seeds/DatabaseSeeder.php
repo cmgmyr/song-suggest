@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder {
 		Eloquent::unguard();
 
         // start with a blank database
+        DB::table('songs')->truncate();
         DB::table('users')->truncate();
 
         // deploy the seeders!
