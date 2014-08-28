@@ -9,6 +9,7 @@ use Ss\Domain\Suggestion\EditSongCommand;
 use Ss\Domain\Suggestion\SuggestSongCommand;
 use Ss\Forms\SongForm;
 use Ss\Repositories\Song\SongInterface;
+use Ss\Repositories\Song\SongNotFoundException;
 
 class SongsController extends BaseController
 {
@@ -31,9 +32,12 @@ class SongsController extends BaseController
         $this->songForm = $songForm;
     }
 
+    // @todo: update tests for index()
     public function index()
     {
-        //
+        $songs = $this->song->all();
+
+        $this->layout->content = View::make('songs.index', compact('songs'));
     }
 
     public function create()
@@ -54,9 +58,16 @@ class SongsController extends BaseController
         return $this->redirectRouteWithSuccess('home', 'Your song suggestion has been added!');
     }
 
+    // @todo: update tests for show()
     public function show($id)
     {
-        //
+        try {
+            $song = $this->song->byId($id);
+
+            $this->layout->content = View::make('songs.show', compact('song'));
+        } catch (SongNotFoundException $e) {
+            return $this->redirectRouteWithError('home', $e->getMessage());
+        }
     }
 
     public function edit($id)

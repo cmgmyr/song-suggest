@@ -6,6 +6,6 @@ $I->wantTo('sign into my account');
 
 $I->signIn();
 
-$I->see('Welcome to the song suggester!');
+$I->see('Songs');
 
 $I->seeAuthentication();
