@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\View;
 use Ss\Core\CommandBus;
+use Ss\Domain\Suggestion\DeleteSongCommand;
 use Ss\Domain\Suggestion\EditSongCommand;
 use Ss\Domain\Suggestion\SuggestSongCommand;
 use Ss\Forms\SongForm;
@@ -90,9 +91,19 @@ class SongsController extends BaseController
         return $this->redirectRouteWithSuccess('home', 'Your song suggestion has been updated!');
     }
 
+    // @todo: update tests for destroy()
     public function destroy($id)
     {
-        //
+        try {
+            $song = $this->song->byId($id);
+
+            $command = new DeleteSongCommand($song);
+            $this->execute($command);
+
+            return $this->redirectRouteWithSuccess('home', 'The song has been deleted.');
+        } catch (SongNotFoundException $e) {
+            return $this->redirectRouteWithError('home', $e->getMessage());
+        }
     }
 
 

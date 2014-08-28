@@ -31,8 +31,9 @@ interface SongInterface
     /**
      * Removes a song from data source
      *
-     * @param $id
+     * @param Song $song
+     * @internal param $id
      * @return boolean
      */
-    public function delete($id);
+    public function delete(Song $song);
 } 

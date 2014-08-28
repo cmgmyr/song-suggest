@@ -2,6 +2,7 @@
 namespace Ss\Repositories\Song;
 
 use Laracasts\Commander\Events\EventGenerator;
+use Ss\Domain\Suggestion\Events\SongDeleted;
 use Ss\Domain\Suggestion\Events\SongEdited;
 use Ss\Domain\Suggestion\Events\SongSuggested;
 use Ss\Models\BaseModel;
@@ -58,6 +59,13 @@ class Song extends BaseModel
         $song->title = $title;
 
         $song->raise(new SongEdited($song));
+
+        return $song;
+    }
+
+    public static function deleteSong(Song $song)
+    {
+        $song->raise(new SongDeleted($song));
 
         return $song;
     }

@@ -63,18 +63,14 @@ class EloquentSong implements SongInterface
     /**
      * Removes a song from data source
      *
-     * @param $id
+     * @param Song $song
+     * @internal param $id
      * @return boolean
      */
-    public function delete($id)
+    public function delete(Song $song)
     {
-        try {
-            $song = $this->byId($id);
-            $song->delete();
+        $song->delete();
 
-            return true;
-        } catch (SongNotFoundException $e) {
-            return false;
-        }
+        return true;
     }
 } 
