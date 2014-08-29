@@ -1,7 +1,7 @@
 <?php
 
 $I = new FunctionalTester($scenario);
-$I->am('guest');
+$I->am('user');
 $I->wantTo('sign into my account');
 
 $I->signIn();

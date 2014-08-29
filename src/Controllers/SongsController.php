@@ -33,7 +33,6 @@ class SongsController extends BaseController
         $this->songForm = $songForm;
     }
 
-    // @todo: update tests for index()
     public function index()
     {
         $songs = $this->song->all();
@@ -59,7 +58,6 @@ class SongsController extends BaseController
         return $this->redirectRouteWithSuccess('home', 'Your song suggestion has been added!');
     }
 
-    // @todo: update tests for show()
     public function show($id)
     {
         try {
