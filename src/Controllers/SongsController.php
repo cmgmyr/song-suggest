@@ -89,7 +89,6 @@ class SongsController extends BaseController
         return $this->redirectRouteWithSuccess('home', 'Your song suggestion has been updated!');
     }
 
-    // @todo: update tests for destroy()
     public function destroy($id)
     {
         try {
