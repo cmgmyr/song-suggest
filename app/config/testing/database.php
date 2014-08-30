@@ -2,16 +2,16 @@
 
 return array(
 
-    /*'default' => 'sqlite',
+    'default' => 'sqlite',
 
 	'connections' => array(
 
         'sqlite' => array(
             'driver'   => 'sqlite',
-            'database' => ':memory:',
+            'database' => __DIR__.'/../../../tests/codeception/_data/db.sqlite',
             'prefix'   => '',
         ),
 
-	),*/
+	),
 
 );

@@ -64,7 +64,6 @@ class EloquentSong implements SongInterface
      * Removes a song from data source
      *
      * @param Song $song
-     * @internal param $id
      * @return boolean
      */
     public function delete(Song $song)

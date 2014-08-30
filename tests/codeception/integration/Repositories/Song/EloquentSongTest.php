@@ -41,4 +41,47 @@ class EloquentSongTest extends \Codeception\TestCase\Test
         $this->assertCount(4, $allSongs);
     }
 
+    /** @test */
+    public function get_by_id()
+    {
+        $song = TestDummy::create('Ss\Repositories\Song\Song');
+
+        $repoSong = $this->repo->byId($song->id);
+
+        $this->assertEquals($song->title, $repoSong->title);
+    }
+
+    /**
+     * @test
+     * @expectedException Ss\Repositories\Song\SongNotFoundException
+     */
+    public function find_song_by_id_but_not_found()
+    {
+        $this->repo->byId(0);
+    }
+
+    /** @test */
+    public function save_a_song()
+    {
+        $song = TestDummy::create('Ss\Repositories\Song\Song');
+
+        $newTitle = 'My new title';
+
+        $song->title = $newTitle;
+
+        $repoSong = $this->repo->save($song);
+
+        $this->assertEquals($repoSong->title, $newTitle);
+    }
+
+    /** @test */
+    public function delete_a_song()
+    {
+        $song = TestDummy::create('Ss\Repositories\Song\Song');
+
+        $deleted = $this->repo->delete($song);
+
+        $this->assertTrue($deleted);
+    }
+
 }

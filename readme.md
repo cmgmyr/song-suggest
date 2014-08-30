@@ -5,6 +5,7 @@
 * jQuery
 * Bower
 * Grunt
+* Codeception
 
 ### 1. Configuration
 Create a .env.local.php file that looks similar to:
@@ -23,6 +24,15 @@ Create a .env.local.php file that looks similar to:
 
 Update any other configurations in `app/config/app.php` that you need to.
 
+Create a .env.testing.php file that looks similar to:
+
+    <?php
+
+    return array(
+        // app.php
+        'ENABLE_DEBUG' => true,
+    );
+
 ### 2. Update namespace
 Search for `Ss` and replace with desired namespace for your app. Remember to also include the `composer.json` file.
 
@@ -40,5 +50,18 @@ Search for `Ss` and replace with desired namespace for your app. Remember to als
 6. Make any configuration changes to Gruntfile.js
 7. Set up the initial css/js files, run: `grunt init`
 8. To watch for file changes and perform actions (less, min, phpunit, etc), run: `grunt watch`
+
+### 5. Testing
+1. Create `tests/codeception/_data/db.sqlite`
+2. Create `tests/codeception/_data/dump.sql`
+3. Run command: `art migrate --seed --env=testing`
+4. Run command: `sqlite3 app/tests/codeception/_data/db.sqlite .dump > app/tests/codeception/_data/dump.sql`
+
+__Note:__ You'll need to run #3 and #4 each time you make migration or seed changes
+
+Codeception is used for testing this application, so in the root of the project run the command: `vendor/bin/codecept run`
+
+For functional test suite, run: `vendor/bin/codecept run functional`
+For integration test suite, run: `vendor/bin/codecept run integration`
 
 ...more coming soon!
