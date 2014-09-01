@@ -21,6 +21,20 @@ Route::group(array('before' => 'auth'), function()
     });
 });
 
+Route::group(array('before' => 'auth.admin'), function()
+{
+    // Users
+    Route::group(array('prefix' => 'users'), function()
+    {
+        Route::get('/', array('as' => 'users', 'uses' => APPCONTROLLERS . '\UsersController@index'));
+        Route::get('create', array('as' => 'users.create', 'uses' => APPCONTROLLERS . '\UsersController@create'));
+        Route::post('/', array('as' => 'users.store', 'uses' => APPCONTROLLERS . '\UsersController@store'));
+        Route::get('{id}/edit', array('as' => 'users.edit', 'uses' => APPCONTROLLERS . '\UsersController@edit'));
+        Route::put('{id}', array('as' => 'users.update', 'uses' => APPCONTROLLERS . '\UsersController@update'));
+        Route::delete('{id}', array('as' => 'users.destroy', 'uses' => APPCONTROLLERS . '\UsersController@destroy'));
+    });
+});
+
 Route::get('login', array('as' => 'login', 'uses' => APPCONTROLLERS . '\AuthController@login'));
 Route::post('login', array('as' => 'attemptLogin', 'uses' => APPCONTROLLERS . '\AuthController@attemptLogin'));
 Route::get('logout', array('as' => 'logout', 'uses' => APPCONTROLLERS . '\AuthController@logout'));
