@@ -1,7 +1,7 @@
 <?php
 namespace Ss\Domain\Suggestion;
 
-use Ss\Models\User;
+use Ss\Repositories\User\User;
 
 class SuggestSongCommand
 {

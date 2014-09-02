@@ -20,7 +20,7 @@ class FunctionalHelper extends \Codeception\Module
 
     public function haveAnAccount($overrides = [])
     {
-        TestDummy::create('Ss\Models\User', $overrides);
+        TestDummy::create('Ss\Repositories\User\User', $overrides);
     }
 
     public function signIn()

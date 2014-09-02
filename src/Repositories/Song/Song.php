@@ -1,7 +1,6 @@
 <?php
 namespace Ss\Repositories\Song;
 
-use Laracasts\Commander\Events\EventGenerator;
 use Ss\Domain\Suggestion\Events\SongDeleted;
 use Ss\Domain\Suggestion\Events\SongEdited;
 use Ss\Domain\Suggestion\Events\SongSuggested;
@@ -9,7 +8,6 @@ use Ss\Models\BaseModel;
 
 class Song extends BaseModel
 {
-    use EventGenerator;
 
     /**
      * The database table used by the model.
@@ -32,7 +30,7 @@ class Song extends BaseModel
      */
     public function user()
     {
-        return $this->belongsTo('Ss\Models\User');
+        return $this->belongsTo('Ss\Repositories\User\User');
     }
 
     /**

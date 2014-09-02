@@ -20,7 +20,7 @@ class EloquentSongTest extends \Codeception\TestCase\Test
     /** @test */
     public function get_all_songs()
     {
-        $users = TestDummy::times(2)->create('Ss\Models\User');
+        $users = TestDummy::times(2)->create('Ss\Repositories\User\User');
 
         TestDummy::times(2)->create(
             'Ss\Repositories\Song\Song',

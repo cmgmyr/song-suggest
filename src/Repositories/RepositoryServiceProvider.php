@@ -1,11 +1,11 @@
 <?php
 namespace Ss\Repositories;
 
-use Ss\Models\User;
 use Ss\Repositories\Song\EloquentSong;
 use Ss\Repositories\Song\Song;
 use Ss\Repositories\User\EloquentUser;
 use Illuminate\Support\ServiceProvider;
+use Ss\Repositories\User\User;
 
 class RepositoryServiceProvider extends ServiceProvider
 {

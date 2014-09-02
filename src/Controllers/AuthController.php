@@ -1,6 +1,8 @@
 <?php
 namespace Ss\Controllers;
 
+use Ss\Core\CommandBus;
+use Ss\Domain\User\UpdateUserCommand;
 use Ss\Forms\UserForm;
 use Ss\Repositories\User\UserInterface;
 use Ss\Services\Notifications\Flash;
@@ -12,6 +14,8 @@ use Illuminate\Support\Facades\View;
 
 class AuthController extends BaseController
 {
+
+    use CommandBus;
 
     /**
      * @var \Ss\Repositories\User\UserInterface
@@ -85,6 +89,8 @@ class AuthController extends BaseController
     public function accountUpdate()
     {
         $id = Auth::id();
+        $user = $this->user->byId($id);
+
         $v = $this->userForm->updateUser($id);
 
         if (Input::has('password')) {
@@ -93,7 +99,9 @@ class AuthController extends BaseController
 
         $v->validate();
 
-        $this->user->save(array_merge(Input::all(), array('id' => $id)));
+        $input = Input::all();
+        $command = new UpdateUserCommand($user, $input);
+        $this->execute($command);
 
         return $this->redirectRouteWithSuccess('home', 'Your account has been updated!');
     }

@@ -9,6 +9,7 @@ use Ss\Repositories\Song\SongInterface;
 class SuggestSongCommandHandler implements CommandHandler
 {
     use DispatchableTrait;
+
     /**
      * @var \Ss\Repositories\Song\SongInterface
      */

@@ -29,19 +29,19 @@ interface UserInterface
     public function byId($id);
 
     /**
-     * Accept new user data that will be persisted in data source
+     * Accept new user data that will be persisted in a data source
      *
-     * @param array $data
-     * @return int
+     * @param User $user
      * @throws UserNotSavedException
+     * @return int
      */
-    public function save(array $data);
+    public function save(User $user);
 
     /**
      * Removes a user from data source
      *
-     * @param $id
+     * @param User $user
      * @return boolean
      */
-    public function delete($id);
+    public function delete(User $user);
 } 

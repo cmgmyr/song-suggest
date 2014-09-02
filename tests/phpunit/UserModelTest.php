@@ -1,6 +1,6 @@
 <?php
 
-use Ss\Models\User;
+use Ss\Repositories\User\User;
 
 class UserModelTest extends TestCase
 {

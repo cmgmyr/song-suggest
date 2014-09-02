@@ -1,6 +1,10 @@
 <?php
 namespace Ss\Controllers;
 
+use Ss\Core\CommandBus;
+use Ss\Domain\User\CreateUserCommand;
+use Ss\Domain\User\DeleteUserCommand;
+use Ss\Domain\User\UpdateUserCommand;
 use Ss\Repositories\User\UserInterface;
 use Ss\Forms\UserForm;
 use Illuminate\Support\Facades\Input;
@@ -8,6 +12,8 @@ use Illuminate\Support\Facades\View;
 
 class UsersController extends BaseController
 {
+
+    use CommandBus;
 
     /**
      * @var \Ss\Repositories\User\UserInterface
@@ -17,12 +23,12 @@ class UsersController extends BaseController
     /**
      * @var \Ss\Forms\UserForm
      */
-    protected $validation;
+    protected $userForm;
 
-    function __construct(UserInterface $user, UserForm $validation)
+    function __construct(UserInterface $user, UserForm $userForm)
     {
         $this->user = $user;
-        $this->validation = $validation;
+        $this->userForm = $userForm;
     }
 
     public function index()
@@ -45,8 +51,11 @@ class UsersController extends BaseController
 
     public function store()
     {
-        $this->validation->createUser()->validate();
-        $this->user->save(Input::all());
+        $this->userForm->createUser()->validate();
+
+        extract(Input::all());
+        $command = new CreateUserCommand($first_name, $last_name, $email, $password, $is_admin, $is_active);
+        $this->execute($command);
 
         return $this->redirectRouteWithSuccess('users', 'The user has been saved.');
     }
@@ -60,7 +69,9 @@ class UsersController extends BaseController
 
     public function update($id)
     {
-        $v = $this->validation->updateUser($id);
+        $user = $this->user->byId($id);
+
+        $v = $this->userForm->updateUser($id);
 
         if (Input::has('password')) {
             $v->checkPassword();
@@ -68,17 +79,24 @@ class UsersController extends BaseController
 
         $v->validate();
 
-        $this->user->save(array_merge(Input::all(), array('id' => $id)));
+        $input = Input::all();
+        $command = new UpdateUserCommand($user, $input);
+        $this->execute($command);
 
         return $this->redirectRouteWithSuccess('users', 'The user has been saved.');
     }
 
     public function destroy($id)
     {
-        if ($this->user->delete($id)) {
-            return $this->redirectRouteWithSuccess('users', 'The user has been deleted.');
-        }
+        try {
+            $user = $this->user->byId($id);
 
-        return $this->redirectRouteWithError('users', 'There was an error when trying to delete the user.');
+            $command = new DeleteUserCommand($user);
+            $this->execute($command);
+
+            return $this->redirectRouteWithSuccess('users', 'The user has been deleted.');
+        } catch (UserNotFoundException $e) {
+            return $this->redirectRouteWithError('home', $e->getMessage());
+        }
     }
 } 

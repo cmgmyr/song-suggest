@@ -67,34 +67,12 @@ class EloquentUser implements UserInterface
     /**
      * Accept new user data that will be persisted in a data source
      *
-     * @param array $data
-     * @return int
+     * @param User $user
      * @throws UserNotSavedException
+     * @return int
      */
-    public function save(array $data)
+    public function save(User $user)
     {
-        if (isset($data['id'])) {
-            $user = $this->byId($data['id']);
-        } else {
-            $user = new $this->user;
-        }
-
-        $user->first_name = $data['first_name'];
-        $user->last_name = $data['last_name'];
-        $user->email = $data['email'];
-
-        if (isset($data['is_active'])) {
-            $user->is_active = $data['is_active'];
-        }
-
-        if (isset($data['is_admin'])) {
-            $user->is_admin = $data['is_admin'];
-        }
-
-        if ($data['password']) {
-            $user->password = $data['password'];
-        }
-
         $user->save();
 
         if (!$user->id) {
@@ -107,18 +85,13 @@ class EloquentUser implements UserInterface
     /**
      * Removes a user from data source
      *
-     * @param $id
+     * @param User $user
      * @return boolean
      */
-    public function delete($id)
+    public function delete(User $user)
     {
-        try {
-            $user = $this->byId($id);
-            $user->delete();
+        $user->delete();
 
-            return true;
-        } catch (UserNotFoundException $e) {
-            return false;
-        }
+        return true;
     }
 }
