@@ -1,12 +1,12 @@
 @section('pageTitle', 'Users')
 
 @section('content')
-<div class="admin-btn-group row">
+<div class="row">
     <div class="col-md-6">
         &nbsp;
     </div>
     <div class="col-md-6">
-        <a href="{{URL::route('admin.users.create')}}" class="btn btn-primary pull-right">Create New</a>
+        <a href="{{URL::route('users.create')}}" class="btn btn-primary pull-right">Create New</a>
     </div>
 </div>
 <hr />
@@ -32,10 +32,10 @@
             <td>{{$user->is_active}}</td>
             <td>{{$user->is_admin}}</td>
             <td>
-                <a href="{{URL::route('admin.users.edit', array('id' => $user->id))}}" class="btn btn-primary btn-xs">Edit</a>
+                @if($currentUser->id != $user->id)
+                <a href="{{URL::route('users.edit', array('id' => $user->id))}}" class="btn btn-primary btn-xs">Edit</a>
 
-                @if($admin_id != $user->id)
-                {{ Form::open(array('route' => array('admin.users.destroy', $user->id), 'method' => 'delete', 'style' => 'display:inline;', 'data-confirm' => 'Are you sure?', 'class' => 'delete-confirm')) }}
+                {{ Form::open(array('route' => array('users.destroy', $user->id), 'method' => 'delete', 'style' => 'display:inline;', 'data-confirm' => 'Are you sure?', 'class' => 'delete-confirm')) }}
                 <button type="submit" class="btn btn-danger btn-xs">Delete</button>
                 {{ Form::close() }}
                 @endif

@@ -18,6 +18,9 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
+                @if($currentUser->is_admin == 'y')
+                <li>{{link_to_route('users', 'Users')}}</li>
+                @endif
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" name="user-dropdown">{{ $currentUser->first_name}} <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
