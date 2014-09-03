@@ -37,6 +37,16 @@ class SongCrudCest
         $I->seeInSession('flash_notification.message', 'Your song suggestion has been updated!');
     }
 
+    public function EditSongWithError(FunctionalTester $I)
+    {
+        $id = 0;
+
+        $I->amOnRoute('songs.edit', array('id' => $id));
+
+        $I->amOnRoute('home');
+        $I->see('No song found with ID: ' . $id);
+    }
+
     public function showSong(FunctionalTester $I)
     {
         $song = $I->haveASong();

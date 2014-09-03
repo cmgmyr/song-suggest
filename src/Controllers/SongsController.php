@@ -71,9 +71,13 @@ class SongsController extends BaseController
 
     public function edit($id)
     {
-        $song = $this->song->byId($id);
+        try {
+            $song = $this->song->byId($id);
 
-        $this->layout->content = View::make('songs.edit', compact('song'));
+            $this->layout->content = View::make('songs.edit', compact('song'));
+        } catch (SongNotFoundException $e) {
+            return $this->redirectRouteWithError('home', $e->getMessage());
+        }
     }
 
     public function update($id)
