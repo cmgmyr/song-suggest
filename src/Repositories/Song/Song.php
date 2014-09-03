@@ -43,6 +43,16 @@ class Song extends BaseModel
         return $this->hasMany('Ss\Repositories\Vote\Vote');
     }
 
+    public function positiveVotes()
+    {
+        return $this->votes()->where('vote', 'y');
+    }
+
+    public function negativeVotes()
+    {
+        return $this->votes()->where('vote', 'n');
+    }
+
     /**
      * Suggest a new song
      *
