@@ -1,7 +1,6 @@
 <?php
 namespace Ss\Controllers;
 
-use Ss\Core\CommandBus;
 use Ss\Domain\User\CreateUserCommand;
 use Ss\Domain\User\DeleteUserCommand;
 use Ss\Domain\User\UpdateUserCommand;
@@ -13,8 +12,6 @@ use Ss\Repositories\User\UserNotFoundException;
 
 class UsersController extends BaseController
 {
-
-    use CommandBus;
 
     /**
      * @var \Ss\Repositories\User\UserInterface
@@ -54,9 +51,7 @@ class UsersController extends BaseController
     {
         $this->userForm->createUser()->validate();
 
-        extract(Input::all());
-        $command = new CreateUserCommand($first_name, $last_name, $email, $password, $is_admin, $is_active);
-        $this->execute($command);
+        $this->execute(CreateUserCommand::class);
 
         return $this->redirectRouteWithSuccess('users', 'The user has been saved.');
     }
@@ -84,9 +79,9 @@ class UsersController extends BaseController
 
         $v->validate();
 
-        $input = Input::all();
-        $command = new UpdateUserCommand($user, $input);
-        $this->execute($command);
+        $input = ['input' => Input::all(), 'user' => $user];
+
+        $this->execute(UpdateUserCommand::class, $input);
 
         return $this->redirectRouteWithSuccess('users', 'The user has been saved.');
     }
@@ -96,8 +91,7 @@ class UsersController extends BaseController
         try {
             $user = $this->user->byId($id);
 
-            $command = new DeleteUserCommand($user);
-            $this->execute($command);
+            $this->execute(DeleteUserCommand::class, ['user' => $user]);
 
             return $this->redirectRouteWithSuccess('users', 'The user has been deleted.');
         } catch (UserNotFoundException $e) {

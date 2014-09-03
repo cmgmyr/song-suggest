@@ -4,7 +4,6 @@ namespace Ss\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\View;
-use Ss\Core\CommandBus;
 use Ss\Domain\Suggestion\DeleteSongCommand;
 use Ss\Domain\Suggestion\EditSongCommand;
 use Ss\Domain\Suggestion\SuggestSongCommand;
@@ -14,8 +13,6 @@ use Ss\Repositories\Song\SongNotFoundException;
 
 class SongsController extends BaseController
 {
-
-    use CommandBus;
 
     /**
      * @var \Ss\Repositories\Song\SongInterface
@@ -51,9 +48,8 @@ class SongsController extends BaseController
     {
         $this->songForm->validate();
 
-        extract(Input::only('artist', 'title'));
-        $command = new SuggestSongCommand($artist, $title, Auth::user());
-        $this->execute($command);
+        $input = array_add(Input::only('artist', 'title'), 'user', Auth::user());
+        $this->execute(SuggestSongCommand::class, $input);
 
         return $this->redirectRouteWithSuccess('home', 'Your song suggestion has been added!');
     }
@@ -86,9 +82,8 @@ class SongsController extends BaseController
 
         $this->songForm->validate();
 
-        extract(Input::only('artist', 'title'));
-        $command = new EditSongCommand($song, $artist, $title);
-        $this->execute($command);
+        $input = array_add(Input::only('artist', 'title'), 'song', $song);
+        $this->execute(EditSongCommand::class, $input);
 
         return $this->redirectRouteWithSuccess('home', 'Your song suggestion has been updated!');
     }
@@ -98,8 +93,7 @@ class SongsController extends BaseController
         try {
             $song = $this->song->byId($id);
 
-            $command = new DeleteSongCommand($song);
-            $this->execute($command);
+            $this->execute(DeleteSongCommand::class, ['song' => $song]);
 
             return $this->redirectRouteWithSuccess('home', 'The song has been deleted.');
         } catch (SongNotFoundException $e) {

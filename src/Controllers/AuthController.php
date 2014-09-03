@@ -1,7 +1,6 @@
 <?php
 namespace Ss\Controllers;
 
-use Ss\Core\CommandBus;
 use Ss\Domain\User\UpdateUserCommand;
 use Ss\Forms\UserForm;
 use Ss\Repositories\User\UserInterface;
@@ -14,8 +13,6 @@ use Illuminate\Support\Facades\View;
 
 class AuthController extends BaseController
 {
-
-    use CommandBus;
 
     /**
      * @var \Ss\Repositories\User\UserInterface
@@ -99,9 +96,9 @@ class AuthController extends BaseController
 
         $v->validate();
 
-        $input = Input::all();
-        $command = new UpdateUserCommand($user, $input);
-        $this->execute($command);
+        $input = ['input' => Input::all(), 'user' => $user];
+
+        $this->execute(UpdateUserCommand::class, $input);
 
         return $this->redirectRouteWithSuccess('home', 'Your account has been updated!');
     }
