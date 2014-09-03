@@ -1,6 +1,7 @@
 <?php
 namespace Ss\Repositories\Vote;
 
+use Ss\Domain\Vote\Events\VoteCast;
 use Ss\Models\BaseModel;
 
 class Vote extends BaseModel
@@ -37,5 +38,22 @@ class Vote extends BaseModel
     public function song()
     {
         return $this->belongsTo('Ss\Repositories\Song\Song');
+    }
+
+    /**
+     * Cast a new vote for a song
+     *
+     * @param $song_id
+     * @param $user_id
+     * @param $vote
+     * @return static
+     */
+    public static function cast($song_id, $user_id, $vote)
+    {
+        $vote = new static(compact('song_id', 'user_id', 'vote'));
+
+        $vote->raise(new VoteCast($vote));
+
+        return $vote;
     }
 } 
