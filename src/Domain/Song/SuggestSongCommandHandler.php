@@ -1,5 +1,5 @@
 <?php
-namespace Ss\Domain\Suggestion;
+namespace Ss\Domain\Song;
 
 use Laracasts\Commander\CommandHandler;
 use Laracasts\Commander\Events\DispatchableTrait;

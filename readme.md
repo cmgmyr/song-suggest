@@ -13,9 +13,6 @@ Create a .env.local.php file that looks similar to:
     <?php
 
     return array(
-        // app.php
-        'ENABLE_DEBUG' => true,
-
         // database.php
         'DB_NAME' => 'songsuggest',
         'DB_USERNAME' => 'root',
@@ -23,15 +20,6 @@ Create a .env.local.php file that looks similar to:
     );
 
 Update any other configurations in `app/config/app.php` that you need to.
-
-Create a .env.testing.php file that looks similar to:
-
-    <?php
-
-    return array(
-        // app.php
-        'ENABLE_DEBUG' => true,
-    );
 
 ### 2. Update namespace
 Search for `Ss` and replace with desired namespace for your app. Remember to also include the `composer.json` file.
@@ -55,7 +43,7 @@ Search for `Ss` and replace with desired namespace for your app. Remember to als
 1. Create `tests/codeception/_data/db.sqlite`
 2. Create `tests/codeception/_data/dump.sql`
 3. Run command: `art migrate --seed --env=testing`
-4. Run command: `sqlite3 app/tests/codeception/_data/db.sqlite .dump > app/tests/codeception/_data/dump.sql`
+4. Run command: `sqlite3 tests/codeception/_data/db.sqlite .dump > tests/codeception/_data/dump.sql`
 
 __Note:__ You'll need to run #3 and #4 each time you make migration or seed changes
 

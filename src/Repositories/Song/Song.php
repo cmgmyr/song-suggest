@@ -1,9 +1,9 @@
 <?php
 namespace Ss\Repositories\Song;
 
-use Ss\Domain\Suggestion\Events\SongDeleted;
-use Ss\Domain\Suggestion\Events\SongEdited;
-use Ss\Domain\Suggestion\Events\SongSuggested;
+use Ss\Domain\Song\Events\SongDeleted;
+use Ss\Domain\Song\Events\SongEdited;
+use Ss\Domain\Song\Events\SongSuggested;
 use Ss\Models\BaseModel;
 
 class Song extends BaseModel

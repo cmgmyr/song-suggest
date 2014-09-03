@@ -1,9 +1,9 @@
 <?php
-namespace Ss\Domain\Suggestion\Events;
+namespace Ss\Domain\Song;
 
 use Ss\Repositories\Song\Song;
 
-class SongSuggested
+class DeleteSongCommand
 {
     public $song;
 

@@ -1,5 +1,5 @@
 <?php
-namespace Ss\Domain\Suggestion;
+namespace Ss\Domain\Song;
 
 use Ss\Repositories\Song\Song;
 
