@@ -9,9 +9,18 @@ Ss\Repositories\Song\Song:
 Ss\Repositories\User\User:
   first_name: $string
   last_name: $string
-  email: $string@example.com
+  email: $string$integer@example.com
   password: $string
   is_admin: n
   is_active: y
+  created_at: $date
+  updated_at: $date
+
+Ss\Repositories\Vote\Vote:
+  user_id:
+    type: Ss\Repositories\User\User
+  song_id:
+    type: Ss\Repositories\Song\Song
+  vote: $string
   created_at: $date
   updated_at: $date

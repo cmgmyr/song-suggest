@@ -58,6 +58,16 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     }
 
     /**
+     * A user has many votes
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function votes()
+    {
+        return $this->hasMany('Ss\Repositories\Vote\Vote');
+    }
+
+    /**
      * Add a new user to the system
      *
      * @param $first_name

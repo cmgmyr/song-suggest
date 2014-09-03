@@ -6,6 +6,8 @@ use Ss\Repositories\Song\Song;
 use Ss\Repositories\User\EloquentUser;
 use Illuminate\Support\ServiceProvider;
 use Ss\Repositories\User\User;
+use Ss\Repositories\Vote\EloquentVote;
+use Ss\Repositories\Vote\Vote;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -35,6 +37,17 @@ class RepositoryServiceProvider extends ServiceProvider
             function () {
                 $model = new EloquentUser(
                     new User
+                );
+
+                return $model;
+            }
+        );
+
+        $app->bind(
+            'Ss\Repositories\Vote\VoteInterface',
+            function () {
+                $model = new EloquentVote(
+                    new Vote
                 );
 
                 return $model;

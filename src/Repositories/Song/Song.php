@@ -34,6 +34,16 @@ class Song extends BaseModel
     }
 
     /**
+     * A song has many votes
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function votes()
+    {
+        return $this->hasMany('Ss\Repositories\Vote\Vote');
+    }
+
+    /**
      * Suggest a new song
      *
      * @param $artist
