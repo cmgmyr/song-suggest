@@ -79,7 +79,7 @@ class EloquentUser implements UserInterface
             throw new UserNotSavedException('The user was not saved.');
         }
 
-        return $user->id;
+        return $user;
     }
 
     /**

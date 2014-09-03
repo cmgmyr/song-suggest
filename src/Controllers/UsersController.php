@@ -9,6 +9,7 @@ use Ss\Repositories\User\UserInterface;
 use Ss\Forms\UserForm;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\View;
+use Ss\Repositories\User\UserNotFoundException;
 
 class UsersController extends BaseController
 {
@@ -62,9 +63,13 @@ class UsersController extends BaseController
 
     public function edit($id)
     {
-        $user = $this->user->byId($id);
+        try {
+            $user = $this->user->byId($id);
 
-        $this->layout->content = View::make('users.edit', compact('user'));
+            $this->layout->content = View::make('users.edit', compact('user'));
+        } catch (UserNotFoundException $e) {
+            return $this->redirectRouteWithError('users', $e->getMessage());
+        }
     }
 
     public function update($id)
