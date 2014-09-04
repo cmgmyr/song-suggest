@@ -48,7 +48,7 @@ class SongsController extends BaseController
     {
         $this->songForm->validate();
 
-        $input = array_add(Input::only('artist', 'title'), 'user', Auth::user());
+        $input = array_add(Input::all(), 'user', Auth::user());
         $this->execute(SuggestSongCommand::class, $input);
 
         return $this->redirectRouteWithSuccess('home', 'Your song suggestion has been added!');
@@ -88,7 +88,7 @@ class SongsController extends BaseController
 
         $this->songForm->validate();
 
-        $input = array_add(Input::only('artist', 'title'), 'song', $song);
+        $input = array_add(Input::all(), 'song', $song);
         $this->execute(EditSongCommand::class, $input);
 
         return $this->redirectRouteWithSuccess('home', 'Your song suggestion has been updated!');

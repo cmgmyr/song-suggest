@@ -22,7 +22,7 @@ class Song extends BaseModel
      *
      * @var array
      */
-    protected $fillable = array('artist', 'title', 'user_id');
+    protected $fillable = array('artist', 'title', 'user_id', 'youtube');
 
     /**
      * Each song belongs to a user
@@ -106,17 +106,31 @@ class Song extends BaseModel
     }
 
     /**
+     * Parses the YouTube link and returns just the video id
+     *
+     * @return bool
+     */
+    public function getYouTubeId()
+    {
+        $pattern = '#^(?:https?://)?(?:www\.)?(?:youtu\.be/|youtube\.com(?:/embed/|/v/|/watch\?v=|/watch\?.+&v=))([\w-]{11})(?:.+)?$#x';
+        preg_match($pattern, $this->youtube, $matches);
+
+        return (isset($matches[1])) ? $matches[1] : false;
+    }
+
+    /**
      * Suggest a new song
      *
      * @param $artist
      * @param $title
+     * @param $youtube
      * @param $user_id
      * @return static
      * @internal param $user
      */
-    public static function suggest($artist, $title, $user_id)
+    public static function suggest($artist, $title, $youtube, $user_id)
     {
-        $song = new static(compact('artist', 'title', 'user_id'));
+        $song = new static(compact('artist', 'title', 'youtube', 'user_id'));
 
         $song->raise(new SongSuggested($song));
 
@@ -129,12 +143,14 @@ class Song extends BaseModel
      * @param Song $song
      * @param $artist
      * @param $title
+     * @param $youtube
      * @return Song
      */
-    public static function edit(Song $song, $artist, $title)
+    public static function edit(Song $song, $artist, $title, $youtube)
     {
         $song->artist = $artist;
         $song->title = $title;
+        $song->youtube = $youtube;
 
         $song->raise(new SongEdited($song));
 

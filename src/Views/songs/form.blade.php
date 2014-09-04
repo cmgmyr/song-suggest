@@ -15,6 +15,13 @@
         </div>
 
         <div class="form-group">
+            {{ Form::label('youtube', 'YouTube Link', array('class' => 'control-label')) }}
+            <div class="controls">
+                {{ Form::text('youtube', null, array('class' => 'form-control')) }}
+            </div>
+        </div>
+
+        <div class="form-group">
             <p>{{ Form::submit('Save!', array('class' => 'btn btn-primary btn-large')) }}</p>
         </div>
 	</div>
