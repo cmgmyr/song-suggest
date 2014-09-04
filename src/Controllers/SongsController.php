@@ -71,6 +71,11 @@ class SongsController extends BaseController
         try {
             $song = $this->song->byId($id);
 
+            if (!$song->isEditable(Auth::user())) {
+                $message = 'Sorry, this song cannot currently be edited or you don\'t have the correct access to do so.';
+                return $this->redirectRouteWithError('songs.show', $message, ['id' => $id]);
+            }
+
             $this->layout->content = View::make('songs.edit', compact('song'));
         } catch (SongNotFoundException $e) {
             return $this->redirectRouteWithError('home', $e->getMessage());
@@ -94,6 +99,11 @@ class SongsController extends BaseController
         try {
             $song = $this->song->byId($id);
 
+            if (!$song->isDeletable(Auth::user())) {
+                $message = 'Sorry, this song cannot currently be deleted or you don\'t have the correct access to do so.';
+                return $this->redirectRouteWithError('songs.show', $message, ['id' => $id]);
+            }
+
             $this->execute(DeleteSongCommand::class, ['song' => $song]);
 
             return $this->redirectRouteWithSuccess('home', 'The song has been deleted.');
@@ -101,6 +111,4 @@ class SongsController extends BaseController
             return $this->redirectRouteWithError('home', $e->getMessage());
         }
     }
-
-
 }

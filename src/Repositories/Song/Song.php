@@ -5,6 +5,7 @@ use Ss\Domain\Song\Events\SongDeleted;
 use Ss\Domain\Song\Events\SongEdited;
 use Ss\Domain\Song\Events\SongSuggested;
 use Ss\Models\BaseModel;
+use Ss\Repositories\User\User;
 
 class Song extends BaseModel
 {
@@ -72,6 +73,36 @@ class Song extends BaseModel
     public function voteByUser($user_id)
     {
         return $this->votes()->where('user_id', $user_id)->first();
+    }
+
+    /**
+     * See if the song can be edited by the user
+     *
+     * @param User $user
+     * @return bool
+     */
+    public function isEditable(User $user)
+    {
+        if ($user->is_admin == 'y' || $this->votes()->count() <= 1) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * See if the song can be deleted by the user
+     *
+     * @param User $user
+     * @return bool
+     */
+    public function isDeletable(User $user)
+    {
+        if ($user->is_admin == 'y' || $user->id == $this->user_id) {
+            return true;
+        }
+
+        return false;
     }
 
     /**

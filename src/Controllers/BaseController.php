@@ -34,12 +34,13 @@ abstract class BaseController extends Controller
      *
      * @param $route
      * @param $message
+     * @param array $params
      * @return mixed
      */
-    public function redirectRouteWithSuccess($route, $message)
+    public function redirectRouteWithSuccess($route, $message, $params = [])
     {
         Flash::success($message);
-        return Redirect::route($route);
+        return Redirect::route($route, $params);
     }
 
     /**
@@ -47,12 +48,13 @@ abstract class BaseController extends Controller
      *
      * @param $route
      * @param $message
+     * @param array $params
      * @return mixed
      */
-    public function redirectRouteWithError($route, $message)
+    public function redirectRouteWithError($route, $message, $params = [])
     {
         Flash::error($message);
-        return Redirect::route($route);
+        return Redirect::route($route, $params);
     }
 
     /**
