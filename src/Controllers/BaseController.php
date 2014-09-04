@@ -12,6 +12,9 @@ abstract class BaseController extends Controller
 
     use CommanderTrait;
 
+    /**
+     * @var string
+     */
     protected $layout = 'layouts.frontend';
 
     /**
@@ -26,16 +29,54 @@ abstract class BaseController extends Controller
         }
     }
 
+    /**
+     * Redirects to specified route with a successful message
+     *
+     * @param $route
+     * @param $message
+     * @return mixed
+     */
     public function redirectRouteWithSuccess($route, $message)
     {
         Flash::success($message);
         return Redirect::route($route);
     }
 
+    /**
+     * * Redirects to specified route with an error message
+     *
+     * @param $route
+     * @param $message
+     * @return mixed
+     */
     public function redirectRouteWithError($route, $message)
     {
         Flash::error($message);
         return Redirect::route($route);
+    }
+
+    /**
+     * Redirects back with a successful message
+     *
+     * @param $message
+     * @return mixed
+     */
+    public function redirectBackWithSuccess($message)
+    {
+        Flash::success($message);
+        return Redirect::back();
+    }
+
+    /**
+     * Redirects back with an error message
+     *
+     * @param $message
+     * @return mixed
+     */
+    public function redirectBackWithError($message)
+    {
+        Flash::error($message);
+        return Redirect::back();
     }
 
 }

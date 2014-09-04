@@ -1,43 +1,36 @@
 <?php namespace Ss\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 use Ss\Domain\Vote\VoteCastCommand;
+use Ss\Forms\VoteForm;
+use Ss\Repositories\Vote\Vote;
 
 class VotesController extends BaseController
 {
 
-    /**
-     * Store a newly created resource in storage.
-     * POST /votes
-     *
-     * @return Response
-     */
-    public function store()
+    protected $vote;
+    protected $voteForm;
+
+    function __construct(Vote $vote, VoteForm $voteForm)
     {
-        //
+        $this->vote = $vote;
+        $this->voteForm = $voteForm;
     }
 
     /**
-     * Update the specified resource in storage.
-     * PUT /votes/{id}
+     * Casts a new vote from the song details page
      *
-     * @param  int $id
-     * @return Response
+     * @param $songId
+     * @return mixed
      */
-    public function update($id)
+    public function store($songId)
     {
-        //
-    }
+        $this->voteForm->validate();
+        $input = ['song_id' => $songId, 'user_id' => Auth::id(), 'vote' => Input::get('vote')];
+        $this->execute(VoteCastCommand::class, $input);
 
-    /**
-     * Remove the specified resource from storage.
-     * DELETE /votes/{id}
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
+        return $this->redirectBackWithSuccess('Your vote has been cast!');
     }
 
     /**

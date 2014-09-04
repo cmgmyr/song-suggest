@@ -2,10 +2,12 @@
 namespace Ss\Repositories\Vote;
 
 use Ss\Domain\Vote\Events\VoteCast;
+use Ss\Domain\Vote\Events\VoteChanged;
 use Ss\Models\BaseModel;
 
 class Vote extends BaseModel
 {
+
     /**
      * The database table used by the model.
      *
@@ -45,14 +47,26 @@ class Vote extends BaseModel
      *
      * @param $song_id
      * @param $user_id
-     * @param $vote
+     * @param $selectedVote
      * @return static
      */
-    public static function cast($song_id, $user_id, $vote)
+    public static function cast($song_id, $user_id, $selectedVote)
     {
-        $vote = new static(compact('song_id', 'user_id', 'vote'));
+        $oldVote = self::where('song_id', $song_id)->where('user_id', $user_id)->first();
+        if ($oldVote) {
+            $vote = $oldVote;
 
-        $vote->raise(new VoteCast($vote));
+            if ($oldVote->vote != $selectedVote) {
+                $vote->vote = $selectedVote;
+
+                $vote->raise(new VoteChanged($vote));
+            }
+        } else {
+            // create a new vote
+            $vote = new static(compact('song_id', 'user_id', 'selectedVote'));
+
+            $vote->raise(new VoteCast($vote));
+        }
 
         return $vote;
     }

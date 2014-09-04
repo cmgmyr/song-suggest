@@ -17,7 +17,7 @@ class SongsController extends BaseController
     /**
      * @var \Ss\Repositories\Song\SongInterface
      */
-    private $song;
+    protected $song;
 
     /**
      * @var \Ss\Forms\SongForm
@@ -58,8 +58,9 @@ class SongsController extends BaseController
     {
         try {
             $song = $this->song->byId($id);
+            $vote = $song->voteByUser(Auth::id());
 
-            $this->layout->content = View::make('songs.show', compact('song'));
+            $this->layout->content = View::make('songs.show', compact('song', 'vote'));
         } catch (SongNotFoundException $e) {
             return $this->redirectRouteWithError('home', $e->getMessage());
         }

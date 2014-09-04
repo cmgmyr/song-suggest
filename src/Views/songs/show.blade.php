@@ -1,6 +1,14 @@
 @section('pageTitle', $song->title . ' <small>by ' . $song->artist . '</small>')
 
 @section('content')
-<p>Votes: <span class="btn btn-success">{{$song->positiveVotes()->count()}}</span> and <span class="btn btn-danger">{{$song->negativeVotes()->count()}}</span> out of {{$totalUsers}}</p>
-<p>More info coming soon...</p>
+<div class="row">
+    <div class="col-md-3">
+        <p>Votes: <span class="btn btn-success">{{$song->positiveVotes()->count()}}</span> and <span class="btn btn-danger">{{$song->negativeVotes()->count()}}</span> out of {{$totalUsers}}</p>
+
+        @include('votes.vote-form')
+    </div>
+    <div class="col-md-9">
+        <h3>Activity Log</h3>
+    </div>
+</div>
 @stop

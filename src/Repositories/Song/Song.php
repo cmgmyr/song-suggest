@@ -43,14 +43,35 @@ class Song extends BaseModel
         return $this->hasMany('Ss\Repositories\Vote\Vote');
     }
 
+    /**
+     * Get all positive (yes) votes from a song
+     *
+     * @return mixed
+     */
     public function positiveVotes()
     {
         return $this->votes()->where('vote', 'y');
     }
 
+    /**
+     * Get all negative (no) votes from a song
+     *
+     * @return mixed
+     */
     public function negativeVotes()
     {
         return $this->votes()->where('vote', 'n');
+    }
+
+    /**
+     * Get a user's vote for the song
+     *
+     * @param $user_id
+     * @return mixed
+     */
+    public function voteByUser($user_id)
+    {
+        return $this->votes()->where('user_id', $user_id)->first();
     }
 
     /**
@@ -71,6 +92,14 @@ class Song extends BaseModel
         return $song;
     }
 
+    /**
+     * Edit a current song
+     *
+     * @param Song $song
+     * @param $artist
+     * @param $title
+     * @return Song
+     */
     public static function edit(Song $song, $artist, $title)
     {
         $song->artist = $artist;
@@ -81,6 +110,12 @@ class Song extends BaseModel
         return $song;
     }
 
+    /**
+     * Delete a current song
+     *
+     * @param Song $song
+     * @return Song
+     */
     public static function deleteSong(Song $song)
     {
         $song->raise(new SongDeleted($song));

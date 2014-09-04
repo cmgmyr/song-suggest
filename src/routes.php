@@ -19,6 +19,12 @@ Route::group(array('before' => 'auth'), function()
         Route::put('{id}', array('as' => 'songs.update', 'uses' => APPCONTROLLERS . '\SongsController@update'));
         Route::delete('{id}', array('as' => 'songs.destroy', 'uses' => APPCONTROLLERS . '\SongsController@destroy'));
     });
+
+    // Votes
+    Route::group(array('prefix' => 'votes'), function()
+    {
+        Route::post('{songId}', array('as' => 'votes.store', 'uses' => APPCONTROLLERS . '\VotesController@store'));
+    });
 });
 
 Route::group(array('before' => 'auth.admin'), function()
