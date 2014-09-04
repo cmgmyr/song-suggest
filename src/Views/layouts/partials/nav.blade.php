@@ -23,7 +23,7 @@
                 @endif
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" name="user-dropdown">
-                        <img class="nav-avatar" src="//www.gravatar.com/avatar/{{md5($currentUser->email)}}?s=30" alt="{{$currentUser->first_name}}">
+                        <img class="nav-avatar" src="{{$currentUser->present()->avatar}}" alt="{{$currentUser->first_name}}">
                         {{ $currentUser->first_name}} <span class="caret"></span>
                     </a>
 

@@ -6,6 +6,7 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 use Illuminate\Support\Facades\Hash;
+use Laracasts\Presenter\PresentableTrait;
 use Ss\Domain\User\Events\UserAdded;
 use Ss\Domain\User\Events\UserDeleted;
 use Ss\Domain\User\Events\UserUpdated;
@@ -14,7 +15,7 @@ use Ss\Models\BaseModel;
 class User extends BaseModel implements UserInterface, RemindableInterface
 {
 
-    use UserTrait, RemindableTrait;
+    use UserTrait, RemindableTrait, PresentableTrait;
 
     /**
      * The database table used by the model.
@@ -38,6 +39,11 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     protected $fillable = array('first_name', 'last_name', 'email', 'password', 'is_admin', 'is_active');
 
     /**
+     * @var string
+     */
+    protected $presenter = 'Ss\Repositories\User\UserPresenter';
+
+    /**
      * Hashes the user's password before record is saved
      *
      * @param $value
@@ -45,6 +51,16 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = Hash::make($value);
+    }
+
+    /**
+     * User has many activities
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function activities()
+    {
+        return $this->hasMany('Ss\Repositories\Activity\Activity')->latest()->latest('id');
     }
 
     /**

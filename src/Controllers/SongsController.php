@@ -49,9 +49,9 @@ class SongsController extends BaseController
         $this->songForm->validate();
 
         $input = array_add(Input::all(), 'user', Auth::user());
-        $this->execute(SuggestSongCommand::class, $input);
+        $song = $this->execute(SuggestSongCommand::class, $input);
 
-        return $this->redirectRouteWithSuccess('home', 'Your song suggestion has been added!');
+        return $this->redirectRouteWithSuccess('songs.show', 'Your song suggestion has been added!', ['id' => $song->id]);
     }
 
     public function show($id)

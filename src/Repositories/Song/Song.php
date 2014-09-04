@@ -25,6 +25,16 @@ class Song extends BaseModel
     protected $fillable = array('artist', 'title', 'user_id', 'youtube');
 
     /**
+     * Song has many activities
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function activities()
+    {
+        return $this->hasMany('Ss\Repositories\Activity\Activity')->latest()->latest('id');
+    }
+
+    /**
      * Each song belongs to a user
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

@@ -47,27 +47,27 @@ class Vote extends BaseModel
      *
      * @param $song_id
      * @param $user_id
-     * @param $selectedVote
+     * @param $vote
      * @return static
      */
-    public static function cast($song_id, $user_id, $selectedVote)
+    public static function cast($song_id, $user_id, $vote)
     {
         $oldVote = self::where('song_id', $song_id)->where('user_id', $user_id)->first();
         if ($oldVote) {
-            $vote = $oldVote;
+            $newVote = $oldVote;
 
-            if ($oldVote->vote != $selectedVote) {
-                $vote->vote = $selectedVote;
+            if ($oldVote->vote != $vote) {
+                $newVote->vote = $vote;
 
-                $vote->raise(new VoteChanged($vote));
+                $newVote->raise(new VoteChanged($newVote));
             }
         } else {
             // create a new vote
-            $vote = new static(compact('song_id', 'user_id', 'selectedVote'));
+            $newVote = new static(compact('song_id', 'user_id', 'vote'));
 
-            $vote->raise(new VoteCast($vote));
+            $newVote->raise(new VoteCast($newVote));
         }
 
-        return $vote;
+        return $newVote;
     }
 } 

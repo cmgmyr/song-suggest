@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d8893e852bc1260fd1fb64cb748fb1fe",
+    "hash": "f4a024db0a4af33ee29abd24abde4a0d",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -274,6 +274,52 @@
             ],
             "description": "Commands and domain events in Laravel",
             "time": "2014-08-02 15:13:53"
+        },
+        {
+            "name": "laracasts/presenter",
+            "version": "0.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laracasts/Presenter.git",
+                "reference": "1f3698890ccbf9ba3707a3910eda77f8a2e3f14e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laracasts/Presenter/zipball/1f3698890ccbf9ba3707a3910eda77f8a2e3f14e",
+                "reference": "1f3698890ccbf9ba3707a3910eda77f8a2e3f14e",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~4.1",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpspec/phpspec": "~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Laracasts\\Presenter": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeffrey Way",
+                    "email": "jeffrey@laracasts.com"
+                }
+            ],
+            "description": "Simple view presenters",
+            "keywords": [
+                "laravel",
+                "presenter",
+                "view"
+            ],
+            "time": "2014-04-01 21:35:39"
         },
         {
             "name": "laravel/framework",
@@ -2859,12 +2905,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/JeffreyWay/Laravel-4-Generators.git",
-                "reference": "5edee3aab6f8becf6f008b00de00573d280bbb05"
+                "reference": "fb4bc74dced013dac89d02c32df8096180df37dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JeffreyWay/Laravel-4-Generators/zipball/5edee3aab6f8becf6f008b00de00573d280bbb05",
-                "reference": "5edee3aab6f8becf6f008b00de00573d280bbb05",
+                "url": "https://api.github.com/repos/JeffreyWay/Laravel-4-Generators/zipball/fb4bc74dced013dac89d02c32df8096180df37dc",
+                "reference": "fb4bc74dced013dac89d02c32df8096180df37dc",
                 "shasum": ""
             },
             "require": {
@@ -2897,7 +2943,7 @@
                 }
             ],
             "description": "Rapidly generate resources, migrations, models, and much more.",
-            "time": "2014-09-01 19:27:23"
+            "time": "2014-09-03 21:19:08"
         }
     ],
     "aliases": [
