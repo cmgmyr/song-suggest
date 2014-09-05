@@ -1,3 +1,13 @@
+Ss\Repositories\Activity\Activity:
+  user_id:
+    type: Ss\Repositories\User\User
+  song_id:
+    type: Ss\Repositories\Song\Song
+  message: $string
+  color_class: $string
+  created_at: $date
+  updated_at: $date
+
 Ss\Repositories\Song\Song:
   artist: $string
   title: $string
