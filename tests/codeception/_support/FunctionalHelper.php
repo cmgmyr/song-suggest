@@ -20,12 +20,12 @@ class FunctionalHelper extends \Codeception\Module
 
     public function haveAnAccount($overrides = [])
     {
-        TestDummy::create('Ss\Repositories\User\User', $overrides);
+        return TestDummy::create('Ss\Repositories\User\User', $overrides);
     }
 
     public function signIn($email='test@test.com', $password='test123', $is_admin='n')
     {
-        $this->haveAnAccount(compact('email', 'password', 'is_admin'));
+        $user = $this->haveAnAccount(compact('email', 'password', 'is_admin'));
 
         $I = $this->getModule('Laravel4');
 
@@ -36,6 +36,8 @@ class FunctionalHelper extends \Codeception\Module
         $I->seeAuthentication();
 
         $I->amOnRoute('home');
+
+        return $user;
     }
 
     public function signInAsAdmin()
