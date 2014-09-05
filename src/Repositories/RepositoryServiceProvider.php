@@ -3,6 +3,8 @@ namespace Ss\Repositories;
 
 use Ss\Repositories\Activity\Activity;
 use Ss\Repositories\Activity\EloquentActivity;
+use Ss\Repositories\Comment\Comment;
+use Ss\Repositories\Comment\EloquentComment;
 use Ss\Repositories\Song\EloquentSong;
 use Ss\Repositories\Song\Song;
 use Ss\Repositories\User\EloquentUser;
@@ -28,6 +30,17 @@ class RepositoryServiceProvider extends ServiceProvider
             function () {
                 $model = new EloquentActivity(
                     new Activity
+                );
+
+                return $model;
+            }
+        );
+
+        $app->bind(
+            'Ss\Repositories\Comment\CommentInterface',
+            function () {
+                $model = new EloquentComment(
+                    new Comment
                 );
 
                 return $model;

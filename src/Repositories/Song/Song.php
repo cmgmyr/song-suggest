@@ -55,6 +55,16 @@ class Song extends BaseModel
     }
 
     /**
+     * A song has many comments
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
+    {
+        return $this->hasMany('Ss\Repositories\Comment\Comment');
+    }
+
+    /**
      * Get all positive (yes) votes from a song
      *
      * @return mixed

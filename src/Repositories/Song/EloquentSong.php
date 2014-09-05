@@ -69,9 +69,40 @@ class EloquentSong implements SongInterface
     public function delete(Song $song)
     {
         $song->activities()->delete();
+        $song->comments()->delete();
         $song->votes()->delete();
         $song->delete();
 
         return true;
+    }
+
+    /**
+     * Get all comments and activities for a song
+     *
+     * @param Song $song
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function getActivities(Song $song)
+    {
+        // @todo: see if there is a better solution for all of this...
+
+        $query = "
+        SELECT id, 'comment' as 'type', user_id, comment, null as message, null as color_class, created_at FROM comments
+        WHERE song_id = :comment_song_id
+        UNION
+        SELECT id, 'activity' as 'type', user_id, null as comment, message, color_class, created_at FROM activity
+        WHERE song_id = :activity_song_id ORDER BY created_at DESC, id DESC
+        ";
+
+        $records = \DB::select(\DB::raw($query), ['comment_song_id' => $song->id, 'activity_song_id' => $song->id]);
+        $data = new \Illuminate\Database\Eloquent\Collection;
+
+        foreach($records as $record) {
+            $record->user = \Ss\Repositories\User\User::find($record->user_id);
+
+            $data->add($record);
+        }
+
+        return $data;
     }
 } 

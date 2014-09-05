@@ -14,6 +14,7 @@ Create a .env.local.php file that looks similar to:
 
     return array(
         // database.php
+        'DB_HOST' => 'localhost',
         'DB_NAME' => 'songsuggest',
         'DB_USERNAME' => 'root',
         'DB_PASSWORD' => 'root',

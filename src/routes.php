@@ -25,6 +25,12 @@ Route::group(array('before' => 'auth'), function()
     {
         Route::post('{songId}', array('as' => 'votes.store', 'uses' => APPCONTROLLERS . '\VotesController@store'));
     });
+
+    // Comments
+    Route::group(array('prefix' => 'comments'), function()
+    {
+        Route::post('{songId}', array('as' => 'comments.store', 'uses' => APPCONTROLLERS . '\CommentsController@store'));
+    });
 });
 
 Route::group(array('before' => 'auth.admin'), function()

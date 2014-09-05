@@ -14,17 +14,9 @@
         @include('votes.vote-form')
     </div>
     <div class="col-md-8">
-        <h3>Activity Log</h3>
-        @if($song->activities()->count() > 0)
-            @foreach($song->activities as $activity)
-            <div class="row alert alert-{{$activity->color_class ?: 'default'}}">
-                <div class="col-md-2"><img src="{{$activity->user->present()->avatar(60)}}" alt="{{$activity->user->first_name}}"></div>
-                <div class="col-md-10">{{$activity->user->first_name . ' ' . $activity->message}}</div>
-            </div>
-            @endforeach
-        @else
-            <p>Sorry, nothing here yet.</p>
-        @endif
+        @include('comments.comment-form')
+
+        @include('activities.activity-list')
     </div>
 </div>
 @stop
