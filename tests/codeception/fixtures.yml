@@ -8,6 +8,15 @@ Ss\Repositories\Activity\Activity:
   created_at: $date
   updated_at: $date
 
+Ss\Repositories\Comment\Comment:
+  user_id:
+    type: Ss\Repositories\User\User
+  song_id:
+    type: Ss\Repositories\Song\Song
+  comment: $string
+  created_at: $date
+  updated_at: $date
+
 Ss\Repositories\Song\Song:
   artist: $string
   title: $string
