@@ -29,14 +29,14 @@ class User extends BaseModel implements UserInterface, RemindableInterface
      *
      * @var array
      */
-    protected $hidden = array('password', 'remember_token');
+    protected $hidden = ['password', 'remember_token'];
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = array('first_name', 'last_name', 'email', 'password', 'is_admin', 'is_active');
+    protected $fillable = ['first_name', 'last_name', 'email', 'password', 'is_admin', 'is_active'];
 
     /**
      * @var string

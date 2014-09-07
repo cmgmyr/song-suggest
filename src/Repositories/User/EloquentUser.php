@@ -36,7 +36,7 @@ class EloquentUser implements UserInterface
     {
         $users = $this->all();
         if (count($users) > 0) {
-            $userList = array();
+            $userList = [];
             foreach ($users as $user) {
                 $userList[$user->id] = $user->first_name . ' ' . $user->last_name;
             }
@@ -44,7 +44,7 @@ class EloquentUser implements UserInterface
             return $userList;
         }
 
-        return array();
+        return [];
     }
 
     /**

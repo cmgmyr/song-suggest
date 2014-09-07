@@ -27,7 +27,7 @@ class UserCrudCest
         $I->seeInSession('flash_notification.message', 'The user has been saved.');
     }
 
-    public function UserSong(FunctionalTester $I)
+    public function UserEdit(FunctionalTester $I)
     {
         $user = $I->haveAUser();
 

@@ -19,7 +19,7 @@ class Comment extends BaseModel
      *
      * @var array
      */
-    protected $fillable = array('user_id', 'song_id', 'comment');
+    protected $fillable = ['user_id', 'song_id', 'comment'];
 
     /**
      * A comment belongs to a user

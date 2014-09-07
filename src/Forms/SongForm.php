@@ -6,8 +6,8 @@ use Ss\Services\Validation\FormValidator;
 class SongForm extends FormValidator
 {
 
-    protected $rules = array(
+    protected $rules = [
         'artist' => 'required',
         'title'  => 'required',
-    );
+    ];
 } 

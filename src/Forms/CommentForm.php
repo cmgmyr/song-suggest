@@ -6,7 +6,7 @@ use Ss\Services\Validation\FormValidator;
 class CommentForm extends FormValidator
 {
 
-    protected $rules = array(
+    protected $rules = [
         'comment' => 'required',
-    );
+    ];
 } 

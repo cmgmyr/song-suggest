@@ -5,7 +5,7 @@
 @endif
 
 @if($currentUser->is_admin == 'y' || $currentUser->id == $song->user_id)
-    {{ Form::open(array('route' => array('songs.destroy', $song->id), 'method' => 'delete', 'style' => 'display:inline;', 'data-confirm' => 'Are you sure?', 'class' => 'delete-confirm')) }}
+    {{ Form::open(['route' => ['songs.destroy', $song->id], 'method' => 'delete', 'style' => 'display:inline;', 'data-confirm' => 'Are you sure?', 'class' => 'delete-confirm']) }}
     <button type="submit" class="btn btn-danger btn-xs">Delete</button>
     {{ Form::close() }}
 @endif

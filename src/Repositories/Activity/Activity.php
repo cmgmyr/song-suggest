@@ -18,7 +18,7 @@ class Activity extends BaseModel
      *
      * @var array
      */
-    protected $fillable = array('user_id', 'song_id', 'message', 'color_class');
+    protected $fillable = ['user_id', 'song_id', 'message', 'color_class'];
 
     /**
      * An activity belongs to a song

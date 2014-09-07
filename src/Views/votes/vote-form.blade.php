@@ -15,6 +15,6 @@
     </label>
 </div>
 <div class="form-group">
-    {{ Form::submit('Vote!', array('class' => 'btn btn-primary')) }}
+    {{ Form::submit('Vote!', ['class' => 'btn btn-primary']) }}
 </div>
 {{Form::close()}}

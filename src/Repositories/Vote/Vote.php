@@ -20,7 +20,7 @@ class Vote extends BaseModel
      *
      * @var array
      */
-    protected $fillable = array('user_id', 'song_id', 'vote');
+    protected $fillable = ['user_id', 'song_id', 'vote'];
 
     /**
      * A vote belongs to a user

@@ -22,7 +22,7 @@ class Song extends BaseModel
      *
      * @var array
      */
-    protected $fillable = array('artist', 'title', 'user_id', 'youtube');
+    protected $fillable = ['artist', 'title', 'user_id', 'youtube'];
 
     /**
      * Song has many activities

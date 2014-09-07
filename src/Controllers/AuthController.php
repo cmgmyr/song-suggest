@@ -29,7 +29,7 @@ class AuthController extends BaseController
         $this->user = $user;
         $this->userForm = $userForm;
 
-        $this->beforeFilter('guest', array('only' => array('login', 'attemptLogin')));
+        $this->beforeFilter('guest', ['only' => ['login', 'attemptLogin']]);
     }
 
     /**
@@ -49,11 +49,11 @@ class AuthController extends BaseController
      */
     public function attemptLogin()
     {
-        $credentials = array(
+        $credentials = [
             'email'     => Input::get('email'),
             'password'  => Input::get('password'),
             'is_active' => 'y'
-        );
+        ];
 
         if (Auth::attempt($credentials)) {
             return Redirect::home();

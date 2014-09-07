@@ -6,11 +6,11 @@ use Ss\Services\Validation\FormValidator;
 class UserForm extends FormValidator
 {
 
-    protected $rules = array(
+    protected $rules = [
         'first_name' => 'required',
         'last_name'  => 'required',
-        'email'      => array('required', 'email'),
-    );
+        'email'      => ['required', 'email'],
+    ];
 
     public function createUser()
     {
@@ -29,16 +29,16 @@ class UserForm extends FormValidator
 
     public function checkPassword()
     {
-        $this->rules['password'] = array('required', 'same:password_confirm');
+        $this->rules['password'] = ['required', 'same:password_confirm'];
     }
 
     public function enableUniqueEmail()
     {
-        $this->rules['email'] = array('required', 'email', 'unique:users');
+        $this->rules['email'] = ['required', 'email', 'unique:users'];
     }
 
     public function enableUniqueEmailIgnoreId($id)
     {
-        $this->rules['email'] = array('required', 'email', 'unique:users,email,' . $id);
+        $this->rules['email'] = ['required', 'email', 'unique:users,email,' . $id];
     }
 } 

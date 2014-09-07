@@ -33,9 +33,9 @@
             <td>{{$user->is_admin}}</td>
             <td>
                 @if($currentUser->id != $user->id)
-                <a href="{{URL::route('users.edit', array('id' => $user->id))}}" class="btn btn-primary btn-xs">Edit</a>
+                <a href="{{URL::route('users.edit', ['id' => $user->id])}}" class="btn btn-primary btn-xs">Edit</a>
 
-                {{ Form::open(array('route' => array('users.destroy', $user->id), 'method' => 'delete', 'style' => 'display:inline;', 'data-confirm' => 'Are you sure?', 'class' => 'delete-confirm')) }}
+                {{ Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete', 'style' => 'display:inline;', 'data-confirm' => 'Are you sure?', 'class' => 'delete-confirm']) }}
                 <button type="submit" class="btn btn-danger btn-xs">Delete</button>
                 {{ Form::close() }}
                 @endif
