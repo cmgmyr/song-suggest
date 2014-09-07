@@ -1,6 +1,7 @@
 <?php
 namespace Ss\Repositories\Song;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class EloquentSong implements SongInterface
@@ -99,6 +100,7 @@ class EloquentSong implements SongInterface
 
         foreach($records as $record) {
             $record->user = \Ss\Repositories\User\User::find($record->user_id);
+            $record->created_at = new Carbon($record->created_at);
 
             $data->add($record);
         }
