@@ -42,7 +42,7 @@ class ActivitiesListener
     public function whenSongWasEdited($event)
     {
         $message = 'edited this song';
-        $this->setActivity($event->song->id, $event->song->user_id, $message, 'info');
+        $this->setActivity($event->song->id, $event->editor->id, $message, 'info');
     }
 
     public function whenVoteWasCast($event)

@@ -161,18 +161,19 @@ class Song extends BaseModel
      * Edit a current song
      *
      * @param Song $song
+     * @param \Ss\Repositories\User\User $editor
      * @param $artist
      * @param $title
      * @param $youtube
      * @return Song
      */
-    public static function edit(Song $song, $artist, $title, $youtube)
+    public static function edit(Song $song, User $editor, $artist, $title, $youtube)
     {
         $song->artist = $artist;
         $song->title = $title;
         $song->youtube = $youtube;
 
-        $song->raise(new SongEdited($song));
+        $song->raise(new SongEdited($song, $editor));
 
         return $song;
     }

@@ -89,7 +89,7 @@ class SongsController extends BaseController
 
         $this->songForm->validate();
 
-        $input = array_add(Input::all(), 'song', $song);
+        $input = array_merge(Input::all(), ['song' =>$song, 'editor' => Auth::user()]);
         $this->execute(EditSongCommand::class, $input);
 
         return $this->redirectRouteWithSuccess('home', 'Your song suggestion has been updated!');
