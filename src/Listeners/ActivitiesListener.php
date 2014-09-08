@@ -16,9 +16,10 @@ class ActivitiesListener
      */
     public function subscribe($events)
     {
-        $events->listen('Ss.Domain.Song.Events.SongDeleted', 'Ss\Listeners\ActivitiesListener@whenSongWasDeleted');
-        $events->listen('Ss.Domain.Song.Events.SongEdited', 'Ss\Listeners\ActivitiesListener@whenSongWasEdited');
         $events->listen('Ss.Domain.Song.Events.SongSuggested', 'Ss\Listeners\ActivitiesListener@whenSongWasSuggested');
+        $events->listen('Ss.Domain.Song.Events.SongDeleted', 'Ss\Listeners\ActivitiesListener@whenSongWasDeleted');
+        $events->listen('Ss.Domain.Song.Events.SongRestored', 'Ss\Listeners\ActivitiesListener@whenSongWasRestored');
+        $events->listen('Ss.Domain.Song.Events.SongEdited', 'Ss\Listeners\ActivitiesListener@whenSongWasEdited');
         $events->listen('Ss.Domain.Vote.Events.VoteCast', 'Ss\Listeners\ActivitiesListener@whenVoteWasCast');
         $events->listen('Ss.Domain.Vote.Events.VoteChanged', 'Ss\Listeners\ActivitiesListener@whenVoteWasChanged');
     }
@@ -38,6 +39,12 @@ class ActivitiesListener
     {
         $message = 'deleted this song';
         $this->setActivity($event->song->id, $event->editor->id, $message, 'danger');
+    }
+
+    public function whenSongWasRestored($event)
+    {
+        $message = 'restored this song';
+        $this->setActivity($event->song->id, $event->editor->id, $message, 'success');
     }
 
     public function whenSongWasEdited($event)

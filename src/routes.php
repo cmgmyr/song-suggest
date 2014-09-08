@@ -17,7 +17,9 @@ Route::group(['before' => 'auth'], function()
         Route::post('/', ['as' => 'songs.store', 'uses' => APPCONTROLLERS . '\SongsController@store']);
         Route::get('{id}', ['as' => 'songs.show', 'uses' => APPCONTROLLERS . '\SongsController@show']);
         Route::get('{id}/edit', ['as' => 'songs.edit', 'uses' => APPCONTROLLERS . '\SongsController@edit']);
+        Route::put('{id}/restore', ['as' => 'songs.restore', 'uses' => APPCONTROLLERS . '\SongsController@restore']);
         Route::put('{id}', ['as' => 'songs.update', 'uses' => APPCONTROLLERS . '\SongsController@update']);
+        Route::delete('{id}/force', ['as' => 'songs.force', 'uses' => APPCONTROLLERS . '\SongsController@forceDestroy']);
         Route::delete('{id}', ['as' => 'songs.destroy', 'uses' => APPCONTROLLERS . '\SongsController@destroy']);
     });
 

@@ -88,6 +88,37 @@ class EloquentSong implements SongInterface
     }
 
     /**
+     * Fetches and returns song data associated with a deleted id
+     *
+     * @param $id
+     * @return object
+     * @throws SongNotFoundException
+     */
+    public function deletedWithId($id)
+    {
+        $song = $this->song->withTrashed()->where('id', $id)->first();
+        if (!$song) {
+            throw new SongNotFoundException('No deleted song found with ID: ' . $id);
+        }
+
+        return $song;
+    }
+
+    /**
+     * Restores a song from being deleted
+     *
+     * @param Song $song
+     * @internal param $id
+     * @return boolean
+     */
+    public function restore(Song $song)
+    {
+        $song->restore();
+
+        return true;
+    }
+
+    /**
      * Get all comments and activities for a song
      *
      * @param Song $song

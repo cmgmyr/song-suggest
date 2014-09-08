@@ -43,4 +43,22 @@ interface SongInterface
      * @return boolean
      */
     public function delete(Song $song);
+
+    /**
+     * Fetches and returns song data associated with a deleted id
+     *
+     * @param $id
+     * @return object
+     * @throws SongNotFoundException
+     */
+    public function deletedWithId($id);
+
+    /**
+     * Restores a song from being deleted
+     *
+     * @param Song $song
+     * @internal param $id
+     * @return boolean
+     */
+    public function restore(Song $song);
 } 

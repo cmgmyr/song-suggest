@@ -4,6 +4,7 @@ namespace Ss\Repositories\Song;
 use Illuminate\Database\Eloquent\SoftDeletingTrait;
 use Ss\Domain\Song\Events\SongDeleted;
 use Ss\Domain\Song\Events\SongEdited;
+use Ss\Domain\Song\Events\SongRestored;
 use Ss\Domain\Song\Events\SongSuggested;
 use Ss\Models\BaseModel;
 use Ss\Repositories\User\User;
@@ -198,6 +199,20 @@ class Song extends BaseModel
     public static function deleteSong(Song $song, User $editor)
     {
         $song->raise(new SongDeleted($song, $editor));
+
+        return $song;
+    }
+
+    /**
+     * Restore a song
+     *
+     * @param Song $song
+     * @param \Ss\Repositories\User\User $editor
+     * @return Song
+     */
+    public static function RestoreSong(Song $song, User $editor)
+    {
+        $song->raise(new SongRestored($song, $editor));
 
         return $song;
     }

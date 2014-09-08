@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\View;
 use Ss\Domain\Song\DeleteSongCommand;
 use Ss\Domain\Song\EditSongCommand;
+use Ss\Domain\Song\RestoreSongCommand;
 use Ss\Domain\Song\SuggestSongCommand;
 use Ss\Forms\SongForm;
 use Ss\Repositories\Song\SongInterface;
@@ -41,7 +42,7 @@ class SongsController extends BaseController
     {
         $songs = $this->song->deleted();
 
-        $this->layout->content = View::make('songs.index', compact('songs'));
+        $this->layout->content = View::make('songs.deleted', compact('songs'));
     }
 
     public function create()
@@ -118,5 +119,28 @@ class SongsController extends BaseController
         } catch (SongNotFoundException $e) {
             return $this->redirectRouteWithError('home', $e->getMessage());
         }
+    }
+
+    public function restore($id)
+    {
+        try {
+            $song = $this->song->deletedWithId($id);
+
+            if (Auth::user()->is_admin != 'y') {
+                $message = 'Sorry, this song cannot currently be restored or you don\'t have the correct access to do so.';
+                return $this->redirectRouteWithError('songs.show', $message, ['id' => $id]);
+            }
+
+            $this->execute(RestoreSongCommand::class, ['song' => $song, 'editor' => Auth::user()]);
+
+            return $this->redirectBackWithSuccess('The song has been restored.');
+        } catch (SongNotFoundException $e) {
+            return $this->redirectBackWithError($e->getMessage());
+        }
+    }
+
+    public function forceDestroy($id)
+    {
+
     }
 }
