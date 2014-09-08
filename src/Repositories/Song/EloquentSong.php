@@ -79,9 +79,6 @@ class EloquentSong implements SongInterface
      */
     public function delete(Song $song)
     {
-        // $song->activities()->delete();
-        // $song->comments()->delete();
-        // $song->votes()->delete();
         $song->delete();
 
         return true;
@@ -114,6 +111,23 @@ class EloquentSong implements SongInterface
     public function restore(Song $song)
     {
         $song->restore();
+
+        return true;
+    }
+
+    /**
+     * Removes a song from data source
+     *
+     * @param Song $song
+     * @internal param $id
+     * @return boolean
+     */
+    public function forceDelete(Song $song)
+    {
+        $song->activities()->delete();
+        $song->comments()->delete();
+        $song->votes()->delete();
+        $song->forceDelete();
 
         return true;
     }

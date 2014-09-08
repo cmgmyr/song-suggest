@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\View;
 use Ss\Domain\Song\DeleteSongCommand;
 use Ss\Domain\Song\EditSongCommand;
+use Ss\Domain\Song\ForceDeleteSongCommand;
 use Ss\Domain\Song\RestoreSongCommand;
 use Ss\Domain\Song\SuggestSongCommand;
 use Ss\Forms\SongForm;
@@ -141,6 +142,19 @@ class SongsController extends BaseController
 
     public function forceDestroy($id)
     {
+        try {
+            $song = $this->song->deletedWithId($id);
 
+            if (Auth::user()->is_admin != 'y') {
+                $message = 'Sorry, this song cannot currently be deleted or you don\'t have the correct access to do so.';
+                return $this->redirectRouteWithError('songs.show', $message, ['id' => $id]);
+            }
+
+            $this->execute(ForceDeleteSongCommand::class, ['song' => $song, 'editor' => Auth::user()]);
+
+            return $this->redirectBackWithSuccess('The song has been deleted.');
+        } catch (SongNotFoundException $e) {
+            return $this->redirectBackWithError($e->getMessage());
+        }
     }
 }

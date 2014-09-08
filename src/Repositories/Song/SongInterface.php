@@ -36,7 +36,7 @@ interface SongInterface
     public function save(Song $song);
 
     /**
-     * Removes a song from data source
+     * Soft deletes a song
      *
      * @param Song $song
      * @internal param $id
@@ -54,11 +54,20 @@ interface SongInterface
     public function deletedWithId($id);
 
     /**
-     * Restores a song from being deleted
+     * Restores a song from being soft deleted
      *
      * @param Song $song
      * @internal param $id
      * @return boolean
      */
     public function restore(Song $song);
+
+    /**
+     * Removes a song from data source
+     *
+     * @param Song $song
+     * @internal param $id
+     * @return boolean
+     */
+    public function forceDelete(Song $song);
 } 
