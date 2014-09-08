@@ -1,6 +1,7 @@
 <?php
 namespace Ss\Repositories\Song;
 
+use Illuminate\Database\Eloquent\SoftDeletingTrait;
 use Ss\Domain\Song\Events\SongDeleted;
 use Ss\Domain\Song\Events\SongEdited;
 use Ss\Domain\Song\Events\SongSuggested;
@@ -9,6 +10,8 @@ use Ss\Repositories\User\User;
 
 class Song extends BaseModel
 {
+
+    use SoftDeletingTrait;
 
     /**
      * The database table used by the model.
@@ -23,6 +26,13 @@ class Song extends BaseModel
      * @var array
      */
     protected $fillable = ['artist', 'title', 'user_id', 'youtube'];
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
 
     /**
      * Song has many activities

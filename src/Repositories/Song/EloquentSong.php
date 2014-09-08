@@ -69,9 +69,9 @@ class EloquentSong implements SongInterface
      */
     public function delete(Song $song)
     {
-        $song->activities()->delete();
-        $song->comments()->delete();
-        $song->votes()->delete();
+        // $song->activities()->delete();
+        // $song->comments()->delete();
+        // $song->votes()->delete();
         $song->delete();
 
         return true;
