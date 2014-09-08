@@ -14,6 +14,7 @@ class EloquentSongTest extends \Codeception\TestCase\Test
 
     protected function _before()
     {
+        $this->getModule('Laravel4');
         $this->repo = $this->tester->grabService('Ss\Repositories\Song\SongInterface');
     }
 
@@ -82,6 +83,56 @@ class EloquentSongTest extends \Codeception\TestCase\Test
         $deleted = $this->repo->delete($song);
 
         $this->assertTrue($deleted);
+    }
+
+    /** @test */
+    public function get_deleted_song()
+    {
+        $song = TestDummy::create('Ss\Repositories\Song\Song');
+
+        $deleted = $this->repo->delete($song);
+
+        $this->assertTrue($deleted);
+
+        $deletedSong = $this->repo->deletedWithId($song->id);
+
+        $this->assertEquals($song->id, $deletedSong->id);
+    }
+
+    /** @test */
+    public function restore_song()
+    {
+        $song = TestDummy::create('Ss\Repositories\Song\Song');
+
+        $deleted = $this->repo->delete($song);
+
+        $this->assertTrue($deleted);
+
+        $restored = $this->repo->restore($song);
+
+        $this->assertTrue($restored);
+    }
+
+    /** @test */
+    public function force_delete_a_song()
+    {
+        $song = TestDummy::create('Ss\Repositories\Song\Song');
+
+        $deleted = $this->repo->forceDelete($song);
+
+        $this->assertTrue($deleted);
+
+        $I = $this->getModule('Laravel4');
+        $I->dontSeeRecord('songs', array('id' => $song->id));
+    }
+
+    /**
+     * @test
+     * @expectedException Ss\Repositories\Song\SongNotFoundException
+     */
+    public function find_deleted_song_by_id_but_not_found()
+    {
+        $this->repo->deletedWithId(0);
     }
 
 }
