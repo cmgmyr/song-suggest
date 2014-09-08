@@ -36,7 +36,8 @@ class ActivitiesListener
 
     public function whenSongWasDeleted($event)
     {
-        // nothing for now
+        $message = 'deleted this song';
+        $this->setActivity($event->song->id, $event->editor->id, $message, 'danger');
     }
 
     public function whenSongWasEdited($event)

@@ -19,7 +19,17 @@
 
             <ul class="nav navbar-nav navbar-right">
                 @if($currentUser->is_admin == 'y')
-                <li>{{link_to_route('users', 'Users')}}</li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" name="admin-dropdown">
+                        Admin <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li>{{link_to_route('songs.deleted', 'Deleted Songs')}}</li>
+                        <li class="divider"></li>
+                        <li>{{link_to_route('users', 'Users')}}</li>
+                    </ul>
+                </li>
                 @endif
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" name="user-dropdown">

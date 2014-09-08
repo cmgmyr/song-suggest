@@ -192,11 +192,12 @@ class Song extends BaseModel
      * Delete a current song
      *
      * @param Song $song
+     * @param \Ss\Repositories\User\User $editor
      * @return Song
      */
-    public static function deleteSong(Song $song)
+    public static function deleteSong(Song $song, User $editor)
     {
-        $song->raise(new SongDeleted($song));
+        $song->raise(new SongDeleted($song, $editor));
 
         return $song;
     }

@@ -12,6 +12,7 @@ Route::group(['before' => 'auth'], function()
     Route::group(['prefix' => 'songs'], function()
     {
         //Route::get('/', ['as' => 'songs', 'uses' => APPCONTROLLERS . '\SongsController@index']);
+        Route::get('deleted', ['as' => 'songs.deleted', 'uses' => APPCONTROLLERS . '\SongsController@deleted']);
         Route::get('create', ['as' => 'songs.create', 'uses' => APPCONTROLLERS . '\SongsController@create']);
         Route::post('/', ['as' => 'songs.store', 'uses' => APPCONTROLLERS . '\SongsController@store']);
         Route::get('{id}', ['as' => 'songs.show', 'uses' => APPCONTROLLERS . '\SongsController@show']);

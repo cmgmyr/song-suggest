@@ -27,7 +27,7 @@ class DeleteSongCommandHandler implements CommandHandler
      */
     public function handle($command)
     {
-        $song = Song::deleteSong($command->song);
+        $song = Song::deleteSong($command->song, $command->editor);
 
         $this->song->delete($song);
 

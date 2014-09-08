@@ -11,6 +11,13 @@ interface SongInterface
     public function all();
 
     /**
+     * Fetches all deleted songs from data source
+     *
+     * @return object
+     */
+    public function deleted();
+
+    /**
      * Fetches and returns song data associated with an id
      *
      * @param $id

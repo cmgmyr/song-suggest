@@ -27,6 +27,16 @@ class EloquentSong implements SongInterface
     }
 
     /**
+     * Fetches all deleted songs from data source
+     *
+     * @return object
+     */
+    public function deleted()
+    {
+        return $this->song->onlyTrashed()->get();
+    }
+
+    /**
      * Fetches and returns song data associated with an id
      *
      * @param $id

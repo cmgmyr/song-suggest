@@ -23,6 +23,6 @@
     </tbody>
 </table>
 @else
-<p>Sorry, there are no records.</p>
+<p>Sorry, there are no songs.</p>
 @endif
 @stop

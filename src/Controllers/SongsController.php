@@ -37,6 +37,13 @@ class SongsController extends BaseController
         $this->layout->content = View::make('songs.index', compact('songs'));
     }
 
+    public function deleted()
+    {
+        $songs = $this->song->deleted();
+
+        $this->layout->content = View::make('songs.index', compact('songs'));
+    }
+
     public function create()
     {
         $song = new \stdClass();
@@ -105,7 +112,7 @@ class SongsController extends BaseController
                 return $this->redirectRouteWithError('songs.show', $message, ['id' => $id]);
             }
 
-            $this->execute(DeleteSongCommand::class, ['song' => $song]);
+            $this->execute(DeleteSongCommand::class, ['song' => $song, 'editor' => Auth::user()]);
 
             return $this->redirectRouteWithSuccess('home', 'The song has been deleted.');
         } catch (SongNotFoundException $e) {
