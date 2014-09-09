@@ -68,3 +68,8 @@ Route::post('login', ['as' => 'attemptLogin', 'uses' => APPCONTROLLERS . '\AuthC
 Route::get('logout', ['as' => 'logout', 'uses' => APPCONTROLLERS . '\AuthController@logout']);
 
 Route::controller('password', APPCONTROLLERS . '\RemindersController');
+
+Route::post('queue/receive', function()
+{
+    return Queue::marshal();
+});

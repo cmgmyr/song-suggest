@@ -21,7 +21,11 @@ Create a .env.local.php file that looks similar to:
 
         'MAIL_FROM_EMAIL' => 'noreply@example.com',
         'MAIL_FROM_NAME' => 'Song Suggest',
-        'MANDRILL_SECRET' => 'mandrill-secret-key'
+        'MANDRILL_SECRET' => 'mandrill-secret-key',
+
+        'IRON_TOKEN' => 'iron-token',
+        'IRON_PROJECT' => 'iron-project',
+        'IRON_QUEUE_NAME' => 'song-suggest'
     );
 
 Update any other configurations in `app/config/app.php` that you need to.
