@@ -10,8 +10,9 @@ class CreateUserCommand
     public $password;
     public $is_admin;
     public $is_active;
+    public $notify;
 
-    function __construct($first_name, $last_name, $email, $password, $is_admin, $is_active)
+    function __construct($first_name, $last_name, $email, $password, $is_admin, $is_active, $notify)
     {
         $this->first_name = $first_name;
         $this->last_name = $last_name;
@@ -19,5 +20,6 @@ class CreateUserCommand
         $this->password = $password;
         $this->is_admin = $is_admin;
         $this->is_active = $is_active;
+        $this->notify = $notify;
     }
 } 

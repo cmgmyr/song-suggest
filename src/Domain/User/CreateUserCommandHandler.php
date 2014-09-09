@@ -29,7 +29,7 @@ class CreateUserCommandHandler implements CommandHandler
      */
     public function handle($command)
     {
-        $user = User::add($command->first_name, $command->last_name, $command->email, $command->password, $command->is_admin, $command->is_active);
+        $user = User::add($command->first_name, $command->last_name, $command->email, $command->password, $command->is_admin, $command->is_active, $command->notify);
 
         $this->user->save($user);
 

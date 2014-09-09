@@ -36,21 +36,33 @@
             </div>
         </div>
 
-        <div class="form-group">
-            <label>Is Active</label>
-            <div class="controls">
-                <label>{{Form::radio('is_active', 'y')}} Yes</label>
-                <label>{{Form::radio('is_active', 'n')}} No</label>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>Is Active</label>
+                <div class="controls">
+                    <label>{{Form::radio('is_active', 'y')}} Yes</label>
+                    <label>{{Form::radio('is_active', 'n')}} No</label>
+                </div>
             </div>
         </div>
-
-        <div class="form-group">
-            <label>Is Admin</label>
-            <div class="controls">
-                <label>{{Form::radio('is_admin', 'y')}} Yes</label>
-                <label>{{Form::radio('is_admin', 'n')}} No</label>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>Is Admin</label>
+                <div class="controls">
+                    <label>{{Form::radio('is_admin', 'y')}} Yes</label>
+                    <label>{{Form::radio('is_admin', 'n')}} No</label>
+                </div>
             </div>
         </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>Email Notification</label>
+                <div class="controls">
+                    <label>{{Form::radio('notify', 'y')}} Yes</label>
+                    <label>{{Form::radio('notify', 'n')}} No</label>
+                </div>
+            </div>
+        </div>\
 	</div>
 </div>
 <div class="row">

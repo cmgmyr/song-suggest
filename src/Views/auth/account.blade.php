@@ -39,6 +39,14 @@
                 {{ Form::password('password_confirm', ['class' => 'form-control']) }}
             </div>
         </div>
+
+        <div class="form-group">
+            <label>Email Notification</label>
+            <div class="controls">
+                <label>{{Form::radio('notify', 'y')}} Yes</label>
+                <label>{{Form::radio('notify', 'n')}} No</label>
+            </div>
+        </div>
     </div>
 </div>
 <div class="row">

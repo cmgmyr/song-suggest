@@ -94,9 +94,9 @@ class User extends BaseModel implements UserInterface, RemindableInterface
      * @param $is_active
      * @return User
      */
-    public static function add($first_name, $last_name, $email, $password, $is_admin, $is_active)
+    public static function add($first_name, $last_name, $email, $password, $is_admin, $is_active, $notify)
     {
-        $song = new static(compact('first_name', 'last_name', 'email', 'password', 'is_admin', 'is_active'));
+        $song = new static(compact('first_name', 'last_name', 'email', 'password', 'is_admin', 'is_active', 'notify'));
 
         $song->raise(new UserAdded($song));
 
@@ -115,6 +115,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface
         $user->first_name = $input['first_name'];
         $user->last_name = $input['last_name'];
         $user->email = $input['email'];
+        $user->notify = $input['notify'];
 
         if (isset($input['is_active'])) {
             $user->is_active = $input['is_active'];

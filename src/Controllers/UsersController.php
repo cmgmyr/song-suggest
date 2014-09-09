@@ -43,6 +43,7 @@ class UsersController extends BaseController
         // set up defaults
         $user->is_active = 'y';
         $user->is_admin = 'n';
+        $user->notify = 'y';
 
         $this->layout->content = View::make('users.create', compact('user'));
     }

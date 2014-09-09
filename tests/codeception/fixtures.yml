@@ -32,6 +32,7 @@ Ss\Repositories\User\User:
   password: $string
   is_admin: n
   is_active: y
+  notify: y
   created_at: $date
   updated_at: $date
 
