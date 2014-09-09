@@ -1,3 +1,5 @@
+@extends('emails.layouts.basic')
+
 @section('content')
 <table class="main" width="100%" cellpadding="0" cellspacing="0">
     <tr>

@@ -8,11 +8,6 @@ use Ss\Repositories\User\User;
 class EmailsController extends BaseController
 {
 
-    /**
-     * @var string
-     */
-    protected $layout = 'emails.layouts.basic';
-
     public function suggest()
     {
         $user = User::find(5);
@@ -27,7 +22,7 @@ class EmailsController extends BaseController
             'suggester_first_name' => $suggester->first_name
         ];
 
-        $this->layout->content = View::make('emails.songs.suggestion', $data);
+        return View::make('emails.songs.suggestion', $data);
     }
 
     public function activity()
@@ -44,6 +39,6 @@ class EmailsController extends BaseController
             'notification'    => $notification
         ];
 
-        $this->layout->content = View::make('emails.songs.activity', $data);
+        return View::make('emails.songs.activity', $data);
     }
 } 
