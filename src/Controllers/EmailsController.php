@@ -7,6 +7,7 @@ use Ss\Repositories\User\User;
 
 class EmailsController extends BaseController
 {
+
     /**
      * @var string
      */
@@ -27,5 +28,22 @@ class EmailsController extends BaseController
         ];
 
         $this->layout->content = View::make('emails.songs.suggestion', $data);
+    }
+
+    public function activity()
+    {
+        $user = User::find(5);
+        $song = Song::find(1);
+        $notification = 'Another User voted "Yes" for this song.';
+
+        $data = [
+            'user_first_name' => $user->first_name,
+            'song_id'         => $song->id,
+            'song_title'      => $song->title,
+            'song_artist'     => $song->artist,
+            'notification'    => $notification
+        ];
+
+        $this->layout->content = View::make('emails.songs.activity', $data);
     }
 } 

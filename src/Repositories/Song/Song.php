@@ -134,6 +134,26 @@ class Song extends BaseModel
     }
 
     /**
+     * Returns all followers of a song, except for user id given
+     *
+     * @param null $user_id
+     * @return mixed
+     */
+    public function getFollowers($user_id = null)
+    {
+        $query = $this->follows()->whereHas('user', function($q)
+            {
+                $q->where('notify', 'y');
+            });
+
+        if ($user_id !== null) {
+            $query->where('user_id', '!=', $user_id);
+        }
+
+        return $query->get();
+    }
+
+    /**
      * See if the song can be edited by the user
      *
      * @param User $user

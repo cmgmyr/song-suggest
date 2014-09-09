@@ -13,7 +13,7 @@
         <td>{{$song->artist}}</td>
         <td>{{$song->title}}</td>
         <td class="manage-buttons">
-            @include('songs.index-manage-buttons')
+            @include('songs.partials.index-manage-buttons')
         </td>
     </tr>
     @endforeach

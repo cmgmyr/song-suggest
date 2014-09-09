@@ -2,17 +2,22 @@
 namespace Ss\Listeners;
 
 use Laracasts\Commander\Events\EventListener;
+use Ss\Domain\Activity\Events\ActivityAdded;
 use Ss\Domain\Song\Events\SongSuggested;
 use Ss\Mailers\SongMailer;
+use Ss\Repositories\Song\SongInterface;
 use Ss\Repositories\User\UserInterface;
 
 class EmailNotifier extends EventListener
 {
+
+    protected $song;
     protected $mailer;
     protected $user;
 
-    function __construct(SongMailer $mailer, UserInterface $user)
+    function __construct(SongInterface $song, SongMailer $mailer, UserInterface $user)
     {
+        $this->song = $song;
         $this->mailer = $mailer;
         $this->user = $user;
     }
@@ -23,8 +28,20 @@ class EmailNotifier extends EventListener
 
         $users = $this->user->getAllEmailableUsers($suggester->id);
 
-        foreach($users as $user) {
+        foreach ($users as $user) {
             $this->mailer->sendSongAddedEmailTo($user, $event->song, $suggester);
+        }
+    }
+
+    public function whenActivityAdded(ActivityAdded $event)
+    {
+        $song = $this->song->deletedWithId($event->activity->song_id);
+        $followers = $song->getFollowers($event->activity->user_id);
+        $notification = $song->user->first_name . ' ' . $event->activity->message;
+
+        foreach ($followers as $follower) {
+            $user = $this->user->byId($follower->user->id);
+            $this->mailer->sendSongActivityTo($user, $song, $notification);
         }
     }
 } 

@@ -59,6 +59,7 @@ Route::group(['before' => 'auth.admin'], function()
     Route::group(['prefix' => 'email'], function()
     {
         Route::get('suggest', APPCONTROLLERS . '\EmailsController@suggest');
+        Route::get('activity', APPCONTROLLERS . '\EmailsController@activity');
     });
 });
 
