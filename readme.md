@@ -21,6 +21,7 @@ Create a .env.local.php file that looks similar to:
 
         'MAIL_FROM_EMAIL' => 'noreply@example.com',
         'MAIL_FROM_NAME' => 'Song Suggest',
+        'MANDRILL_SECRET' => 'mandrill-secret-key'
     );
 
 Update any other configurations in `app/config/app.php` that you need to.
