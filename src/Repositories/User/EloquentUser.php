@@ -94,4 +94,21 @@ class EloquentUser implements UserInterface
 
         return true;
     }
+
+    /**
+     * Find all of the users that can be emailed
+     *
+     * @param null $except user id exception
+     * @return object
+     */
+    public function getAllEmailableUsers($except = null)
+    {
+        $query = $this->user->where('notify', 'y');
+
+        if ($except !== null) {
+            $query->where('id', '!=', $except);
+        }
+
+        return $query->get();
+    }
 }

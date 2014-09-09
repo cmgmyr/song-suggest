@@ -48,6 +48,12 @@ Route::group(['before' => 'auth.admin'], function()
         Route::put('{id}', ['as' => 'users.update', 'uses' => APPCONTROLLERS . '\UsersController@update']);
         Route::delete('{id}', ['as' => 'users.destroy', 'uses' => APPCONTROLLERS . '\UsersController@destroy']);
     });
+
+    // Emails...for visual testing
+    Route::group(['prefix' => 'email'], function()
+    {
+        Route::get('suggest', APPCONTROLLERS . '\EmailsController@suggest');
+    });
 });
 
 Route::get('login', ['as' => 'login', 'uses' => APPCONTROLLERS . '\AuthController@login']);

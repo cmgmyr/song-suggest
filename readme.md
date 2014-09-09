@@ -18,6 +18,9 @@ Create a .env.local.php file that looks similar to:
         'DB_NAME' => 'songsuggest',
         'DB_USERNAME' => 'root',
         'DB_PASSWORD' => 'root',
+
+        'MAIL_FROM_EMAIL' => 'noreply@example.com',
+        'MAIL_FROM_NAME' => 'Song Suggest',
     );
 
 Update any other configurations in `app/config/app.php` that you need to.
