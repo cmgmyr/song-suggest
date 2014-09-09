@@ -126,6 +126,7 @@ class EloquentSong implements SongInterface
     {
         $song->activities()->delete();
         $song->comments()->delete();
+        $song->follows()->delete();
         $song->votes()->delete();
         $song->forceDelete();
 

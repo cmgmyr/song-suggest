@@ -64,6 +64,16 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     }
 
     /**
+     * A user has many follows
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function follows()
+    {
+        return $this->hasMany('Ss\Repositories\Follow\Follow');
+    }
+
+    /**
      * User has many songs
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -92,6 +102,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface
      * @param $password
      * @param $is_admin
      * @param $is_active
+     * @param $notify
      * @return User
      */
     public static function add($first_name, $last_name, $email, $password, $is_admin, $is_active, $notify)

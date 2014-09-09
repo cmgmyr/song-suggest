@@ -46,6 +46,26 @@ class Song extends BaseModel
     }
 
     /**
+     * A song has many comments
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
+    {
+        return $this->hasMany('Ss\Repositories\Comment\Comment');
+    }
+
+    /**
+     * A song has many follows
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function follows()
+    {
+        return $this->hasMany('Ss\Repositories\Follow\Follow');
+    }
+
+    /**
      * Each song belongs to a user
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -63,16 +83,6 @@ class Song extends BaseModel
     public function votes()
     {
         return $this->hasMany('Ss\Repositories\Vote\Vote');
-    }
-
-    /**
-     * A song has many comments
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function comments()
-    {
-        return $this->hasMany('Ss\Repositories\Comment\Comment');
     }
 
     /**
@@ -104,6 +114,23 @@ class Song extends BaseModel
     public function voteByUser($user_id)
     {
         return $this->votes()->where('user_id', $user_id)->first();
+    }
+
+    /**
+     * Sees if a user is following this song
+     *
+     * @param $user_id
+     * @return bool
+     */
+    public function followedByUser($user_id)
+    {
+        $count = $this->follows()->where('user_id', $user_id)->count();
+
+        if ($count == 0) {
+            return false;
+        }
+
+        return true;
     }
 
     /**

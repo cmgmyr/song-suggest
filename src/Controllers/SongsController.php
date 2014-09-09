@@ -66,11 +66,14 @@ class SongsController extends BaseController
     public function show($id)
     {
         try {
+            $userId = Auth::id();
+
             $song = $this->song->byId($id);
             $activities = $this->song->getActivities($song);
-            $vote = $song->voteByUser(Auth::id());
+            $vote = $song->voteByUser($userId);
+            $following = $song->followedByUser($userId);
 
-            $this->layout->content = View::make('songs.show', compact('song', 'activities', 'vote'));
+            $this->layout->content = View::make('songs.show', compact('song', 'activities', 'vote', 'following'));
         } catch (SongNotFoundException $e) {
             return $this->redirectRouteWithError('home', $e->getMessage());
         }

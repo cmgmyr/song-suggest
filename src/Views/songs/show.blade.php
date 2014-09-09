@@ -12,6 +12,8 @@
         </div>
 
         @include('votes.vote-form')
+
+        @include('follows.follow-form')
     </div>
     <div class="col-md-8">
         @include('comments.comment-form')

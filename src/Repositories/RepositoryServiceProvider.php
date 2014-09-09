@@ -5,6 +5,8 @@ use Ss\Repositories\Activity\Activity;
 use Ss\Repositories\Activity\EloquentActivity;
 use Ss\Repositories\Comment\Comment;
 use Ss\Repositories\Comment\EloquentComment;
+use Ss\Repositories\Follow\EloquentFollow;
+use Ss\Repositories\Follow\Follow;
 use Ss\Repositories\Song\EloquentSong;
 use Ss\Repositories\Song\Song;
 use Ss\Repositories\User\EloquentUser;
@@ -41,6 +43,17 @@ class RepositoryServiceProvider extends ServiceProvider
             function () {
                 $model = new EloquentComment(
                     new Comment
+                );
+
+                return $model;
+            }
+        );
+
+        $app->bind(
+            'Ss\Repositories\Follow\FollowInterface',
+            function () {
+                $model = new EloquentFollow(
+                    new Follow
                 );
 
                 return $model;

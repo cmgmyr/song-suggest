@@ -17,6 +17,14 @@ Ss\Repositories\Comment\Comment:
   created_at: $date
   updated_at: $date
 
+Ss\Repositories\Follow\Follow:
+  user_id:
+    type: Ss\Repositories\User\User
+  song_id:
+    type: Ss\Repositories\Song\Song
+  created_at: $date
+  updated_at: $date
+
 Ss\Repositories\Song\Song:
   artist: $string
   title: $string

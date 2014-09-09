@@ -34,6 +34,12 @@ Route::group(['before' => 'auth'], function()
     {
         Route::post('{songId}', ['as' => 'comments.store', 'uses' => APPCONTROLLERS . '\CommentsController@store']);
     });
+
+    // Follows
+    Route::group(['prefix' => 'follows'], function()
+    {
+        Route::post('{songId}', ['as' => 'follows.store', 'uses' => APPCONTROLLERS . '\FollowsController@store']);
+    });
 });
 
 Route::group(['before' => 'auth.admin'], function()
