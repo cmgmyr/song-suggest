@@ -3,6 +3,7 @@ namespace Ss\Listeners;
 
 use Laracasts\Commander\Events\EventListener;
 use Ss\Domain\Activity\Events\ActivityAdded;
+use Ss\Domain\Comment\Events\CommentPublished;
 use Ss\Domain\Song\Events\SongSuggested;
 use Ss\Mailers\SongMailer;
 use Ss\Repositories\Song\SongInterface;
@@ -38,6 +39,18 @@ class EmailNotifier extends EventListener
         $song = $this->song->deletedWithId($event->activity->song_id);
         $followers = $song->getFollowers($event->activity->user_id);
         $notification = $song->user->first_name . ' ' . $event->activity->message;
+
+        foreach ($followers as $follower) {
+            $user = $this->user->byId($follower->user->id);
+            $this->mailer->sendSongActivityTo($user, $song, $notification);
+        }
+    }
+
+    public function whenCommentPublished(CommentPublished $event)
+    {
+        $song = $this->song->deletedWithId($event->comment->song_id);
+        $followers = $song->getFollowers($event->comment->user_id);
+        $notification = $song->user->first_name . ' said: ' . $event->comment->comment;
 
         foreach ($followers as $follower) {
             $user = $this->user->byId($follower->user->id);
