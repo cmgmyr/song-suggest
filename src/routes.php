@@ -66,3 +66,5 @@ Route::group(['before' => 'auth.admin'], function()
 Route::get('login', ['as' => 'login', 'uses' => APPCONTROLLERS . '\AuthController@login']);
 Route::post('login', ['as' => 'attemptLogin', 'uses' => APPCONTROLLERS . '\AuthController@attemptLogin']);
 Route::get('logout', ['as' => 'logout', 'uses' => APPCONTROLLERS . '\AuthController@logout']);
+
+Route::controller('password', APPCONTROLLERS . '\RemindersController');
