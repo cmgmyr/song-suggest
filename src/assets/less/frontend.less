@@ -24,6 +24,20 @@ img.nav-avatar {
     padding-top: 20px; // @todo: fix this...
 }
 
+.voting-form {
+    margin: 1em 0;
+
+    .form-group {
+        &:nth-of-type(1) {
+            margin-right: 10px;
+        }
+
+        &:last-child {
+            margin-left: 10px;
+        }
+    }
+}
+
 .comment-form {
     border: 1px solid #e3e3e3;
     background: #ffffff;
@@ -59,6 +73,15 @@ img.nav-avatar {
             width: 100%;
             display: block;
             margin-bottom: 5px;
+        }
+    }
+
+    .voting-form {
+        .form-group {
+            margin-bottom: 0;
+            &:last-child {
+                margin-left: 0;
+            }
         }
     }
 

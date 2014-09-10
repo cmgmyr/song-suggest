@@ -1,5 +1,5 @@
-{{Form::model($vote, ['route' => ['votes.store', $song->id], 'class' => 'voting-form'])}}
-<div>
+{{Form::model($vote, ['route' => ['votes.store', $song->id], 'class' => 'form-inline voting-form'])}}
+<div class="form-group">
     <label>
         Your Vote:
     </label>
@@ -15,6 +15,6 @@
     </label>
 </div>
 <div class="form-group">
-    {{ Form::submit('Vote!', ['class' => 'btn btn-primary']) }}
+    {{ Form::submit('Vote!', ['class' => 'btn btn-sm btn-primary']) }}
 </div>
 {{Form::close()}}
