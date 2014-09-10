@@ -38,7 +38,9 @@ class EmailNotifier extends EventListener
     {
         $song = $this->song->deletedWithId($event->activity->song_id);
         $followers = $song->getFollowers($event->activity->user_id);
-        $notification = $song->user->first_name . ' ' . $event->activity->message;
+
+        $activityMadeBy = $this->user->byId($event->activity->user_id);
+        $notification = $activityMadeBy->first_name . ' ' . $event->activity->message;
 
         foreach ($followers as $follower) {
             $user = $this->user->byId($follower->user->id);
@@ -50,7 +52,9 @@ class EmailNotifier extends EventListener
     {
         $song = $this->song->deletedWithId($event->comment->song_id);
         $followers = $song->getFollowers($event->comment->user_id);
-        $notification = $song->user->first_name . ' said: ' . $event->comment->comment;
+
+        $commendMadeBy = $this->user->byId($event->comment->user_id);
+        $notification = $commendMadeBy->first_name . ' said: ' . $event->comment->comment;
 
         foreach ($followers as $follower) {
             $user = $this->user->byId($follower->user->id);
