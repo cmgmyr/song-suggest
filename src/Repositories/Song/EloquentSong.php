@@ -144,10 +144,10 @@ class EloquentSong implements SongInterface
         // @todo: see if there is a better solution for all of this...
 
         $query = "
-        SELECT id, 'comment' as 'type', user_id, comment, null as message, null as color_class, created_at FROM comments
+        SELECT id, 'comment' as 'type', user_id, comment as text, null as color_class, created_at FROM comments
         WHERE song_id = :comment_song_id
         UNION
-        SELECT id, 'activity' as 'type', user_id, null as comment, message, color_class, created_at FROM activity
+        SELECT id, 'activity' as 'type', user_id, message as text, color_class, created_at FROM activity
         WHERE song_id = :activity_song_id ORDER BY created_at DESC, id DESC
         ";
 
