@@ -5,6 +5,7 @@
         <td>Artist</td>
         <td>Title</td>
         <td>Votes</td>
+        <td class="hidden-xs">Suggested</td>
         <td>Manage</td>
     </tr>
     </thead>
@@ -17,6 +18,7 @@
             <span class="btn btn-success btn-xs">{{$song->positiveVotes()->count()}}</span>
             <span class="btn btn-danger btn-xs">{{$song->negativeVotes()->count()}}</span>
         </td>
+        <td class="hidden-xs">{{$song->created_at->diffForHumans()}}</td>
         <td class="manage-buttons">
             @include('songs.partials.index-manage-buttons')
         </td>

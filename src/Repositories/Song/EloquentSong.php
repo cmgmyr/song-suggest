@@ -23,7 +23,7 @@ class EloquentSong implements SongInterface
      */
     public function all()
     {
-        return $this->song->all();
+        return $this->song->latest()->get();
     }
 
     /**
