@@ -60,6 +60,7 @@ Route::group(['before' => 'auth.admin'], function()
     {
         Route::get('suggest', APPCONTROLLERS . '\EmailsController@suggest');
         Route::get('activity', APPCONTROLLERS . '\EmailsController@activity');
+        Route::get('password', APPCONTROLLERS . '\EmailsController@password');
     });
 });
 

@@ -41,4 +41,13 @@ class EmailsController extends BaseController
 
         return View::make('emails.songs.activity', $data);
     }
+
+    public function password()
+    {
+        $data = [
+            'token' => md5('abc123')
+        ];
+
+        return View::make('emails.auth.reminder', $data);
+    }
 } 
