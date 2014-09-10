@@ -1,13 +1,11 @@
 <?php namespace Ss\Domain\Follow;
 
 use Laracasts\Commander\CommandHandler;
-use Laracasts\Commander\Events\DispatchableTrait;
 use Ss\Repositories\Follow\Follow;
 use Ss\Repositories\Follow\FollowInterface;
 
 class FollowSongCommandHandler implements CommandHandler
 {
-    use DispatchableTrait;
 
     protected $follow;
 

@@ -5,15 +5,19 @@ use Illuminate\Support\Facades\Input;
 use Ss\Domain\Follow\FollowSongCommand;
 use Ss\Domain\Follow\UnFollowSongCommand;
 use Ss\Repositories\Follow\Follow;
+use Ss\Repositories\User\UserInterface;
 
 class FollowsController extends BaseController
 {
 
     protected $follow;
 
-    function __construct(Follow $follow)
+    protected $user;
+
+    function __construct(Follow $follow, UserInterface $user)
     {
         $this->follow = $follow;
+        $this->user = $user;
     }
 
     /**
@@ -44,8 +48,12 @@ class FollowsController extends BaseController
      */
     public function whenSongWasSuggested($event)
     {
-        $input = ['song_id' => $event->song->id, 'user_id' => $event->song->user_id];
-        $this->execute(FollowSongCommand::class, $input);
+        $users = $this->user->getAllEmailableUsers();
+
+        foreach ($users as $user) {
+            $input = ['song_id' => $event->song->id, 'user_id' => $user->id];
+            $this->execute(FollowSongCommand::class, $input);
+        }
     }
 
 }
