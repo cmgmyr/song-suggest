@@ -8,7 +8,7 @@
         @endif
 
         <div class="vote-stats">
-            Votes: <span class="btn btn-success">{{$song->positiveVotes()->count()}}</span> and <span class="btn btn-danger">{{$song->negativeVotes()->count()}}</span> out of {{$totalUsers}}
+            Votes: <span class="btn btn-success">{{$song->positiveVotes()}}</span> and <span class="btn btn-danger">{{$song->negativeVotes()}}</span> out of {{$totalUsers}}
         </div>
 
         @include('votes.vote-form')

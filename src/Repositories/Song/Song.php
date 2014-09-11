@@ -86,23 +86,43 @@ class Song extends BaseModel
     }
 
     /**
-     * Get all positive (yes) votes from a song
+     * Count all positive (yes) votes from a song
      *
      * @return mixed
      */
     public function positiveVotes()
     {
-        return $this->votes()->where('vote', 'y');
+        return $this->votes()->where('vote', 'y')->count();
     }
 
     /**
-     * Get all negative (no) votes from a song
+     * Count all negative (no) votes from a song
      *
      * @return mixed
      */
     public function negativeVotes()
     {
-        return $this->votes()->where('vote', 'n');
+        return $this->votes()->where('vote', 'n')->count();
+    }
+
+    /**
+     * Count all votes on a song
+     *
+     * @return mixed
+     */
+    public function totalVotes()
+    {
+        return $this->votes()->count();
+    }
+
+    /**
+     * Count all comments from a song
+     *
+     * @return mixed
+     */
+    public function commentsCount()
+    {
+        return $this->comments()->count();
     }
 
     /**
@@ -161,7 +181,7 @@ class Song extends BaseModel
      */
     public function isEditable(User $user)
     {
-        if ($user->is_admin == 'y' || $this->votes()->count() <= 1) {
+        if ($user->is_admin == 'y' || $this->totalVotes() <= 1) {
             return true;
         }
 

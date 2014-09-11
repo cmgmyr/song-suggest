@@ -1,7 +1,7 @@
 @if(!$song->trashed())
     {{ link_to_route('songs.show', 'View', ['id' => $song->id], ['class' => 'btn btn-info btn-xs']) }}
 
-    @if($currentUser->is_admin == 'y' || $song->votes()->count() <= 1)
+    @if($currentUser->is_admin == 'y' || $song->totalVotes() <= 1)
         {{ link_to_route('songs.edit', 'Edit', ['id' => $song->id], ['class' => 'btn btn-primary btn-xs']) }}
     @endif
 @endif
