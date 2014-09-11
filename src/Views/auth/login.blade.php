@@ -16,6 +16,11 @@
 
             <div class="form-group">
                 {{ Form::submit('Login', ['class' => 'btn btn-primary']) }}
+
+                <label>
+                    {{Form::checkbox('remember')}} Remember <span class="hidden-xs">me</span>
+                </label>
+
                 {{link_to('/password/remind', 'Reset Password', ['class' => 'btn btn-default pull-right'])}}
             </div>
         {{Form::close()}}

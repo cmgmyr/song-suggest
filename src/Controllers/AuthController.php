@@ -56,8 +56,10 @@ class AuthController extends BaseController
             'is_active' => 'y'
         ];
 
-        if (Auth::attempt($credentials)) {
-            return Redirect::home();
+        $remember = Input::get('remember') == 'y' ? true : false;
+
+        if (Auth::attempt($credentials, $remember)) {
+            return Redirect::intended('');
         } else {
             Flash::error('Sorry, your login credentials were not correct, or you are not allowed to log in');
 
