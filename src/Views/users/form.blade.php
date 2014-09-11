@@ -52,7 +52,7 @@
                     <label>{{Form::radio('notify', 'n')}} No</label>
                 </div>
             </div>
-        </div>\
+        </div>
 	</div>
 </div>
 <div class="row">
