@@ -4,6 +4,7 @@ namespace Ss\Listeners;
 use Laracasts\Commander\Events\EventListener;
 use Ss\Domain\Activity\Events\ActivityAdded;
 use Ss\Domain\Comment\Events\CommentPublished;
+use Ss\Domain\Song\Events\SongCategoryChanged;
 use Ss\Domain\Song\Events\SongSuggested;
 use Ss\Mailers\SongMailer;
 use Ss\Repositories\Song\SongInterface;
@@ -55,6 +56,20 @@ class EmailNotifier extends EventListener
 
         $commendMadeBy = $this->user->byId($event->comment->user_id);
         $notification = $commendMadeBy->first_name . ' said: ' . $event->comment->comment;
+
+        foreach ($followers as $follower) {
+            $user = $this->user->byId($follower->user->id);
+            $this->mailer->sendSongActivityTo($user, $song, $notification);
+        }
+    }
+
+    public function whenSongCategoryChanged(SongCategoryChanged $event)
+    {
+        $song = $event->song;
+        $newCategory = $song->category->name;
+        $followers = $song->getFollowers();
+
+        $notification = 'This song has been moved to "' . $newCategory . '"';
 
         foreach ($followers as $follower) {
             $user = $this->user->byId($follower->user->id);
