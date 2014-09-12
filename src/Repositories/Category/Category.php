@@ -5,6 +5,27 @@ use Ss\Models\BaseModel;
 
 class Category extends BaseModel
 {
+
+    /**
+     * ID for "Pending" category
+     */
+    const PENDING = 1;
+
+    /**
+     * ID for "Approved" category
+     */
+    const APPROVED = 2;
+
+    /**
+     * ID for "Declined" category
+     */
+    const DECLINED = 3;
+
+    /**
+     * ID for "Archived" category
+     */
+    const ARCHIVED = 4;
+
     /**
      * The database table used by the model.
      *
