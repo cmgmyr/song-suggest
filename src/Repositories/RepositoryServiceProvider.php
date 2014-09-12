@@ -3,6 +3,8 @@ namespace Ss\Repositories;
 
 use Ss\Repositories\Activity\Activity;
 use Ss\Repositories\Activity\EloquentActivity;
+use Ss\Repositories\Category\Category;
+use Ss\Repositories\Category\EloquentCategory;
 use Ss\Repositories\Comment\Comment;
 use Ss\Repositories\Comment\EloquentComment;
 use Ss\Repositories\Follow\EloquentFollow;
@@ -32,6 +34,17 @@ class RepositoryServiceProvider extends ServiceProvider
             function () {
                 $model = new EloquentActivity(
                     new Activity
+                );
+
+                return $model;
+            }
+        );
+
+        $app->bind(
+            'Ss\Repositories\Category\CategoryInterface',
+            function () {
+                $model = new EloquentCategory(
+                    new Category
                 );
 
                 return $model;
