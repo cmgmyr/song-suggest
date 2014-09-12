@@ -10,11 +10,17 @@ use Ss\Domain\Song\ForceDeleteSongCommand;
 use Ss\Domain\Song\RestoreSongCommand;
 use Ss\Domain\Song\SuggestSongCommand;
 use Ss\Forms\SongForm;
+use Ss\Repositories\Category\CategoryInterface;
 use Ss\Repositories\Song\SongInterface;
 use Ss\Repositories\Song\SongNotFoundException;
 
 class SongsController extends BaseController
 {
+
+    /**
+     * @var \Ss\Repositories\Category\CategoryInterface
+     */
+    private $category;
 
     /**
      * @var \Ss\Repositories\Song\SongInterface
@@ -26,17 +32,18 @@ class SongsController extends BaseController
      */
     protected $songForm;
 
-    function __construct(SongInterface $song, SongForm $songForm)
+    function __construct(CategoryInterface $category, SongInterface $song, SongForm $songForm)
     {
+        $this->category = $category;
         $this->song = $song;
         $this->songForm = $songForm;
     }
 
     public function index()
     {
-        $songs = $this->song->all();
+        $categories = $this->category->all();
 
-        $this->layout->content = View::make('songs.index', compact('songs'));
+        $this->layout->content = View::make('songs.index', compact('categories'));
     }
 
     public function deleted()

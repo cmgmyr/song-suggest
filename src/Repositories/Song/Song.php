@@ -2,6 +2,7 @@
 namespace Ss\Repositories\Song;
 
 use Illuminate\Database\Eloquent\SoftDeletingTrait;
+use Ss\Domain\Song\Events\SongCategoryChanged;
 use Ss\Domain\Song\Events\SongDeleted;
 use Ss\Domain\Song\Events\SongEdited;
 use Ss\Domain\Song\Events\SongRestored;
@@ -43,6 +44,16 @@ class Song extends BaseModel
     public function activities()
     {
         return $this->hasMany('Ss\Repositories\Activity\Activity')->latest()->latest('id');
+    }
+
+    /**
+     * Each song belongs to a category
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function category()
+    {
+        return $this->belongsTo('Ss\Repositories\Category\Category');
     }
 
     /**
@@ -277,9 +288,27 @@ class Song extends BaseModel
      * @param \Ss\Repositories\User\User $editor
      * @return Song
      */
-    public static function RestoreSong(Song $song, User $editor)
+    public static function restoreSong(Song $song, User $editor)
     {
         $song->raise(new SongRestored($song, $editor));
+
+        return $song;
+    }
+
+    /**
+     * Updates the category of a song
+     *
+     * @param Song $song
+     * @param $category_id
+     * @return Song
+     */
+    public static function updateCategory(Song $song, $category_id)
+    {
+        if($song->category_id != $category_id) {
+            $song->category_id = $category_id;
+
+            $song->raise(new SongCategoryChanged($song));
+        }
 
         return $song;
     }

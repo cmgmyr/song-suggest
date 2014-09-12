@@ -12,15 +12,26 @@ class DatabaseSeeder extends Seeder
      * @var array
      */
     protected $tables = [
+        'activity',
+        'categories',
+        'comments',
+        'failed_jobs',
+        'follows',
+        'password_reminders',
+        'settings',
+        'sessions',
         'songs',
-        'users'
+        'users',
+        'votes',
     ];
 
     /**
      * @var array
      */
     protected $seeders = [
-        'UsersSeeder'
+        'UsersSeeder',
+        'CategoriesSeeder',
+        'SettingsSeeder',
     ];
 
     public function __construct()

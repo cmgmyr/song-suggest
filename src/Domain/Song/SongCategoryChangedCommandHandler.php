@@ -6,7 +6,7 @@ use Laracasts\Commander\Events\DispatchableTrait;
 use Ss\Repositories\Song\Song;
 use Ss\Repositories\Song\SongInterface;
 
-class RestoreSongCommandHandler implements CommandHandler
+class SongCategoryChangedCommandHandler implements CommandHandler
 {
     use DispatchableTrait;
     /**
@@ -27,9 +27,9 @@ class RestoreSongCommandHandler implements CommandHandler
      */
     public function handle($command)
     {
-        $song = Song::restoreSong($command->song, $command->editor);
+        $song = Song::updateCategory($command->song, $command->category_id);
 
-        $this->song->restore($song);
+        $this->song->save($song);
 
         $this->dispatchEventsFor($song);
 
