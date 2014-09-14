@@ -24,6 +24,7 @@ class EloquentUserTest extends \Codeception\TestCase\Test
 
         $allUsers = $this->repo->all();
 
+        // 2 created users, plus 1 migrated user
         $this->assertCount(3, $allUsers);
     }
 
@@ -68,6 +69,18 @@ class EloquentUserTest extends \Codeception\TestCase\Test
         $deleted = $this->repo->delete($user);
 
         $this->assertTrue($deleted);
+    }
+
+    /** @test */
+    public function get_all_emailable_users()
+    {
+        $user1 = TestDummy::create('Ss\Repositories\User\User', ['notify' => 'y']);
+        $user2 = TestDummy::create('Ss\Repositories\User\User', ['notify' => 'n']);
+
+        $users = $this->repo->getAllEmailableUsers();
+
+        // 1 created user, plus 1 migrated user
+        $this->assertCount(2, $users);
     }
 
 }

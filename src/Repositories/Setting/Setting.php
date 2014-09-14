@@ -1,9 +1,9 @@
 <?php
-namespace Ss\Repositories\Settings;
+namespace Ss\Repositories\Setting;
 
 use Ss\Models\BaseModel;
 
-class Settings extends BaseModel
+class Setting extends BaseModel
 {
 
     /**

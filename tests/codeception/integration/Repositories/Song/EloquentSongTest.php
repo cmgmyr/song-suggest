@@ -14,7 +14,6 @@ class EloquentSongTest extends \Codeception\TestCase\Test
 
     protected function _before()
     {
-        $this->getModule('Laravel4');
         $this->repo = $this->tester->grabService('Ss\Repositories\Song\SongInterface');
     }
 

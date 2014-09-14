@@ -16,4 +16,4 @@ $I->click('Post Comment');
 
 $I->see('Your comment has been added!');
 
-$I->see($user->first_name . ' said: ' . $comment);
+$I->see($comment);

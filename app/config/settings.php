@@ -1,3 +1,3 @@
 <?php
 
-return \Ss\Repositories\Settings\Settings::lists('value', 'key');
+return \Ss\Repositories\Setting\Setting::lists('value', 'key');

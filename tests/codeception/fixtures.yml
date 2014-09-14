@@ -8,6 +8,12 @@ Ss\Repositories\Activity\Activity:
   created_at: $date
   updated_at: $date
 
+Ss\Repositories\Category\Category:
+  name: $string
+  sort: $integer
+  created_at: $date
+  updated_at: $date
+
 Ss\Repositories\Comment\Comment:
   user_id:
     type: Ss\Repositories\User\User
@@ -25,11 +31,17 @@ Ss\Repositories\Follow\Follow:
   created_at: $date
   updated_at: $date
 
+Ss\Repositories\Setting\Setting:
+  key: $string
+  value: $string
+
 Ss\Repositories\Song\Song:
   artist: $string
   title: $string
   user_id:
     type: Ss\Repositories\User\User
+  category_id:
+    type: Ss\Repositories\Category\Category
   created_at: $date
   updated_at: $date
 

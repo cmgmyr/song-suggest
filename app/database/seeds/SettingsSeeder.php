@@ -1,6 +1,6 @@
 <?php
 
-use Ss\Repositories\Settings\Settings;
+use Ss\Repositories\Setting\Setting;
 use Ss\Repositories\User\User;
 
 class SettingsSeeder extends Seeder {
@@ -16,7 +16,7 @@ class SettingsSeeder extends Seeder {
             $threshold = ceil($usersCount / 2); // majority vote
         }
 
-        Settings::create(
+        Setting::create(
             [
                 'key' => 'threshold',
                 'value' => $threshold
