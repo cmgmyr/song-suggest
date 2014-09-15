@@ -155,7 +155,7 @@ class EloquentSong implements SongInterface
         $data = new \Illuminate\Database\Eloquent\Collection;
 
         foreach($records as $record) {
-            $record->user = \Ss\Repositories\User\User::find($record->user_id);
+            $record->user = \Ss\Repositories\User\User::withTrashed()->where('id', $record->user_id)->first();
             $record->created_at = new Carbon($record->created_at);
 
             $data->add($record);
