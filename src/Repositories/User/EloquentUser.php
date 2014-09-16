@@ -27,6 +27,16 @@ class EloquentUser implements UserInterface
     }
 
     /**
+     * Fetches all deleted users from data source
+     *
+     * @return object
+     */
+    public function deleted()
+    {
+        return $this->user->onlyTrashed()->get();
+    }
+
+    /**
      * Fetches all users from data source and formats for
      * a Laravel form select
      *

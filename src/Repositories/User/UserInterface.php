@@ -12,6 +12,13 @@ interface UserInterface
     public function all();
 
     /**
+     * Fetches all deleted users from data source
+     *
+     * @return object
+     */
+    public function deleted();
+
+    /**
      * Fetches all users from data source and formats for
      * a Laravel form select
      *

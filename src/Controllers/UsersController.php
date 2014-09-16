@@ -36,6 +36,13 @@ class UsersController extends BaseController
         $this->layout->content = View::make('users.index', compact('users'));
     }
 
+    public function deleted()
+    {
+        $users = $this->user->deleted();
+
+        $this->layout->content = View::make('users.deleted', compact('users'));
+    }
+
     public function create()
     {
         $user = new \stdClass();

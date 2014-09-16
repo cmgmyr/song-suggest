@@ -48,10 +48,13 @@ Route::group(['before' => 'auth.admin'], function()
     Route::group(['prefix' => 'users'], function()
     {
         Route::get('/', ['as' => 'users', 'uses' => APPCONTROLLERS . '\UsersController@index']);
+        Route::get('deleted', ['as' => 'users.deleted', 'uses' => APPCONTROLLERS . '\UsersController@deleted']);
         Route::get('create', ['as' => 'users.create', 'uses' => APPCONTROLLERS . '\UsersController@create']);
         Route::post('/', ['as' => 'users.store', 'uses' => APPCONTROLLERS . '\UsersController@store']);
         Route::get('{id}/edit', ['as' => 'users.edit', 'uses' => APPCONTROLLERS . '\UsersController@edit']);
+        Route::put('{id}/restore', ['as' => 'users.restore', 'uses' => APPCONTROLLERS . '\UsersController@restore']);
         Route::put('{id}', ['as' => 'users.update', 'uses' => APPCONTROLLERS . '\UsersController@update']);
+        Route::delete('{id}/force', ['as' => 'users.force', 'uses' => APPCONTROLLERS . '\UsersController@forceDestroy']);
         Route::delete('{id}', ['as' => 'users.destroy', 'uses' => APPCONTROLLERS . '\UsersController@destroy']);
     });
 
