@@ -59,4 +59,22 @@ interface UserInterface
      * @return object
      */
     public function getAllEmailableUsers($except = null);
+
+    /**
+     * Fetches and returns user data associated with a deleted id
+     *
+     * @param $id
+     * @return object
+     * @throws UserNotFoundException
+     */
+    public function deletedWithId($id);
+
+    /**
+     * Restores a user from being soft deleted
+     *
+     * @param User $user
+     * @internal param $id
+     * @return boolean
+     */
+    public function restore(User $user);
 } 

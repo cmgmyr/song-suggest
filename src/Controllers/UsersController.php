@@ -1,8 +1,10 @@
 <?php
 namespace Ss\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Ss\Domain\User\CreateUserCommand;
 use Ss\Domain\User\DeleteUserCommand;
+use Ss\Domain\User\RestoreUserCommand;
 use Ss\Domain\User\UpdateUserCommand;
 use Ss\Repositories\User\UserInterface;
 use Ss\Forms\UserForm;
@@ -104,6 +106,24 @@ class UsersController extends BaseController
             return $this->redirectRouteWithSuccess('users', 'The user has been deleted.');
         } catch (UserNotFoundException $e) {
             return $this->redirectRouteWithError('home', $e->getMessage());
+        }
+    }
+
+    public function restore($id)
+    {
+        try {
+            $user = $this->user->deletedWithId($id);
+
+            if (Auth::user()->is_admin != 'y') {
+                $message = 'Sorry, this user cannot currently be restored or you don\'t have the correct access to do so.';
+                return $this->redirectRouteWithError('users.show', $message, ['id' => $id]);
+            }
+
+            $this->execute(RestoreUserCommand::class, ['user' => $user]);
+
+            return $this->redirectBackWithSuccess('The user has been restored.');
+        } catch (UserNotFoundException $e) {
+            return $this->redirectBackWithError($e->getMessage());
         }
     }
 } 

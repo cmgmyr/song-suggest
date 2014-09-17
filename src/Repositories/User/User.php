@@ -165,4 +165,15 @@ class User extends BaseModel implements UserInterface, RemindableInterface
 
         return $user;
     }
+
+    /**
+     * Restore a user
+     *
+     * @param User $user
+     * @return User
+     */
+    public static function restoreUser(User $user)
+    {
+        return $user;
+    }
 }

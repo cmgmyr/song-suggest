@@ -121,4 +121,35 @@ class EloquentUser implements UserInterface
 
         return $query->get();
     }
+
+    /**
+     * Fetches and returns user data associated with a deleted id
+     *
+     * @param $id
+     * @return object
+     * @throws UserNotFoundException
+     */
+    public function deletedWithId($id)
+    {
+        $user = $this->user->withTrashed()->where('id', $id)->first();
+        if (!$user) {
+            throw new UserNotFoundException('No deleted user found with ID: ' . $id);
+        }
+
+        return $user;
+    }
+
+    /**
+     * Restores a user from being soft deleted
+     *
+     * @param User $user
+     * @internal param $id
+     * @return boolean
+     */
+    public function restore(User $user)
+    {
+        $user->restore();
+
+        return true;
+    }
 }
