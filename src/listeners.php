@@ -7,4 +7,5 @@ Event::listen('Ss.Domain.Song.Events.SongSuggested', 'Ss\Controllers\VotesContro
 
 Event::listen('Ss.Domain.Vote.Events.*', 'Ss\Controllers\VotesController@whenVoteWasCast');
 
+Event::listen('Ss.Domain.User.Events.*', 'Ss\Listeners\UserListener');
 Event::listen('Ss.*', 'Ss\Listeners\EmailNotifier');

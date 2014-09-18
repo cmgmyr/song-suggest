@@ -31,6 +31,8 @@ class RestoreUserCommandHandler implements CommandHandler
 
         $this->user->restore($user);
 
+        $this->dispatchEventsFor($user);
+
         return $user;
     }
 }

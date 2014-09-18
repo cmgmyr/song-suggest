@@ -24,6 +24,7 @@
             "src/Repositories/Activity/Exceptions.php",
             "src/Repositories/Comment/Exceptions.php",
             "src/Repositories/Follow/Exceptions.php",
+            "src/Repositories/Setting/Exceptions.php",
             "src/Repositories/Song/Exceptions.php",
             "src/Repositories/User/Exceptions.php",
             "src/Repositories/Vote/Exceptions.php"

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Laracasts\Presenter\PresentableTrait;
 use Ss\Domain\User\Events\UserAdded;
 use Ss\Domain\User\Events\UserDeleted;
+use Ss\Domain\User\Events\UserRestored;
 use Ss\Domain\User\Events\UserUpdated;
 use Ss\Models\BaseModel;
 
@@ -174,6 +175,8 @@ class User extends BaseModel implements UserInterface, RemindableInterface
      */
     public static function restoreUser(User $user)
     {
+        $user->raise(new UserRestored($user));
+
         return $user;
     }
 }

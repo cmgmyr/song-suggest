@@ -105,7 +105,7 @@ class UsersController extends BaseController
 
             return $this->redirectRouteWithSuccess('users', 'The user has been deleted.');
         } catch (UserNotFoundException $e) {
-            return $this->redirectRouteWithError('home', $e->getMessage());
+            return $this->redirectRouteWithError('users', $e->getMessage());
         }
     }
 

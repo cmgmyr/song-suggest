@@ -27,6 +27,16 @@ class EloquentUser implements UserInterface
     }
 
     /**
+     * Counts all active users
+     *
+     * @return integer
+     */
+    public function countAll()
+    {
+        return $this->user->where('is_active', 'y')->count();
+    }
+
+    /**
      * Fetches all deleted users from data source
      *
      * @return object

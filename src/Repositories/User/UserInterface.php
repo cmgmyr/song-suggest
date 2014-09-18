@@ -12,6 +12,13 @@ interface UserInterface
     public function all();
 
     /**
+     * Counts all active users
+     *
+     * @return integer
+     */
+    public function countAll();
+
+    /**
      * Fetches all deleted users from data source
      *
      * @return object
