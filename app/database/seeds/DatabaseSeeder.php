@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder
         'failed_jobs',
         'follows',
         'password_reminders',
-        'settings',
         'sessions',
+        'settings',
         'songs',
         'users',
         'votes',
@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
      * @var array
      */
     protected $seeders = [
-        'UsersSeeder',
+        //'UsersSeeder',
         'CategoriesSeeder',
         'SettingsSeeder',
     ];
