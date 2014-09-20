@@ -27,6 +27,7 @@ interface SettingInterface
      * updated, deleted, or restored
      *
      * @param $userCount
+     * @return object
      */
     public function updateThreshold($userCount);
 }

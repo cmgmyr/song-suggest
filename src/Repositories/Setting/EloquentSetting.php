@@ -56,6 +56,7 @@ class EloquentSetting implements SettingInterface
      * updated, deleted, or restored
      *
      * @param $userCount
+     * @return object
      */
     public function updateThreshold($userCount)
     {
@@ -73,5 +74,7 @@ class EloquentSetting implements SettingInterface
         }
 
         $this->save($setting);
+
+        return $setting;
     }
 }
