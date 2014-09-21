@@ -24,8 +24,18 @@ class EloquentUserTest extends \Codeception\TestCase\Test
 
         $allUsers = $this->repo->all();
 
-        // 2 created users, plus 1 migrated user
-        $this->assertCount(3, $allUsers);
+        $this->assertCount(2, $allUsers);
+    }
+
+    /** @test */
+    public function count_all_users()
+    {
+        TestDummy::times(2)->create('Ss\Repositories\User\User', ['is_active' => 'y']);
+        TestDummy::times(2)->create('Ss\Repositories\User\User', ['is_active' => 'n']);
+
+        $allUsers = $this->repo->countAll();
+
+        $this->assertEquals(2, $allUsers);
     }
 
     /** @test */
@@ -79,8 +89,7 @@ class EloquentUserTest extends \Codeception\TestCase\Test
 
         $users = $this->repo->getAllEmailableUsers();
 
-        // 1 created user, plus 1 migrated user
-        $this->assertCount(2, $users);
+        $this->assertCount(1, $users);
     }
 
 }
