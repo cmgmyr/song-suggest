@@ -27,7 +27,7 @@ class EditSongCommandHandler implements CommandHandler
      */
     public function handle($command)
     {
-        $song = Song::edit($command->song, $command->editor, $command->artist, $command->title, $command->youtube);
+        $song = Song::edit($command->song, $command->editor, $command->artist, $command->title, $command->youtube, $command->mp3_file);
 
         $this->song->save($song);
 

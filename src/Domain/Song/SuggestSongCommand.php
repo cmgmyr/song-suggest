@@ -8,13 +8,15 @@ class SuggestSongCommand
     public $artist;
     public $title;
     public $youtube;
+    public $mp3_file;
     public $user;
 
-    function __construct($artist, $title, $youtube, User $user)
+    function __construct($artist, $title, $youtube, $mp3_file, User $user)
     {
         $this->artist = $artist;
         $this->title = $title;
         $this->youtube = $youtube;
+        $this->mp3_file = $mp3_file;
         $this->user = $user;
     }
 } 

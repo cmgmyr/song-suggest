@@ -16,6 +16,11 @@
         </div>
 
         <div class="form-group">
+            {{ Form::label('mp3_file', 'MP3 File', ['class' => 'control-label']) }}
+            {{ Form::file('mp3_file', ['class' => 'form-control', 'accept' => '.mp3']) }}
+        </div>
+
+        <div class="form-group">
             {{ Form::submit('Save!', ['class' => 'btn btn-primary btn-large']) }}
         </div>
 	</div>

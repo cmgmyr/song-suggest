@@ -42,6 +42,7 @@ Ss\Repositories\Song\Song:
     type: Ss\Repositories\User\User
   category_id:
     type: Ss\Repositories\Category\Category
+  mp3_file: $string
   created_at: $date
   updated_at: $date
 

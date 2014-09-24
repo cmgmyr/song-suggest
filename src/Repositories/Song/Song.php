@@ -27,7 +27,7 @@ class Song extends BaseModel
      *
      * @var array
      */
-    protected $fillable = ['artist', 'title', 'user_id', 'youtube'];
+    protected $fillable = ['artist', 'title', 'user_id', 'youtube', 'category_id', 'mp3_file'];
 
     /**
      * The attributes that should be mutated to dates.
@@ -233,13 +233,14 @@ class Song extends BaseModel
      * @param $artist
      * @param $title
      * @param $youtube
+     * @param $mp3_file
      * @param $user_id
      * @return static
      * @internal param $user
      */
-    public static function suggest($artist, $title, $youtube, $user_id)
+    public static function suggest($artist, $title, $youtube, $mp3_file = null, $user_id)
     {
-        $song = new static(compact('artist', 'title', 'youtube', 'user_id'));
+        $song = new static(compact('artist', 'title', 'youtube', 'mp3_file', 'user_id'));
 
         $song->raise(new SongSuggested($song));
 
@@ -254,13 +255,15 @@ class Song extends BaseModel
      * @param $artist
      * @param $title
      * @param $youtube
+     * @param $mp3_file
      * @return Song
      */
-    public static function edit(Song $song, User $editor, $artist, $title, $youtube)
+    public static function edit(Song $song, User $editor, $artist, $title, $youtube, $mp3_file)
     {
         $song->artist = $artist;
         $song->title = $title;
         $song->youtube = $youtube;
+        $song->mp3_file = $mp3_file;
 
         $song->raise(new SongEdited($song, $editor));
 

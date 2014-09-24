@@ -64,7 +64,9 @@ class SongsController extends BaseController
     {
         $this->songForm->validate();
 
-        $input = array_add(Input::all(), 'user', Auth::user());
+        $input = array_add(Input::except('mp3_file'), 'user', Auth::user());
+        $input = $this->handleUpload($input);
+
         $song = $this->execute(SuggestSongCommand::class, $input);
 
         return $this->redirectRouteWithSuccess('songs.show', 'Your song suggestion has been added!', ['id' => $song->id]);
@@ -109,6 +111,8 @@ class SongsController extends BaseController
         $this->songForm->validate();
 
         $input = array_merge(Input::all(), ['song' =>$song, 'editor' => Auth::user()]);
+        $input = $this->handleUpload($input);
+
         $this->execute(EditSongCommand::class, $input);
 
         return $this->redirectRouteWithSuccess('home', 'Your song suggestion has been updated!');
@@ -166,5 +170,22 @@ class SongsController extends BaseController
         } catch (SongNotFoundException $e) {
             return $this->redirectBackWithError($e->getMessage());
         }
+    }
+
+    protected function handleUpload($input)
+    {
+        $input = array_merge($input, ['mp3_file' => null]);
+
+        if (Input::hasFile('mp3_file')) {
+            $file = Input::file('mp3_file');
+            if($file->getClientOriginalExtension() == 'mp3') {
+                $fileName = $input['artist'] . ' - ' . $input['title'] . '.mp3';
+                $file->move('assets/uploads', $fileName);
+
+                $input = array_merge($input, ['mp3_file' => $fileName]);
+            }
+        }
+
+        return $input;
     }
 }

@@ -28,7 +28,7 @@ class SuggestSongCommandHandler implements CommandHandler
      */
     public function handle($command)
     {
-        $song = Song::suggest($command->artist, $command->title, $command->youtube, $command->user->id);
+        $song = Song::suggest($command->artist, $command->title, $command->youtube, $command->mp3_file, $command->user->id);
 
         $this->song->save($song);
 
