@@ -1,3 +1,4 @@
+<hr>
 {{Form::open(['route' => ['follows.store', $song->id], 'class' => 'follow-form'])}}
 <div>
     <label>

@@ -2,7 +2,9 @@
 namespace Ss\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\View;
 use Ss\Domain\Song\DeleteSongCommand;
 use Ss\Domain\Song\EditSongCommand;
@@ -118,6 +120,13 @@ class SongsController extends BaseController
         return $this->redirectRouteWithSuccess('home', 'Your song suggestion has been updated!');
     }
 
+    public function download($id)
+    {
+        $song = $this->song->byId($id);
+
+        return Response::download(Config::get('uploads.location') . '/'. $song->mp3_file);
+    }
+
     public function destroy($id)
     {
         try {
@@ -180,7 +189,7 @@ class SongsController extends BaseController
             $file = Input::file('mp3_file');
             if($file->getClientOriginalExtension() == 'mp3') {
                 $fileName = $input['artist'] . ' - ' . $input['title'] . '.mp3';
-                $file->move('assets/uploads', $fileName);
+                $file->move(Config::get('uploads.location'), $fileName);
 
                 $input = array_merge($input, ['mp3_file' => $fileName]);
             }
