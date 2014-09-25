@@ -263,7 +263,11 @@ class Song extends BaseModel
         $song->artist = $artist;
         $song->title = $title;
         $song->youtube = $youtube;
-        $song->mp3_file = $mp3_file;
+
+        // only overwrite the file if not currently available
+        if ($song->mp3_file === null) {
+            $song->mp3_file = $mp3_file;
+        }
 
         $song->raise(new SongEdited($song, $editor));
 
