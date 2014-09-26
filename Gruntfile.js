@@ -6,12 +6,24 @@ module.exports = function (grunt) {
         // Task configuration
         copy: {
             main: {
-                expand: true,
-                cwd: 'bower_components/bootstrap/fonts/',
-                src: '**',
-                dest: 'public/assets/fonts/',
-                flatten: true,
-                filter: 'isFile'
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'bower_components/bootstrap/fonts/',
+                        src: '**',
+                        dest: 'public/assets/fonts/',
+                        flatten: true,
+                        filter: 'isFile'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'bower_components/fontawesome/fonts/',
+                        src: '**',
+                        dest: 'public/assets/fonts/',
+                        flatten: true,
+                        filter: 'isFile'
+                    }
+                ]
             }
         },
         less: {

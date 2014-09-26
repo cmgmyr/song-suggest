@@ -2,6 +2,7 @@
     "name": "songSuggest",
     "dependencies": {
         "jquery": "~2.1.1",
-        "bootstrap": "~3.2"
+        "bootstrap": "~3.2",
+        "fontawesome": "~4.2"
     }
 }

@@ -1,5 +1,10 @@
 <td>{{$song->artist}}</td>
-<td>{{$song->title}}</td>
+<td>
+    {{$song->title}}
+    @if($song->mp3_file !== null)
+        <span class="fa fa-music" role="presentation" title="MP3 File Available"></span>
+    @endif
+</td>
 <td>
     <span class="btn btn-success btn-xs" title="Yes Votes">{{$song->positiveVotes()}}</span>
     <span class="btn btn-danger btn-xs" title="No Votes">{{$song->negativeVotes()}}</span>
