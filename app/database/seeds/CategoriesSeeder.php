@@ -33,5 +33,17 @@ class CategoriesSeeder extends Seeder
                 'sort'  => 4,
             )
         );
+        Category::create(
+            array(
+                'name' => 'Learning',
+                'sort'  => 5,
+            )
+        );
+        Category::create(
+            array(
+                'name' => 'Learned',
+                'sort'  => 6,
+            )
+        );
     }
 } 

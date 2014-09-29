@@ -27,6 +27,16 @@ class Category extends BaseModel
     const ARCHIVED = 4;
 
     /**
+     * ID for "Learning" category
+     */
+    const LEARNING = 5;
+
+    /**
+     * ID for "Learned" category
+     */
+    const LEARNED = 6;
+
+    /**
      * The database table used by the model.
      *
      * @var string
