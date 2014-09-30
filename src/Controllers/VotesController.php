@@ -50,6 +50,11 @@ class VotesController extends BaseController
         $this->execute(VoteCastCommand::class, $input);
     }
 
+    /**
+     * Potentially moves a song to a new category after a vote was cast
+     *
+     * @param $event
+     */
     public function whenVoteWasCast($event)
     {
         // get the song
@@ -65,7 +70,7 @@ class VotesController extends BaseController
         $threshold = Config::get('settings.threshold');
 
         // see if song is negative or positive, then move to category
-        if ($song->category_id != Category::ARCHIVED) {
+        if (!in_array($song->category_id, Category::getProtectedCategories())) {
             if($positiveVotes >= $threshold) {
                 $input = ['song' => $song, 'category_id' => Category::APPROVED];
                 $this->execute(SongCategoryChangedCommand::class, $input);

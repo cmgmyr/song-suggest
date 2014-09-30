@@ -51,6 +51,17 @@ class Category extends BaseModel
     protected $fillable = ['name', 'sort'];
 
     /**
+     * Create and return protected categories. Songs in these categories
+     * won't be moved to Approved/Declined
+     *
+     * @return array
+     */
+    public static function getProtectedCategories()
+    {
+        return [self::ARCHIVED, self::LEARNING, self::LEARNED];
+    }
+
+    /**
      * An category has many songs
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

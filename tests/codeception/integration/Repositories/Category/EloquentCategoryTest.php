@@ -20,7 +20,7 @@ class EloquentCategoryTest extends \Codeception\TestCase\Test
     {
         $all = $this->repo->all();
 
-        $this->assertCount(4, $all);
+        $this->assertCount(6, $all);
     }
 
 }
