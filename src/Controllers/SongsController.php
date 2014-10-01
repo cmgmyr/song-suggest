@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\View;
+use Ss\Domain\Song\ChangeCategoryCommand;
 use Ss\Domain\Song\DeleteSongCommand;
 use Ss\Domain\Song\EditSongCommand;
 use Ss\Domain\Song\ForceDeleteSongCommand;
@@ -197,5 +198,23 @@ class SongsController extends BaseController
         }
 
         return $input;
+    }
+
+    protected function category($id)
+    {
+        try {
+            $song = $this->song->deletedWithId($id);
+
+            if (Auth::user()->is_admin != 'y') {
+                $message = 'Sorry, this song cannot currently be deleted or you don\'t have the correct access to do so.';
+                return $this->redirectRouteWithError('songs.show', $message, ['id' => $id]);
+            }
+
+            $this->execute(ChangeCategoryCommand::class, ['song' => $song, 'category' => Input::get('category_id')]);
+
+            return $this->redirectBackWithSuccess('The song has been updated.');
+        } catch (SongNotFoundException $e) {
+            return $this->redirectBackWithError($e->getMessage());
+        }
     }
 }
