@@ -19,6 +19,7 @@ Route::group(['before' => 'auth'], function()
         Route::get('{id}/edit', ['as' => 'songs.edit', 'uses' => APPCONTROLLERS . '\SongsController@edit']);
         Route::get('{id}/download', ['as' => 'songs.download', 'uses' => APPCONTROLLERS . '\SongsController@download']);
         Route::put('{id}/restore', ['as' => 'songs.restore', 'uses' => APPCONTROLLERS . '\SongsController@restore']);
+        Route::put('{id}/category', ['as' => 'songs.category', 'uses' => APPCONTROLLERS . '\SongsController@category']);
         Route::put('{id}', ['as' => 'songs.update', 'uses' => APPCONTROLLERS . '\SongsController@update']);
         Route::delete('{id}/force', ['as' => 'songs.force', 'uses' => APPCONTROLLERS . '\SongsController@forceDestroy']);
         Route::delete('{id}', ['as' => 'songs.destroy', 'uses' => APPCONTROLLERS . '\SongsController@destroy']);
