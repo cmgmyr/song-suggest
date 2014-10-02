@@ -23,6 +23,6 @@ class EloquentCategory implements CategoryInterface
      */
     public function all()
     {
-        return $this->category->orderBy('sort', 'ASC')->with('songs')->get();
+        return $this->category->orderBy('sort', 'ASC')->get();
     }
 }

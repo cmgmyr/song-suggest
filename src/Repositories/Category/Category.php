@@ -68,6 +68,36 @@ class Category extends BaseModel
      */
     public function songs()
     {
-        return $this->hasMany('Ss\Repositories\Song\Song', 'category_id')->latest();
+        return $this->hasMany('Ss\Repositories\Song\Song', 'category_id');
+    }
+
+    public function popularSongs()
+    {
+        $records = \DB::select("
+                SELECT
+                    s.id,
+                    (SELECT COUNT(id) FROM votes WHERE vote = 'y' AND song_id = s.id) as 'pos',
+                    (SELECT COUNT(id) FROM votes WHERE vote = 'n' AND song_id = s.id) as 'neg',
+                    (SELECT COUNT(id) FROM comments WHERE song_id = s.id) as 'com'
+                FROM
+                    songs s
+                LEFT JOIN
+                    votes v ON (s.id = v.song_id)
+                WHERE
+                    s.category_id = ? AND s.deleted_at IS NULL
+                GROUP BY
+                    s.id
+                ORDER BY
+                    pos DESC, neg ASC, com DESC", [$this->id]);
+
+        $data = new \Illuminate\Database\Eloquent\Collection;
+
+        foreach($records as $record) {
+            $song = \Ss\Repositories\Song\Song::find($record->id);
+
+            $data->add($song);
+        }
+
+        return $data;
     }
 }

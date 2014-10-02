@@ -14,7 +14,7 @@
                 @include('songs.partials.song-table-header')
             </tr>
             <?php $x = 0; ?>
-            @foreach($category->songs as $song)
+            @foreach($category->popularSongs() as $song)
             <tr class="bordered hoverable {{$x % 2 == 1 ? 'striped' : ''}}">
                 @include('songs.partials.song-table-body')
             </tr>
