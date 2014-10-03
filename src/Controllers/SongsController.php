@@ -45,8 +45,9 @@ class SongsController extends BaseController
     public function index()
     {
         $categories = $this->category->all();
+        $unvoted = Auth::user()->unvotedSongs();
 
-        $this->layout->content = View::make('songs.index', compact('categories'));
+        $this->layout->content = View::make('songs.index', compact('categories', 'unvoted'));
     }
 
     public function deleted()

@@ -102,6 +102,15 @@ class User extends BaseModel implements UserInterface, RemindableInterface
         return $this->hasMany('Ss\Repositories\Vote\Vote');
     }
 
+    public function unvotedSongs()
+    {
+        $user = $this->id;
+        return \Ss\Repositories\Song\Song::whereHas('votes', function($q) use ($user)
+        {
+            $q->where('user_id', '=', $user);
+        }, '=', 0)->get();
+    }
+
     /**
      * Add a new user to the system
      *
