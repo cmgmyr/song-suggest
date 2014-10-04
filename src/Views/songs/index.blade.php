@@ -6,7 +6,7 @@
     @if($unvoted->count() > 0)
         <tr>
             <td class="song-table-title" colspan="5">
-                <h3>Your Unvoted Songs</h3>
+                <h3>Your Unvoted Songs <small>Please cast your vote</small></h3>
             </td>
         </tr>
         <tr class="song-table-header bordered">
