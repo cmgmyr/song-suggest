@@ -1,5 +1,5 @@
 @if($currentUser->is_admin == 'y')
-<hr>
+<hr class="hidden-xs hidden-sm">
 {{Form::open(['route' => ['songs.category', $song->id],  'method' => 'put'])}}
     <!-- Update Category Form Input -->
     <div class="form-group">
