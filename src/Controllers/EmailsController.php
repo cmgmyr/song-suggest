@@ -8,6 +8,11 @@ use Ss\Repositories\User\User;
 class EmailsController extends BaseController
 {
 
+    /**
+     * Shows the song suggestion email
+     *
+     * @return View
+     */
     public function suggest()
     {
         $user = User::find(5);
@@ -25,6 +30,11 @@ class EmailsController extends BaseController
         return View::make('emails.songs.suggestion', $data);
     }
 
+    /**
+     * Shows the song activity email
+     *
+     * @return View
+     */
     public function activity()
     {
         $user = User::find(5);
@@ -42,6 +52,11 @@ class EmailsController extends BaseController
         return View::make('emails.songs.activity', $data);
     }
 
+    /**
+     * Shows the password reminder email
+     *
+     * @return View
+     */
     public function password()
     {
         $data = [

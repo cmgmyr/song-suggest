@@ -10,8 +10,14 @@ use Ss\Repositories\User\UserInterface;
 class FollowsController extends BaseController
 {
 
+    /**
+     * @var Follow
+     */
     protected $follow;
 
+    /**
+     * @var UserInterface
+     */
     protected $user;
 
     function __construct(Follow $follow, UserInterface $user)

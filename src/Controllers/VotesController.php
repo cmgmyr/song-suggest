@@ -13,8 +13,19 @@ use Ss\Repositories\Vote\Vote;
 class VotesController extends BaseController
 {
 
+    /**
+     * @var SongInterface
+     */
     protected $song;
+
+    /**
+     * @var Vote
+     */
     protected $vote;
+
+    /**
+     * @var VoteForm
+     */
     protected $voteForm;
 
     function __construct(SongInterface $song, Vote $vote, VoteForm $voteForm)

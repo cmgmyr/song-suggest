@@ -42,6 +42,9 @@ class SongsController extends BaseController
         $this->songForm = $songForm;
     }
 
+    /**
+     * Shows all of the non-deleted songs
+     */
     public function index()
     {
         $categories = $this->category->all();
@@ -50,6 +53,9 @@ class SongsController extends BaseController
         $this->layout->content = View::make('songs.index', compact('categories', 'unvoted'));
     }
 
+    /**
+     * Shows all of the deleted songs
+     */
     public function deleted()
     {
         $songs = $this->song->deleted();
@@ -57,6 +63,9 @@ class SongsController extends BaseController
         $this->layout->content = View::make('songs.deleted', compact('songs'));
     }
 
+    /**
+     * Shows the form to suggest a new song
+     */
     public function create()
     {
         $song = new \stdClass();
@@ -64,6 +73,12 @@ class SongsController extends BaseController
         $this->layout->content = View::make('songs.create', compact('song'));
     }
 
+    /**
+     * Stores the song from the create form
+     *
+     * @return mixed
+     * @throws \Ss\Services\Validation\FormValidationException
+     */
     public function store()
     {
         $this->songForm->validate();
@@ -76,6 +91,12 @@ class SongsController extends BaseController
         return $this->redirectRouteWithSuccess('songs.show', 'Your song suggestion has been added!', ['id' => $song->id]);
     }
 
+    /**
+     * Shows a song given an ID
+     *
+     * @param $id
+     * @return mixed
+     */
     public function show($id)
     {
         try {
@@ -93,6 +114,12 @@ class SongsController extends BaseController
         }
     }
 
+    /**
+     * Shows an edit form for a song given the ID
+     *
+     * @param $id
+     * @return mixed
+     */
     public function edit($id)
     {
         try {
@@ -109,6 +136,13 @@ class SongsController extends BaseController
         }
     }
 
+    /**
+     * Updates a song from the edit page given the ID
+     *
+     * @param $id
+     * @return mixed
+     * @throws \Ss\Services\Validation\FormValidationException
+     */
     public function update($id)
     {
         $song = $this->song->byId($id);
@@ -123,6 +157,12 @@ class SongsController extends BaseController
         return $this->redirectRouteWithSuccess('home', 'Your song suggestion has been updated!');
     }
 
+    /**
+     * Downloads the MP3 from a song
+     *
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
+     */
     public function download($id)
     {
         $song = $this->song->byId($id);
@@ -130,6 +170,12 @@ class SongsController extends BaseController
         return Response::download(Config::get('uploads.location') . '/'. $song->mp3_file);
     }
 
+    /**
+     * Deletes a song
+     *
+     * @param $id
+     * @return mixed
+     */
     public function destroy($id)
     {
         try {
@@ -148,6 +194,12 @@ class SongsController extends BaseController
         }
     }
 
+    /**
+     * Restores a song
+     *
+     * @param $id
+     * @return mixed
+     */
     public function restore($id)
     {
         try {
@@ -166,6 +218,12 @@ class SongsController extends BaseController
         }
     }
 
+    /**
+     * Force deletes a song from the database
+     *
+     * @param $id
+     * @return mixed
+     */
     public function forceDestroy($id)
     {
         try {
@@ -184,6 +242,12 @@ class SongsController extends BaseController
         }
     }
 
+    /**
+     * Handles mp3 uploads from the create and edit forms
+     *
+     * @param $input
+     * @return array
+     */
     protected function handleUpload($input)
     {
         $input = array_merge($input, ['mp3_file' => null]);
@@ -201,6 +265,12 @@ class SongsController extends BaseController
         return $input;
     }
 
+    /**
+     * Changes the category of a song
+     *
+     * @param $id
+     * @return mixed
+     */
     protected function category($id)
     {
         try {

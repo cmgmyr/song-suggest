@@ -31,6 +31,9 @@ class UsersController extends BaseController
         $this->userForm = $userForm;
     }
 
+    /**
+     * Shows all of the non-deleted users
+     */
     public function index()
     {
         $users = $this->user->all();
@@ -38,6 +41,9 @@ class UsersController extends BaseController
         $this->layout->content = View::make('users.index', compact('users'));
     }
 
+    /**
+     * Shows all of the deleted users
+     */
     public function deleted()
     {
         $users = $this->user->deleted();
@@ -45,6 +51,9 @@ class UsersController extends BaseController
         $this->layout->content = View::make('users.deleted', compact('users'));
     }
 
+    /**
+     * Shows the form to create a new user
+     */
     public function create()
     {
         $user = new \stdClass();
@@ -57,6 +66,12 @@ class UsersController extends BaseController
         $this->layout->content = View::make('users.create', compact('user'));
     }
 
+    /**
+     * Saves the user from the create form
+     *
+     * @return mixed
+     * @throws \Ss\Services\Validation\FormValidationException
+     */
     public function store()
     {
         $this->userForm->createUser()->validate();
@@ -66,6 +81,12 @@ class UsersController extends BaseController
         return $this->redirectRouteWithSuccess('users', 'The user has been saved.');
     }
 
+    /**
+     * Shows the form to edit a user
+     *
+     * @param $id
+     * @return mixed
+     */
     public function edit($id)
     {
         try {
@@ -77,6 +98,13 @@ class UsersController extends BaseController
         }
     }
 
+    /**
+     * Saves the user from the edit form
+     *
+     * @param $id
+     * @return mixed
+     * @throws \Ss\Services\Validation\FormValidationException
+     */
     public function update($id)
     {
         $user = $this->user->byId($id);
@@ -96,6 +124,12 @@ class UsersController extends BaseController
         return $this->redirectRouteWithSuccess('users', 'The user has been saved.');
     }
 
+    /**
+     * Deletes a user
+     *
+     * @param $id
+     * @return mixed
+     */
     public function destroy($id)
     {
         try {
@@ -109,6 +143,12 @@ class UsersController extends BaseController
         }
     }
 
+    /**
+     * Restores a user
+     * 
+     * @param $id
+     * @return mixed
+     */
     public function restore($id)
     {
         try {

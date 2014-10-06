@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Password;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 
 class RemindersController extends BaseController

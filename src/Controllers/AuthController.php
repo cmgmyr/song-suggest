@@ -79,6 +79,9 @@ class AuthController extends BaseController
         return Redirect::route('login');
     }
 
+    /**
+     * Shows the account form to the user
+     */
     public function account()
     {
         $user = $this->user->byId(Auth::id());
@@ -86,6 +89,12 @@ class AuthController extends BaseController
         $this->layout->content = View::make('auth.account', compact('user'));
     }
 
+    /**
+     * Updates the user's account information
+     *
+     * @return Response
+     * @throws \Ss\Services\Validation\FormValidationException
+     */
     public function accountUpdate()
     {
         $id = Auth::id();

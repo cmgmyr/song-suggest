@@ -8,6 +8,10 @@ use Ss\Forms\CommentForm;
 
 class CommentsController extends BaseController
 {
+
+    /**
+     * @var CommentForm
+     */
     protected $commentForm;
 
     function __construct(CommentForm $commentForm)
