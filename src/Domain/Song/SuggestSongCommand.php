@@ -5,10 +5,30 @@ use Ss\Repositories\User\User;
 
 class SuggestSongCommand
 {
+
+    /**
+     * @var
+     */
     public $artist;
+
+    /**
+     * @var
+     */
     public $title;
+
+    /**
+     * @var
+     */
     public $youtube;
+
+    /**
+     * @var
+     */
     public $mp3_file;
+
+    /**
+     * @var User
+     */
     public $user;
 
     function __construct($artist, $title, $youtube, $mp3_file, User $user)

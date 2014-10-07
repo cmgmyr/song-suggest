@@ -12,7 +12,7 @@ class DeleteUserCommandHandler implements CommandHandler
     use DispatchableTrait;
 
     /**
-     * @var \Ss\Repositories\User\UserInterface
+     * @var UserInterface
      */
     protected $user;
 

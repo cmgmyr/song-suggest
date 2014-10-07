@@ -2,13 +2,15 @@
 
 use Laracasts\Commander\CommandHandler;
 use Laracasts\Commander\Events\DispatchableTrait;
-use Ss\Repositories\Follow\Follow;
 use Ss\Repositories\Follow\FollowInterface;
 
 class UnFollowSongCommandHandler implements CommandHandler
 {
     use DispatchableTrait;
 
+    /**
+     * @var FollowInterface
+     */
     protected $follow;
 
     function __construct(FollowInterface $follow)

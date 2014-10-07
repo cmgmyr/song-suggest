@@ -5,7 +5,15 @@ use Ss\Repositories\Song\Song;
 
 class ChangeCategoryCommand
 {
+
+    /**
+     * @var Song
+     */
     public $song;
+
+    /**
+     * @var
+     */
     public $category;
 
     function __construct(Song $song, $category)

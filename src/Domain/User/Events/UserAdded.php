@@ -5,6 +5,10 @@ use Ss\Repositories\User\User;
 
 class UserAdded
 {
+
+    /**
+     * @var User
+     */
     public $user;
 
     function __construct(User $user)

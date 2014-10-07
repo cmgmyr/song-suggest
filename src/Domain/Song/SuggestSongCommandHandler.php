@@ -10,8 +10,9 @@ class SuggestSongCommandHandler implements CommandHandler
 {
     use DispatchableTrait;
 
+
     /**
-     * @var \Ss\Repositories\Song\SongInterface
+     * @var SongInterface
      */
     protected $song;
 

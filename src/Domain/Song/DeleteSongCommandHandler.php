@@ -9,8 +9,9 @@ use Ss\Repositories\Song\SongInterface;
 class DeleteSongCommandHandler implements CommandHandler
 {
     use DispatchableTrait;
+
     /**
-     * @var \Ss\Repositories\Song\SongInterface
+     * @var SongInterface
      */
     protected $song;
 

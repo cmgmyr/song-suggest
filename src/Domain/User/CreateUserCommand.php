@@ -4,12 +4,39 @@ namespace Ss\Domain\User;
 class CreateUserCommand
 {
 
+    /**
+     * @var
+     */
     public $first_name;
+
+    /**
+     * @var
+     */
     public $last_name;
+
+    /**
+     * @var
+     */
     public $email;
+
+    /**
+     * @var
+     */
     public $password;
+
+    /**
+     * @var
+     */
     public $is_admin;
+
+    /**
+     * @var
+     */
     public $is_active;
+
+    /**
+     * @var
+     */
     public $notify;
 
     function __construct($first_name, $last_name, $email, $password, $is_admin, $is_active, $notify)

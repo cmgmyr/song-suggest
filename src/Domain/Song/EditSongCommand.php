@@ -6,11 +6,35 @@ use Ss\Repositories\User\User;
 
 class EditSongCommand
 {
+
+    /**
+     * @var Song
+     */
     public $song;
+
+    /**
+     * @var User
+     */
     public $editor;
+
+    /**
+     * @var
+     */
     public $artist;
+
+    /**
+     * @var
+     */
     public $title;
+
+    /**
+     * @var
+     */
     public $youtube;
+
+    /**
+     * @var
+     */
     public $mp3_file;
 
     function __construct(Song $song, User $editor, $artist, $title, $youtube, $mp3_file)

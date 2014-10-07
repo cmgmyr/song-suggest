@@ -5,6 +5,10 @@ use Ss\Repositories\Vote\Vote;
 
 class VoteCast
 {
+
+    /**
+     * @var Vote
+     */
     public $vote;
 
     function __construct(Vote $vote)

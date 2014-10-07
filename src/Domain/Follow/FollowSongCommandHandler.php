@@ -7,6 +7,9 @@ use Ss\Repositories\Follow\FollowInterface;
 class FollowSongCommandHandler implements CommandHandler
 {
 
+    /**
+     * @var FollowInterface
+     */
     protected $follow;
 
     function __construct(FollowInterface $follow)

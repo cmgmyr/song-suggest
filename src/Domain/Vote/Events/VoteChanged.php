@@ -5,6 +5,10 @@ use Ss\Repositories\Vote\Vote;
 
 class VoteChanged
 {
+
+    /**
+     * @var Vote
+     */
     public $vote;
 
     function __construct(Vote $vote)

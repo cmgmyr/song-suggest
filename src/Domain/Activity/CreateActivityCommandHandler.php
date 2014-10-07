@@ -10,6 +10,9 @@ class CreateActivityCommandHandler implements CommandHandler
 {
     use DispatchableTrait;
 
+    /**
+     * @var ActivityInterface
+     */
     protected $activity;
 
     function __construct(ActivityInterface $activity)

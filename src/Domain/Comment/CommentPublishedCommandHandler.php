@@ -9,6 +9,9 @@ class CommentPublishedCommandHandler implements CommandHandler
 {
     use DispatchableTrait;
 
+    /**
+     * @var CommentInterface
+     */
     protected $comment;
 
     function __construct(CommentInterface $comment)

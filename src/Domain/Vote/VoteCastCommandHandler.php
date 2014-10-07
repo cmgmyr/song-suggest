@@ -9,6 +9,9 @@ class VoteCastCommandHandler implements CommandHandler
 {
     use DispatchableTrait;
 
+    /**
+     * @var VoteInterface
+     */
     protected $vote;
 
     function __construct(VoteInterface $vote)

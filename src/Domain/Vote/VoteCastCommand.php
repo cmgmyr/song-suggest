@@ -3,8 +3,19 @@
 class VoteCastCommand
 {
 
+    /**
+     * @var
+     */
     public $song_id;
+
+    /**
+     * @var
+     */
     public $user_id;
+
+    /**
+     * @var
+     */
     public $vote;
 
     function __construct($song_id, $user_id, $vote)

@@ -4,9 +4,24 @@ namespace Ss\Domain\Activity;
 class CreateActivityCommand
 {
 
+    /**
+     * @var
+     */
     public $song_id;
+
+    /**
+     * @var
+     */
     public $user_id;
+
+    /**
+     * @var
+     */
     public $message;
+
+    /**
+     * @var
+     */
     public $color_class;
 
     function __construct($message, $song_id, $user_id, $color_class)

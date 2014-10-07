@@ -3,8 +3,19 @@
 class CommentPublishedCommand
 {
 
+    /**
+     * @var
+     */
     public $song_id;
+
+    /**
+     * @var
+     */
     public $user_id;
+
+    /**
+     * @var
+     */
     public $comment;
 
     function __construct($song_id, $user_id, $comment)

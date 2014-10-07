@@ -7,10 +7,13 @@ class UpdateUserCommand
 {
 
     /**
-     * @var \Ss\Repositories\User\User
+     * @var User
      */
     public $user;
 
+    /**
+     * @var
+     */
     public $input;
 
     function __construct(User $user, $input)

@@ -3,7 +3,14 @@
 class FollowSongCommand
 {
 
+    /**
+     * @var
+     */
     public $song_id;
+
+    /**
+     * @var
+     */
     public $user_id;
 
     function __construct($song_id, $user_id)

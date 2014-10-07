@@ -5,6 +5,10 @@ use Ss\Repositories\Song\Song;
 
 class SongCategoryChanged
 {
+
+    /**
+     * @var Song
+     */
     public $song;
 
     function __construct(Song $song)

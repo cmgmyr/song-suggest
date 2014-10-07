@@ -6,7 +6,15 @@ use Ss\Repositories\User\User;
 
 class DeleteSongCommand
 {
+
+    /**
+     * @var Song
+     */
     public $song;
+
+    /**
+     * @var User
+     */
     public $editor;
 
     function __construct(Song $song, User $editor)
