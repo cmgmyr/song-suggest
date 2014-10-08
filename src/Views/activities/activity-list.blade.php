@@ -2,7 +2,7 @@
     @foreach($activities as $activity)
         <article class="media alert alert-{{$activity->color_class ?: 'info'}}">
             <div class="pull-left">
-                <img src="{{$activity->user->present()->avatar(65)}}" alt="{{$activity->user->first_name}}" class="avatar">
+                <img src="{{$activity->user->present()->avatar(65)}}" alt="{{$activity->user->first_name}}" title="{{$activity->user->first_name}}" class="avatar">
             </div>
 
             <div class="media-body">

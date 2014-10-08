@@ -8,10 +8,8 @@
         @endif
 
         <h3>Song Status: {{$song->category->name}}</h3>
-        <hr>
-        <div class="vote-stats">
-            Votes: <span class="btn btn-success">{{$song->positiveVotes()}}</span> and <span class="btn btn-danger">{{$song->negativeVotes()}}</span> out of {{$totalUsers}}
-        </div>
+
+        @include('votes.vote-stats')
 
         @include('votes.vote-form')
 

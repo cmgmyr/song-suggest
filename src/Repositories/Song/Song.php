@@ -117,6 +117,26 @@ class Song extends BaseModel
     }
 
     /**
+     * Get all positive (yes) users from a song
+     *
+     * @return mixed
+     */
+    public function positiveVoteUsers()
+    {
+        return $this->votes()->where('vote', 'y')->with('user')->oldest()->get();
+    }
+
+    /**
+     * Get all negative (no) users from a song
+     *
+     * @return mixed
+     */
+    public function negativeVoteUsers()
+    {
+        return $this->votes()->where('vote', 'n')->with('user')->oldest()->get();
+    }
+
+    /**
      * Count all votes on a song
      *
      * @return mixed
