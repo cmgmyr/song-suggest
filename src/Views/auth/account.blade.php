@@ -1,7 +1,7 @@
 @section('pageTitle', 'Update Account')
 
 @section('content')
-{{ Form::model($user, ['route' => ['account.update', $user->id],  'method' => 'put']) }}
+{{ Form::model($user, ['route' => ['account.update', $user->id],  'method' => 'put', 'files' => true]) }}
 <div class="row">
     <div class="col-md-6">
         <div class="form-group">
@@ -17,6 +17,11 @@
         <div class="form-group">
             {{ Form::label('email', 'Email', ['class' => 'control-label']) }}
             {{ Form::text('email', null, ['class' => 'form-control']) }}
+        </div>
+
+        <div class="form-group">
+            {{ Form::label('image', 'Image', ['class' => 'control-label']) }}
+            {{ Form::file('image', ['class' => 'form-control']) }}
         </div>
     </div>
     <div class="col-md-6">
