@@ -124,6 +124,7 @@ return array(
 
         'Laracasts\Commander\CommanderServiceProvider',
         'Way\Generators\GeneratorsServiceProvider',
+        'Intervention\Image\ImageServiceProvider',
 
         'Ss\Repositories\RepositoryServiceProvider',
         'Ss\Services\Notifications\FlashServiceProvider',
@@ -194,7 +195,8 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
         'Carbon'          => 'Carbon\Carbon',
-        'Flash'           => 'Ss\Services\Notifications\Flash'
+        'Flash'           => 'Ss\Services\Notifications\Flash',
+        'Image'           => 'Intervention\Image\Facades\Image',
 
 	),
 
