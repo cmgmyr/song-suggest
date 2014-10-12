@@ -1,6 +1,7 @@
 <?php
 namespace Ss\Controllers;
 
+use Illuminate\Support\Facades\Config;
 use Ss\Domain\User\UpdateUserCommand;
 use Ss\Forms\UserForm;
 use Ss\Repositories\User\UserInterface;
@@ -108,10 +109,35 @@ class AuthController extends BaseController
 
         $v->validate();
 
-        $input = ['input' => Input::all(), 'user' => $user];
+        $input = $this->handleUpload($id, Input::all());
+        $input = ['input' => $input, 'user' => $user];
 
         $this->execute(UpdateUserCommand::class, $input);
 
         return $this->redirectRouteWithSuccess('home', 'Your account has been updated!');
+    }
+
+    /**
+     * Handles jpg uploads from the account form
+     *
+     * @param $id
+     * @param $input
+     * @return array
+     */
+    protected function handleUpload($id, $input)
+    {
+        $input = array_merge($input, ['image' => null]);
+
+        if (Input::hasFile('image')) {
+            $file = Input::file('image');
+            if($file->getClientOriginalExtension() == 'jpg') {
+                $fileName = $id . '.jpg';
+                $file->move(Config::get('uploads.location'), $fileName);
+
+                $input = array_merge($input, ['image' => $fileName]);
+            }
+        }
+
+        return $input;
     }
 } 

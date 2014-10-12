@@ -158,6 +158,11 @@ class User extends BaseModel implements UserInterface, RemindableInterface
             $user->password = $input['password'];
         }
 
+        // only overwrite the file if not currently available
+        if ($input['image'] !== null) {
+            $user->image = $input['image'];
+        }
+
         $user->raise(new UserUpdated($user));
 
         return $user;

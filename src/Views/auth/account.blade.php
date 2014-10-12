@@ -20,8 +20,8 @@
         </div>
 
         <div class="form-group">
-            {{ Form::label('image', 'Image', ['class' => 'control-label']) }}
-            {{ Form::file('image', ['class' => 'form-control']) }}
+            {{ Form::label('image', 'Image (.jpg)', ['class' => 'control-label']) }}
+            {{ Form::file('image', ['class' => 'form-control', 'accept' => '.jpg']) }}
         </div>
     </div>
     <div class="col-md-6">
