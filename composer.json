@@ -8,7 +8,7 @@
         "laracasts/commander": "~1.0",
         "laracasts/presenter": "0.1.*",
         "iron-io/iron_mq": "1.5.*",
-        "intervention/image": "dev-master"
+        "intervention/image": "2.*"
     },
     "require-dev": {
         "way/generators": "2.*",
