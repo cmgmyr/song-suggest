@@ -69,12 +69,18 @@ Route::group(['before' => 'auth.admin'], function()
     });
 });
 
+// Authentication
 Route::get('login', ['as' => 'login', 'uses' => APPCONTROLLERS . '\AuthController@login']);
 Route::post('login', ['as' => 'attemptLogin', 'uses' => APPCONTROLLERS . '\AuthController@attemptLogin']);
 Route::get('logout', ['as' => 'logout', 'uses' => APPCONTROLLERS . '\AuthController@logout']);
 
+// Image Manipulation
+Route::get('assets/uploads/thumb/{imageFile}', APPCONTROLLERS . '\ImageController@thumbnail');
+
+// Password reset functionality
 Route::controller('password', APPCONTROLLERS . '\RemindersController');
 
+// Message Queues
 Route::post('queue/receive', function()
 {
     return Queue::marshal();
