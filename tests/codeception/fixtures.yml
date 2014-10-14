@@ -54,6 +54,7 @@ Ss\Repositories\User\User:
   is_admin: n
   is_active: y
   notify: y
+  image: img.jpg
   created_at: $date
   updated_at: $date
 

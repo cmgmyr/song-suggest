@@ -159,7 +159,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface
         }
 
         // only overwrite the file if not currently available
-        if ($input['image'] !== null) {
+        if (isset($input['image']) && $input['image'] !== null) {
             $user->image = $input['image'];
         }
 
