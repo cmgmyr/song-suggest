@@ -7,6 +7,7 @@ use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 use Illuminate\Database\Eloquent\SoftDeletingTrait;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Queue;
 use Laracasts\Presenter\PresentableTrait;
 use Ss\Domain\User\Events\UserAdded;
 use Ss\Domain\User\Events\UserDeleted;
@@ -160,6 +161,10 @@ class User extends BaseModel implements UserInterface, RemindableInterface
 
         // only overwrite the file if not currently available
         if (isset($input['image']) && $input['image'] !== null) {
+            if ($user->image !== null) {
+                Queue::push('Ss\Workers\DeleteUserImages', array('image' => $user->image));
+            }
+
             $user->image = $input['image'];
         }
 
