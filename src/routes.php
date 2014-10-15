@@ -74,9 +74,6 @@ Route::get('login', ['as' => 'login', 'uses' => APPCONTROLLERS . '\AuthControlle
 Route::post('login', ['as' => 'attemptLogin', 'uses' => APPCONTROLLERS . '\AuthController@attemptLogin']);
 Route::get('logout', ['as' => 'logout', 'uses' => APPCONTROLLERS . '\AuthController@logout']);
 
-// Image Manipulation
-Route::get('assets/uploads/thumb/{imageFile}', APPCONTROLLERS . '\ImageController@thumbnail');
-
 // Password reset functionality
 Route::controller('password', APPCONTROLLERS . '\RemindersController');
 

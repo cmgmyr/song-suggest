@@ -131,8 +131,8 @@ class AuthController extends BaseController
         if (Input::hasFile('image')) {
             $file = Input::file('image');
             if($file->getClientOriginalExtension() == 'jpg') {
-                $fileName = $id . '.jpg';
-                $file->move(Config::get('uploads.location'), $fileName);
+                $fileName = str_random(40);
+                $file->move(Config::get('uploads.location'), $fileName . '.jpg');
 
                 $input = array_merge($input, ['image' => $fileName]);
             }
