@@ -125,6 +125,7 @@ return array(
         'Laracasts\Commander\CommanderServiceProvider',
         'Way\Generators\GeneratorsServiceProvider',
         'Intervention\Image\ImageServiceProvider',
+        'Indatus\Dispatcher\ServiceProvider',
 
         'Ss\Repositories\RepositoryServiceProvider',
         'Ss\Services\Notifications\FlashServiceProvider',
