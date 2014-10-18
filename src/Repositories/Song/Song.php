@@ -1,7 +1,9 @@
 <?php
 namespace Ss\Repositories\Song;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\SoftDeletingTrait;
+use Illuminate\Support\Facades\Config;
 use Ss\Domain\Song\Events\SongCategoryChanged;
 use Ss\Domain\Song\Events\SongDeleted;
 use Ss\Domain\Song\Events\SongEdited;
@@ -260,7 +262,9 @@ class Song extends BaseModel
      */
     public static function suggest($artist, $title, $youtube, $mp3_file = null, $user_id)
     {
-        $song = new static(compact('artist', 'title', 'youtube', 'mp3_file', 'user_id'));
+        $song = new static(compact('artist', 'title', 'youtube', 'mp3_file', 'user_id', 'reminded_at'));
+
+        $song = self::updateRemindedAt($song);
 
         $song->raise(new SongSuggested($song));
 
@@ -336,6 +340,19 @@ class Song extends BaseModel
 
             $song->raise(new SongCategoryChanged($song));
         }
+
+        return $song;
+    }
+
+    /**
+     * Updates the reminded_at date for the song
+     *
+     * @param Song $song
+     * @return Song
+     */
+    public static function updateRemindedAt(Song $song)
+    {
+        $song->reminded_at = Carbon::now()->addDays(Config::get('settings.vote_reminder_days'));
 
         return $song;
     }
