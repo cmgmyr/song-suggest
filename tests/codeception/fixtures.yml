@@ -38,11 +38,13 @@ Ss\Repositories\Setting\Setting:
 Ss\Repositories\Song\Song:
   artist: $string
   title: $string
+  youtube: null
   user_id:
     type: Ss\Repositories\User\User
   category_id:
     type: Ss\Repositories\Category\Category
   mp3_file: $string
+  reminded_at: null
   created_at: $date
   updated_at: $date
 

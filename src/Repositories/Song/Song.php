@@ -27,14 +27,14 @@ class Song extends BaseModel
      *
      * @var array
      */
-    protected $fillable = ['artist', 'title', 'user_id', 'youtube', 'category_id', 'mp3_file'];
+    protected $fillable = ['artist', 'title', 'user_id', 'youtube', 'category_id', 'mp3_file', 'reminded_at'];
 
     /**
      * The attributes that should be mutated to dates.
      *
      * @var array
      */
-    protected $dates = ['deleted_at'];
+    protected $dates = ['reminded_at', 'created_at', 'updated_at', 'deleted_at'];
 
     /**
      * Song has many activities
