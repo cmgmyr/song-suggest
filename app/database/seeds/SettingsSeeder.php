@@ -22,6 +22,13 @@ class SettingsSeeder extends Seeder {
                 'value' => $threshold
             ]
         );
+
+        Setting::create(
+            [
+                'key' => 'vote_reminder_days',
+                'value' => 3
+            ]
+        );
 	}
 
 }
