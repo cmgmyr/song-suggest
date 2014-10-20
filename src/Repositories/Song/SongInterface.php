@@ -70,4 +70,12 @@ interface SongInterface
      * @return boolean
      */
     public function forceDelete(Song $song);
+
+    /**
+     * Fetches all songs that need reminders sent to users
+     *
+     * @param int $days
+     * @return object
+     */
+    public function remindable($days = 3);
 } 

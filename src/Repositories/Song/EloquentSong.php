@@ -163,4 +163,21 @@ class EloquentSong implements SongInterface
 
         return $data;
     }
+
+    /**
+     * Fetches all songs that need reminders sent to users
+     *
+     * @param int $days
+     * @return object
+     */
+    public function remindable($days = 3)
+    {
+        return $this->song
+            ->where(function($q) use ($days) {
+                $q->where('reminded_at', '<=', Carbon::now()->subDays($days)->toDateTimeString());
+                $q->orWhere('reminded_at', null);
+            })
+            ->oldest('reminded_at')
+            ->get();
+    }
 } 
