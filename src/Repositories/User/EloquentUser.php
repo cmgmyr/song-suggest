@@ -2,6 +2,8 @@
 namespace Ss\Repositories\User;
 
 use Illuminate\Database\Eloquent\Model;
+use Ss\Repositories\Follow\Follow;
+use Ss\Repositories\Vote\Vote;
 
 class EloquentUser implements UserInterface
 {
@@ -161,5 +163,25 @@ class EloquentUser implements UserInterface
         $user->restore();
 
         return true;
+    }
+
+    /**
+     * Find all following and notifiable users that haven't voted
+     * for a specific song
+     *
+     * @param $song_id
+     * @return array
+     */
+    public function getNotifiesForSong($song_id)
+    {
+        // @todo: maybe make this more "laravel" like
+        
+        $usersTable = $this->user->getTable();
+        $followsTable = (new Follow)->getTable();
+        $votesTable = (new Vote)->getTable();
+
+        $query = "SELECT u.* FROM " . $usersTable . " u INNER JOIN " . $followsTable . " f ON (u.id = f.user_id AND f.song_id = ?) WHERE u.id NOT IN (SELECT user_id FROM " . $votesTable . " WHERE song_id = ?) AND notify = 'y'";
+
+        return \DB::select(\DB::raw($query), [$song_id, $song_id]);
     }
 }

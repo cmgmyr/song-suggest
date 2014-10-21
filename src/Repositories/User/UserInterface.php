@@ -84,4 +84,13 @@ interface UserInterface
      * @return boolean
      */
     public function restore(User $user);
+
+    /**
+     * Find all following and notifiable users that haven't voted
+     * for a specific song
+     *
+     * @param $song_id
+     * @return array
+     */
+    public function getNotifiesForSong($song_id);
 } 
