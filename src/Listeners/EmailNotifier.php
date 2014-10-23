@@ -6,6 +6,7 @@ use Ss\Domain\Activity\Events\ActivityAdded;
 use Ss\Domain\Comment\Events\CommentPublished;
 use Ss\Domain\Song\Events\SongCategoryChanged;
 use Ss\Domain\Song\Events\SongSuggested;
+use Ss\Domain\User\Events\UsersVoteNotification;
 use Ss\Mailers\SongMailer;
 use Ss\Repositories\Song\SongInterface;
 use Ss\Repositories\User\UserInterface;
@@ -74,6 +75,19 @@ class EmailNotifier extends EventListener
         foreach ($followers as $follower) {
             $user = $this->user->byId($follower->user->id);
             $this->mailer->sendSongActivityTo($user, $song, $notification);
+        }
+    }
+
+    public function whenUsersVoteNotification(UsersVoteNotification $event)
+    {
+        $song = $event->song;
+        $users = $event->users;
+
+        $notification = 'We noticed that you haven\'t cast a vote for "' . $song->title . '" yet. Please click the link below to vote.';
+
+        foreach ($users as $user) {
+            $user = $this->user->byId($user->id);
+            $this->mailer->sendVoteReminder($user, $song, $notification);
         }
     }
 } 

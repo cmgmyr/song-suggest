@@ -52,4 +52,27 @@ class SongMailer extends Mailer
 
         $this->sendTo($user, $subject, $view, $data);
     }
+
+    /**
+     * Notifies a user if they haven't voted for a song yet
+     *
+     * @param User $user
+     * @param Song $song
+     * @param $notification
+     */
+    public function sendVoteReminder(User $user, Song $song, $notification)
+    {
+        $subject = 'Please vote for "' . $song->title . '".';
+        $view = 'emails.songs.vote-reminder';
+
+        $data = [
+            'user_first_name' => $user->first_name,
+            'song_id'         => $song->id,
+            'song_title'      => $song->title,
+            'song_artist'     => $song->artist,
+            'notification'    => $notification
+        ];
+
+        $this->sendTo($user, $subject, $view, $data);
+    }
 } 
