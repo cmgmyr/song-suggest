@@ -83,7 +83,7 @@ class EmailNotifier extends EventListener
         $song = $event->song;
         $users = $event->users;
 
-        $notification = 'We noticed that you haven\'t cast a vote for "' . $song->title . '" yet. Please click the link below to vote.';
+        $notification = 'We noticed that you haven\'t cast a vote for "' . $song->title . '" yet. Please to go the song to vote.';
 
         foreach ($users as $user) {
             $user = $this->user->byId($user->id);
