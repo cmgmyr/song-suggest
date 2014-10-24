@@ -11,3 +11,4 @@
 |
 */
 
+require_once base_path().'/src/commands.php';
