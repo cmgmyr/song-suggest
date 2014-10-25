@@ -25,7 +25,7 @@ class ActivitiesListener
     }
 
     /**
-     * Adds a new activity for the song that was just suggested
+     * Adds a new activity for the song that was suggested
      *
      * @param $event
      */
@@ -35,24 +35,44 @@ class ActivitiesListener
         $this->setActivity($event->song->id, $event->song->user_id, $message, 'info');
     }
 
+    /**
+     * Adds a new activity for the song that was deleted
+     *
+     * @param $event
+     */
     public function whenSongWasDeleted($event)
     {
         $message = 'deleted this song';
         $this->setActivity($event->song->id, $event->editor->id, $message, 'danger');
     }
 
+    /**
+     * Adds a new activity for the song that was restored
+     *
+     * @param $event
+     */
     public function whenSongWasRestored($event)
     {
         $message = 'restored this song';
         $this->setActivity($event->song->id, $event->editor->id, $message, 'success');
     }
 
+    /**
+     * Adds a new activity for the song that was edited
+     *
+     * @param $event
+     */
     public function whenSongWasEdited($event)
     {
         $message = 'edited this song';
         $this->setActivity($event->song->id, $event->editor->id, $message, 'info');
     }
 
+    /**
+     * Adds a new activity for when a vote was cast
+     *
+     * @param $event
+     */
     public function whenVoteWasCast($event)
     {
         if ($event->vote->vote == 'y') {
@@ -67,6 +87,11 @@ class ActivitiesListener
         $this->setActivity($event->vote->song_id, $event->vote->user_id, $message, $color_class);
     }
 
+    /**
+     * Adds a new activity for when a vote was changed
+     *
+     * @param $event
+     */
     public function whenVoteWasChanged($event)
     {
         if ($event->vote->vote == 'y') {
@@ -81,6 +106,14 @@ class ActivitiesListener
         $this->setActivity($event->vote->song_id, $event->vote->user_id, $message, $color_class);
     }
 
+    /**
+     * Sets the activity for a song
+     *
+     * @param $song_id
+     * @param $user_id
+     * @param $message
+     * @param string $color_class
+     */
     protected function setActivity($song_id, $user_id, $message, $color_class='')
     {
         $input = ['song_id' => $song_id, 'user_id' => $user_id, 'message' => $message, 'color_class' => $color_class];

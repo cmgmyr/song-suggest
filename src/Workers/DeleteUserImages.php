@@ -7,6 +7,12 @@ use Illuminate\Support\Facades\File;
 class DeleteUserImages
 {
 
+    /**
+     * Deletes all obsolete user images from the filesystem
+     *
+     * @param $job
+     * @param $data
+     */
     public function fire($job, $data)
     {
         $directory = Config::get('uploads.location');

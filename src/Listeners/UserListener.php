@@ -28,26 +28,49 @@ class UserListener extends EventListener
         $this->user = $user;
     }
 
+    /**
+     * Updates the voting threshold when a user was added
+     *
+     * @param UserAdded $event
+     */
     public function whenUserAdded(UserAdded $event)
     {
         $this->updateThreshold();
     }
 
+    /**
+     * Updates the voting threshold when a user was deleted
+     *
+     * @param UserDeleted $event
+     */
     public function whenUserDeleted(UserDeleted $event)
     {
         $this->updateThreshold();
     }
 
+    /**
+     * Updates the voting threshold when a user was restored
+     *
+     * @param UserRestored $event
+     */
     public function whenUserRestored(UserRestored $event)
     {
         $this->updateThreshold();
     }
 
+    /**
+     * Updates the voting threshold when a user was updated
+     *
+     * @param UserUpdated $event
+     */
     public function whenUserUpdated(UserUpdated $event)
     {
         $this->updateThreshold();
     }
 
+    /**
+     * Updates the voting threshold when a user action took place
+     */
     protected function updateThreshold()
     {
         $userCount = $this->user->countAll();

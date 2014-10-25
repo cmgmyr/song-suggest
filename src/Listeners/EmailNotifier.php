@@ -14,8 +14,19 @@ use Ss\Repositories\User\UserInterface;
 class EmailNotifier extends EventListener
 {
 
+    /**
+     * @var SongInterface
+     */
     protected $song;
+
+    /**
+     * @var SongMailer
+     */
     protected $mailer;
+
+    /**
+     * @var UserInterface
+     */
     protected $user;
 
     function __construct(SongInterface $song, SongMailer $mailer, UserInterface $user)
@@ -25,6 +36,11 @@ class EmailNotifier extends EventListener
         $this->user = $user;
     }
 
+    /**
+     * Sends an email when a song was suggested
+     *
+     * @param SongSuggested $event
+     */
     public function whenSongSuggested(SongSuggested $event)
     {
         $suggester = $event->song->user;
@@ -36,6 +52,11 @@ class EmailNotifier extends EventListener
         }
     }
 
+    /**
+     * Sends an email when an activity is added to a song
+     *
+     * @param ActivityAdded $event
+     */
     public function whenActivityAdded(ActivityAdded $event)
     {
         $song = $this->song->deletedWithId($event->activity->song_id);
@@ -50,6 +71,11 @@ class EmailNotifier extends EventListener
         }
     }
 
+    /**
+     * Sends an email when a comment was left on a song
+     *
+     * @param CommentPublished $event
+     */
     public function whenCommentPublished(CommentPublished $event)
     {
         $song = $this->song->deletedWithId($event->comment->song_id);
@@ -64,6 +90,11 @@ class EmailNotifier extends EventListener
         }
     }
 
+    /**
+     * Sends an email when a song category has changed
+     *
+     * @param SongCategoryChanged $event
+     */
     public function whenSongCategoryChanged(SongCategoryChanged $event)
     {
         $song = $event->song;
@@ -78,6 +109,11 @@ class EmailNotifier extends EventListener
         }
     }
 
+    /**
+     * Sends emails to users that need to vote for a song
+     *
+     * @param UsersVoteNotification $event
+     */
     public function whenUsersVoteNotification(UsersVoteNotification $event)
     {
         $song = $event->song;
