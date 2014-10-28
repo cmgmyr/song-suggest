@@ -10,6 +10,26 @@ $(function () {
     $('#follow-checkbox').click(function () {
         $('form.follow-form').submit();
     });
+
+    $('#artist').typeahead({
+        name: 'bands',
+        source: function(q) {
+            var returnData, data;
+            data = {q : q};
+
+            $.ajax({
+                dataType: "json",
+                url: '/api/bands',
+                data: data,
+                async: false,
+                success: function(response) {
+                    returnData = response.data;
+                }
+            });
+
+            return returnData;
+        }
+    });
 });
 
 function userConfirmation(element) {

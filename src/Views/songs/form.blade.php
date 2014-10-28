@@ -2,7 +2,7 @@
 	<div class="col-md-6">
 		<div class="form-group">
 			{{ Form::label('artist', 'Artist', ['class' => 'control-label']) }}
-			{{ Form::text('artist', null, ['class' => 'form-control focus']) }}
+			{{ Form::text('artist', null, ['class' => 'form-control focus', 'autocomplete' => 'off']) }}
 		</div>
 
         <div class="form-group">

@@ -45,6 +45,7 @@ module.exports = function (grunt) {
                 src: [
                     './bower_components/jquery/dist/jquery.js',
                     './bower_components/bootstrap/dist/js/bootstrap.js',
+                    './bower_components/bootstrap3-typeahead/bootstrap3-typeahead.min.js',
                     './src/assets/js/base.js',
                     './src/assets/js/frontend.js'
                 ],
@@ -76,6 +77,7 @@ module.exports = function (grunt) {
                     //watched files
                     './bower_components/jquery/dist/jquery.js',
                     './bower_components/bootstrap/dist/js/bootstrap.js',
+                    './bower_components/bootstrap3-typeahead/bootstrap3-typeahead.min.js',
                     './src/assets/js/base.js',
                     './src/assets/js/frontend.js'
                 ],

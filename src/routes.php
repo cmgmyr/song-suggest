@@ -42,6 +42,12 @@ Route::group(['before' => 'auth'], function()
     {
         Route::post('{songId}', ['as' => 'follows.store', 'uses' => APPCONTROLLERS . '\FollowsController@store']);
     });
+
+    // Api
+    Route::group(['prefix' => 'api'], function()
+    {
+        Route::get('bands', ['as' => 'bands', 'uses' => APICONTROLLERS . '\BandsController@index']);
+    });
 });
 
 Route::group(['before' => 'auth.admin'], function()

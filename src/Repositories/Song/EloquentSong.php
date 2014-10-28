@@ -180,4 +180,13 @@ class EloquentSong implements SongInterface
             ->oldest('reminded_at')
             ->get();
     }
+
+    public function getArtistsApi($query)
+    {
+        return $this->song
+            ->select(\DB::raw('DISTINCT artist'))
+            ->where('artist', 'LIKE', '%' . $query . '%')
+            ->orderBy('artist','ASC')
+            ->get();
+    }
 } 
