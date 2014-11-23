@@ -16,18 +16,19 @@ $(function () {
         source: function(q) {
             var returnData, data;
             data = {q : q};
+            if(q.length > 2) {
+                $.ajax({
+                    dataType: "json",
+                    url: '/api/bands',
+                    data: data,
+                    async: false,
+                    success: function(response) {
+                        returnData = response.data;
+                    }
+                });
 
-            $.ajax({
-                dataType: "json",
-                url: '/api/bands',
-                data: data,
-                async: false,
-                success: function(response) {
-                    returnData = response.data;
-                }
-            });
-
-            return returnData;
+                return returnData;
+            }
         }
     });
 });
