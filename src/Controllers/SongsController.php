@@ -271,7 +271,7 @@ class SongsController extends BaseController
      * @param $id
      * @return mixed
      */
-    protected function category($id)
+    public function category($id)
     {
         try {
             $song = $this->song->deletedWithId($id);
