@@ -18,6 +18,8 @@
         @include('songs.partials.download')
 
         @include('songs.partials.category')
+
+        @include('songs.partials.controls')
     </div>
     <div class="col-md-8">
         @include('comments.comment-form')
