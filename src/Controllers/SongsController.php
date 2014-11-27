@@ -10,6 +10,7 @@ use Ss\Domain\Song\ChangeCategoryCommand;
 use Ss\Domain\Song\DeleteSongCommand;
 use Ss\Domain\Song\EditSongCommand;
 use Ss\Domain\Song\ForceDeleteSongCommand;
+use Ss\Domain\Song\ResetVotesCommand;
 use Ss\Domain\Song\RestoreSongCommand;
 use Ss\Domain\Song\SuggestSongCommand;
 use Ss\Forms\SongForm;
@@ -284,6 +285,24 @@ class SongsController extends BaseController
             $this->execute(ChangeCategoryCommand::class, ['song' => $song, 'category' => Input::get('category_id')]);
 
             return $this->redirectBackWithSuccess('The song has been updated.');
+        } catch (SongNotFoundException $e) {
+            return $this->redirectBackWithError($e->getMessage());
+        }
+    }
+
+    public function reset($id)
+    {
+        try {
+            $song = $this->song->deletedWithId($id);
+
+            if (Auth::user()->is_admin != 'y') {
+                $message = 'Sorry, this song cannot currently be edited or you don\'t have the correct access to do so.';
+                return $this->redirectRouteWithError('songs.show', $message, ['id' => $id]);
+            }
+
+            $this->execute(ResetVotesCommand::class, ['song' => $song]);
+
+            return $this->redirectBackWithSuccess('The song votes have been reset, and changed to "Pending".');
         } catch (SongNotFoundException $e) {
             return $this->redirectBackWithError($e->getMessage());
         }
