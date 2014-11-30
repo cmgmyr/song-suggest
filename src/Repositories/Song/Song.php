@@ -9,6 +9,7 @@ use Ss\Domain\Song\Events\SongDeleted;
 use Ss\Domain\Song\Events\SongEdited;
 use Ss\Domain\Song\Events\SongRestored;
 use Ss\Domain\Song\Events\SongSuggested;
+use Ss\Domain\Song\Events\SongVotesReset;
 use Ss\Models\BaseModel;
 use Ss\Repositories\User\User;
 
@@ -353,6 +354,21 @@ class Song extends BaseModel
     public static function updateRemindedAt(Song $song)
     {
         $song->reminded_at = Carbon::now()->addDays(Config::get('settings.vote_reminder_days'));
+
+        return $song;
+    }
+
+    /**
+     * Resets the votes for a given song
+     *
+     * @param Song $song
+     * @return Song
+     */
+    public static function resetVotes(Song $song)
+    {
+        $song->votes()->delete();
+
+        $song->raise(new SongVotesReset($song));
 
         return $song;
     }
