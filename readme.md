@@ -1,4 +1,6 @@
-## Laravel song suggestions for bands
+# Song Suggestion Manager for Bands
+
+## Technologies Used
 
 * Laravel
 * Bootstrap
@@ -7,7 +9,7 @@
 * Grunt
 * Codeception
 
-### 1. Configuration
+## 1. Configuration
 Create a .env.local.php file that looks similar to:
 
     <?php
@@ -30,15 +32,15 @@ Create a .env.local.php file that looks similar to:
 
 Update any other configurations in `app/config/app.php` that you need to.
 
-### 2. Update namespace
+## 2. Update namespace
 Search for `Ss` and replace with desired namespace for your app. Remember to also include the `composer.json` file.
 
-### 3. Installation
+## 3. Installation
 1. Run: `composer install`
 2. Run: `php artisan key:generate`
 3. Run: `php artisan migrate --seed`
 
-### 4. Optional Installation
+## 4. Optional Installation
 1. Install node - http://nodejs.org
 2. Install Grunt globally: `npm install -g grunt-cli`
 3. Install Bower globally: `npm install -g bower`
@@ -48,7 +50,7 @@ Search for `Ss` and replace with desired namespace for your app. Remember to als
 7. Set up the initial css/js files, run: `grunt init`
 8. To watch for file changes and perform actions (less, min, phpunit, etc), run: `grunt watch`
 
-### 5. Testing
+## 5. Testing
 1. Create `tests/codeception/_data/db.sqlite`
 2. Create `tests/codeception/_data/dump.sql`
 3. Run command: `art migrate --seed --env=testing`
@@ -59,6 +61,7 @@ __Note:__ You'll need to run #3 and #4 each time you make migration or seed chan
 Codeception is used for testing this application, so in the root of the project run the command: `vendor/bin/codecept run`
 
 For functional test suite, run: `vendor/bin/codecept run functional`
+
 For integration test suite, run: `vendor/bin/codecept run integration`
 
 ...more coming soon!
