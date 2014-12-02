@@ -1,4 +1,5 @@
 # Song Suggestion Manager for Bands
+For cover bands, managing new songs to potentially learn can be a burden. Too many lists, emails, text messages...who can remember what we talked about 2 months ago? What did we say we were going to learn next??? This is where Song Suggest comes in.
 
 ## Technologies Used
 
