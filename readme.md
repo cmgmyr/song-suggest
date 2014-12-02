@@ -22,10 +22,12 @@ Create a .env.local.php file that looks similar to:
         'DB_USERNAME' => 'root',
         'DB_PASSWORD' => 'root',
 
+		// mail.php
         'MAIL_FROM_EMAIL' => 'noreply@example.com',
         'MAIL_FROM_NAME' => 'Song Suggest',
         'MANDRILL_SECRET' => 'mandrill-secret-key',
 
+		// queue.php
         'IRON_TOKEN' => 'iron-token',
         'IRON_PROJECT' => 'iron-project',
         'IRON_QUEUE_NAME' => 'song-suggest'
