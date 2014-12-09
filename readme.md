@@ -9,6 +9,8 @@ For cover bands, managing new songs to potentially learn can be a burden. Too ma
 * Bower
 * Grunt
 * Codeception
+* Mandrill (emails)
+* IronIO (queue processing)
 
 ## 1. Configuration
 Create a .env.local.php file that looks similar to:
