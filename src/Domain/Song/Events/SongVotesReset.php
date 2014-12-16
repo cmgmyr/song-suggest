@@ -5,14 +5,13 @@ use Ss\Repositories\Song\Song;
 
 class SongVotesReset
 {
-
     /**
      * @var Song
      */
     public $song;
 
-    function __construct(Song $song)
+    public function __construct(Song $song)
     {
         $this->song = $song;
     }
-} 
+}

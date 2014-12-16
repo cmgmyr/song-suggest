@@ -5,7 +5,6 @@ use Ss\Models\BaseModel;
 
 class Category extends BaseModel
 {
-
     /**
      * ID for "Pending" category
      */
@@ -92,7 +91,7 @@ class Category extends BaseModel
 
         $data = new \Illuminate\Database\Eloquent\Collection;
 
-        foreach($records as $record) {
+        foreach ($records as $record) {
             $song = \Ss\Repositories\Song\Song::find($record->id);
 
             $data->add($song);

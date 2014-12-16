@@ -4,7 +4,7 @@ return array(
 
     'default' => 'sqlite',
 
-	'connections' => array(
+    'connections' => array(
 
         'sqlite' => array(
             'driver'   => 'sqlite',
@@ -12,6 +12,6 @@ return array(
             'prefix'   => '',
         ),
 
-	),
+    ),
 
 );

@@ -13,7 +13,7 @@ class UnFollowSongCommandHandler implements CommandHandler
      */
     protected $follow;
 
-    function __construct(FollowInterface $follow)
+    public function __construct(FollowInterface $follow)
     {
         $this->follow = $follow;
     }
@@ -28,5 +28,4 @@ class UnFollowSongCommandHandler implements CommandHandler
     {
         $this->follow->delete($command->song_id, $command->user_id);
     }
-
 }

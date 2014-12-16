@@ -5,7 +5,6 @@ use Ss\Services\Validation\FormValidator;
 
 class UserForm extends FormValidator
 {
-
     protected $rules = [
         'first_name' => 'required',
         'last_name'  => 'required',
@@ -41,4 +40,4 @@ class UserForm extends FormValidator
     {
         $this->rules['email'] = ['required', 'email', 'unique:users,email,' . $id];
     }
-} 
+}

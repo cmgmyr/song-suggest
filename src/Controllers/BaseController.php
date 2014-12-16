@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\View;
 
 abstract class BaseController extends Controller
 {
-
     use CommanderTrait;
 
     /**
@@ -80,5 +79,4 @@ abstract class BaseController extends Controller
         Flash::error($message);
         return Redirect::back();
     }
-
 }

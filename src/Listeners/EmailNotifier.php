@@ -13,7 +13,6 @@ use Ss\Repositories\User\UserInterface;
 
 class EmailNotifier extends EventListener
 {
-
     /**
      * @var SongInterface
      */
@@ -29,7 +28,7 @@ class EmailNotifier extends EventListener
      */
     protected $user;
 
-    function __construct(SongInterface $song, SongMailer $mailer, UserInterface $user)
+    public function __construct(SongInterface $song, SongMailer $mailer, UserInterface $user)
     {
         $this->song = $song;
         $this->mailer = $mailer;
@@ -126,4 +125,4 @@ class EmailNotifier extends EventListener
             $this->mailer->sendVoteReminder($user, $song, $notification);
         }
     }
-} 
+}

@@ -15,7 +15,7 @@ class SongCategoryChangedCommandHandler implements CommandHandler
      */
     protected $song;
 
-    function __construct(SongInterface $song)
+    public function __construct(SongInterface $song)
     {
         $this->song = $song;
     }

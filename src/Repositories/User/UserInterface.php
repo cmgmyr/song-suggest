@@ -3,7 +3,6 @@ namespace Ss\Repositories\User;
 
 interface UserInterface
 {
-
     /**
      * Fetches all users from data source
      *
@@ -93,4 +92,4 @@ interface UserInterface
      * @return array
      */
     public function getNotifiesForSong($song_id);
-} 
+}

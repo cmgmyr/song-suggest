@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\View;
 
 class RemindersController extends BaseController
 {
-
     /**
      * Display the password reminder view.
      *
@@ -27,7 +26,7 @@ class RemindersController extends BaseController
      */
     public function postRemind()
     {
-        switch ($response = Password::remind(Input::only('email'), function($message) {
+        switch ($response = Password::remind(Input::only('email'), function ($message) {
                 $message->subject('Password Reset Instructions');
             })) {
             case Password::INVALID_USER:
@@ -86,5 +85,4 @@ class RemindersController extends BaseController
                 return $this->redirectRouteWithSuccess('login', 'Your password has been reset. Please continue to log in.');
         }
     }
-
 }

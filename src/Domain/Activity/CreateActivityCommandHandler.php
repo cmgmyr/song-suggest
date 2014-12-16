@@ -15,7 +15,7 @@ class CreateActivityCommandHandler implements CommandHandler
      */
     protected $activity;
 
-    function __construct(ActivityInterface $activity)
+    public function __construct(ActivityInterface $activity)
     {
         $this->activity = $activity;
     }

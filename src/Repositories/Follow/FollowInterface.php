@@ -3,7 +3,6 @@ namespace Ss\Repositories\Follow;
 
 interface FollowInterface
 {
-
     /**
      * Accept new follow data that will be persisted in data source
      *
@@ -21,4 +20,4 @@ interface FollowInterface
      * @return boolean
      */
     public function delete($songId, $userId);
-} 
+}

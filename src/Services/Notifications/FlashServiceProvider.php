@@ -5,7 +5,6 @@ use Illuminate\Support\ServiceProvider;
 
 class FlashServiceProvider extends ServiceProvider
 {
-
     /**
      * Register the service provider.
      *
@@ -13,8 +12,7 @@ class FlashServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bindShared('flash', function()
-        {
+        $this->app->bindShared('flash', function () {
             return $this->app->make('Ss\Services\Notifications\FlashNotifier');
         });
     }

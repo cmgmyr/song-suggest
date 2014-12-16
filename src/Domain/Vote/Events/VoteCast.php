@@ -5,14 +5,13 @@ use Ss\Repositories\Vote\Vote;
 
 class VoteCast
 {
-
     /**
      * @var Vote
      */
     public $vote;
 
-    function __construct(Vote $vote)
+    public function __construct(Vote $vote)
     {
         $this->vote = $vote;
     }
-} 
+}

@@ -3,7 +3,6 @@ namespace Ss\Domain\User;
 
 class CreateUserCommand
 {
-
     /**
      * @var
      */
@@ -39,7 +38,7 @@ class CreateUserCommand
      */
     public $notify;
 
-    function __construct($first_name, $last_name, $email, $password, $is_admin, $is_active, $notify)
+    public function __construct($first_name, $last_name, $email, $password, $is_admin, $is_active, $notify)
     {
         $this->first_name = $first_name;
         $this->last_name = $last_name;
@@ -49,4 +48,4 @@ class CreateUserCommand
         $this->is_active = $is_active;
         $this->notify = $notify;
     }
-} 
+}

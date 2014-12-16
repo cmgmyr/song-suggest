@@ -14,7 +14,7 @@ class VoteCastCommandHandler implements CommandHandler
      */
     protected $vote;
 
-    function __construct(VoteInterface $vote)
+    public function __construct(VoteInterface $vote)
     {
         $this->vote = $vote;
     }
@@ -35,5 +35,4 @@ class VoteCastCommandHandler implements CommandHandler
 
         return $vote;
     }
-
 }

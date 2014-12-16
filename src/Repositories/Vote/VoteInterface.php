@@ -36,4 +36,4 @@ interface VoteInterface
      * @return boolean
      */
     public function delete(Vote $vote);
-} 
+}

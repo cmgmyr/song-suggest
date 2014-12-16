@@ -5,14 +5,13 @@ use Ss\Repositories\Activity\Activity;
 
 class ActivityAdded
 {
-
     /**
      * @var Activity
      */
     public $activity;
 
-    function __construct(Activity $activity)
+    public function __construct(Activity $activity)
     {
         $this->activity = $activity;
     }
-} 
+}

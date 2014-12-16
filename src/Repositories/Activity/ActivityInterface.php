@@ -3,7 +3,6 @@ namespace Ss\Repositories\Activity;
 
 interface ActivityInterface
 {
-
     /**
      * Accept new activity data that will be persisted in data source
      *
@@ -12,4 +11,4 @@ interface ActivityInterface
      * @throws ActivityNotSavedException
      */
     public function save(Activity $activity);
-} 
+}

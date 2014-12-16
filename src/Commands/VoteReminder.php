@@ -14,7 +14,6 @@ use Ss\Repositories\User\UserInterface;
 
 class VoteReminder extends ScheduledCommand
 {
-
     use DispatchableTrait;
     use EventGenerator;
 
@@ -101,5 +100,4 @@ class VoteReminder extends ScheduledCommand
 
         $this->info('Total Remindable Songs: ' . $songs->count());
     }
-
 }

@@ -5,7 +5,6 @@ use Ss\Domain\Activity\CreateActivityCommand;
 
 class ActivitiesListener
 {
-
     use CommanderTrait;
 
     /**
@@ -119,5 +118,4 @@ class ActivitiesListener
         $input = ['song_id' => $song_id, 'user_id' => $user_id, 'message' => $message, 'color_class' => $color_class];
         $this->execute(CreateActivityCommand::class, $input);
     }
-
 }

@@ -6,7 +6,6 @@ use Ss\Repositories\User\User;
 
 class EditSongCommand
 {
-
     /**
      * @var Song
      */
@@ -37,7 +36,7 @@ class EditSongCommand
      */
     public $mp3_file;
 
-    function __construct(Song $song, User $editor, $artist, $title, $youtube, $mp3_file)
+    public function __construct(Song $song, User $editor, $artist, $title, $youtube, $mp3_file)
     {
         $this->song = $song;
         $this->editor = $editor;
@@ -46,4 +45,4 @@ class EditSongCommand
         $this->youtube = $youtube;
         $this->mp3_file = $mp3_file;
     }
-} 
+}

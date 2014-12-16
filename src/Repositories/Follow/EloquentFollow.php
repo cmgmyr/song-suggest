@@ -10,7 +10,7 @@ class EloquentFollow implements FollowInterface
      */
     protected $follow;
 
-    function __construct(Model $follow)
+    public function __construct(Model $follow)
     {
         $this->follow = $follow;
     }
@@ -46,4 +46,4 @@ class EloquentFollow implements FollowInterface
 
         return true;
     }
-} 
+}

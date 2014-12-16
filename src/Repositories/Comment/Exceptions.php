@@ -1,4 +1,6 @@
 <?php
 namespace Ss\Repositories\Comment;
 
-class CommentNotSavedException extends \UnexpectedValueException {}
+class Exceptions extends \UnexpectedValueException
+{
+}

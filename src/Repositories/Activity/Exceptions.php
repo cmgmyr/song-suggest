@@ -1,4 +1,6 @@
 <?php
 namespace Ss\Repositories\Activity;
 
-class ActivityNotSavedException extends \UnexpectedValueException {}
+class Exceptions extends \UnexpectedValueException
+{
+}

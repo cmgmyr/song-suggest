@@ -5,7 +5,6 @@ use Ss\Repositories\User\User;
 
 class SuggestSongCommand
 {
-
     /**
      * @var
      */
@@ -31,7 +30,7 @@ class SuggestSongCommand
      */
     public $user;
 
-    function __construct($artist, $title, $youtube, $mp3_file, User $user)
+    public function __construct($artist, $title, $youtube, $mp3_file, User $user)
     {
         $this->artist = $artist;
         $this->title = $title;
@@ -39,4 +38,4 @@ class SuggestSongCommand
         $this->mp3_file = $mp3_file;
         $this->user = $user;
     }
-} 
+}

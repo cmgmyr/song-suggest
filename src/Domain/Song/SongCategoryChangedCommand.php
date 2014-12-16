@@ -5,7 +5,6 @@ use Ss\Repositories\Song\Song;
 
 class SongCategoryChangedCommand
 {
-
     /**
      * @var Song
      */
@@ -16,7 +15,7 @@ class SongCategoryChangedCommand
      */
     public $category_id;
 
-    function __construct(Song $song, $category_id)
+    public function __construct(Song $song, $category_id)
     {
         $this->song = $song;
         $this->category_id = $category_id;

@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\View;
 
 class AuthController extends BaseController
 {
-
     /**
      * @var \Ss\Repositories\User\UserInterface
      */
@@ -25,7 +24,7 @@ class AuthController extends BaseController
      */
     protected $userForm;
 
-    function __construct(UserInterface $user, UserForm $userForm)
+    public function __construct(UserInterface $user, UserForm $userForm)
     {
         $this->user = $user;
         $this->userForm = $userForm;
@@ -130,7 +129,7 @@ class AuthController extends BaseController
 
         if (Input::hasFile('image')) {
             $file = Input::file('image');
-            if($file->getClientOriginalExtension() == 'jpg') {
+            if ($file->getClientOriginalExtension() == 'jpg') {
                 $fileName = str_random(40);
                 $file->move(Config::get('uploads.location'), $fileName . '.jpg');
 
@@ -140,4 +139,4 @@ class AuthController extends BaseController
 
         return $input;
     }
-} 
+}

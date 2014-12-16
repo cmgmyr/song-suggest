@@ -5,7 +5,6 @@ use Ss\Repositories\Category\Category;
 
 class CategoriesSeeder extends Seeder
 {
-
     public function run()
     {
         // create categories
@@ -46,4 +45,4 @@ class CategoriesSeeder extends Seeder
             )
         );
     }
-} 
+}

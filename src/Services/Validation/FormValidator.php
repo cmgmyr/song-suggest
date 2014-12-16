@@ -6,7 +6,6 @@ use Illuminate\Validation\Factory as Validator;
 
 abstract class FormValidator
 {
-
     /**
      * @var \Illuminate\Validation\Factory
      */
@@ -23,7 +22,7 @@ abstract class FormValidator
      */
     protected $rules;
 
-    function __construct(Validator $validator)
+    public function __construct(Validator $validator)
     {
         $this->validator = $validator;
     }

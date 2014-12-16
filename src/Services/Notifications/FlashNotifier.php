@@ -6,13 +6,12 @@ use Illuminate\Support\MessageBag;
 
 class FlashNotifier
 {
-
     /**
      * @var \Illuminate\Session\Store
      */
     protected $session;
 
-    function __construct(Store $session)
+    public function __construct(Store $session)
     {
         $this->session = $session;
     }

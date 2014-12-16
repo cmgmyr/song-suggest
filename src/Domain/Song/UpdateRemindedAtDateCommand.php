@@ -3,9 +3,8 @@ namespace Ss\Domain\Song;
 
 use Ss\Repositories\Song\Song;
 
-class UpdateRemindedAtDate
+class UpdateRemindedAtDateCommand
 {
-
     /**
      * @var Song
      */
@@ -16,9 +15,9 @@ class UpdateRemindedAtDate
      */
     public $days;
 
-    function __construct(Song $song, $days)
+    public function __construct(Song $song, $days)
     {
         $this->song = $song;
         $this->days = $days;
     }
-} 
+}

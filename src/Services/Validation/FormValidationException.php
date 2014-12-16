@@ -5,13 +5,12 @@ use Illuminate\Support\MessageBag;
 
 class FormValidationException extends \Exception
 {
-
     /**
      * @var MessageBag
      */
     protected $errors;
 
-    function __construct($message, MessageBag $errors)
+    public function __construct($message, MessageBag $errors)
     {
         $this->errors = $errors;
 
@@ -25,4 +24,4 @@ class FormValidationException extends \Exception
     {
         return $this->errors;
     }
-} 
+}

@@ -3,7 +3,6 @@ namespace Ss\Repositories\Setting;
 
 interface SettingInterface
 {
-
     /**
      * Fetches and returns setting data associated with a key
      *

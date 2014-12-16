@@ -3,7 +3,6 @@ namespace Ss\Repositories\Comment;
 
 interface CommentInterface
 {
-
     /**
      * Accept new comment data that will be persisted in data source
      *
@@ -12,4 +11,4 @@ interface CommentInterface
      * @return \Ss\Repositories\Vote\Vote
      */
     public function save(Comment $comment);
-} 
+}

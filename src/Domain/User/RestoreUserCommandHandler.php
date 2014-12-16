@@ -15,7 +15,7 @@ class RestoreUserCommandHandler implements CommandHandler
      */
     protected $user;
 
-    function __construct(UserInterface $user)
+    public function __construct(UserInterface $user)
     {
         $this->user = $user;
     }

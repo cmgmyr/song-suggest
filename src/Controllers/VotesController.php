@@ -12,7 +12,6 @@ use Ss\Repositories\Vote\Vote;
 
 class VotesController extends BaseController
 {
-
     /**
      * @var SongInterface
      */
@@ -28,7 +27,7 @@ class VotesController extends BaseController
      */
     protected $voteForm;
 
-    function __construct(SongInterface $song, Vote $vote, VoteForm $voteForm)
+    public function __construct(SongInterface $song, Vote $vote, VoteForm $voteForm)
     {
         $this->song = $song;
         $this->vote = $vote;
@@ -82,10 +81,10 @@ class VotesController extends BaseController
 
         // see if song is negative or positive, then move to category
         if (!in_array($song->category_id, Category::getProtectedCategories())) {
-            if($positiveVotes >= $threshold) {
+            if ($positiveVotes >= $threshold) {
                 $input = ['song' => $song, 'category_id' => Category::APPROVED];
                 $this->execute(SongCategoryChangedCommand::class, $input);
-            } else if ($negativeVotes >= $threshold) {
+            } elseif ($negativeVotes >= $threshold) {
                 $input = ['song' => $song, 'category_id' => Category::DECLINED];
                 $this->execute(SongCategoryChangedCommand::class, $input);
             } else {
@@ -94,5 +93,4 @@ class VotesController extends BaseController
             }
         }
     }
-
 }

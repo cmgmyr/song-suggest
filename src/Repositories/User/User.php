@@ -17,7 +17,6 @@ use Ss\Models\BaseModel;
 
 class User extends BaseModel implements UserInterface, RemindableInterface
 {
-
     use UserTrait, RemindableTrait, PresentableTrait, SoftDeletingTrait;
 
     /**
@@ -106,8 +105,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     public function unvotedSongs()
     {
         $user = $this->id;
-        return \Ss\Repositories\Song\Song::whereHas('votes', function($q) use ($user)
-        {
+        return \Ss\Repositories\Song\Song::whereHas('votes', function ($q) use ($user) {
             $q->where('user_id', '=', $user);
         }, '=', 0)->get();
     }

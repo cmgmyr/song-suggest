@@ -5,7 +5,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class AlterUsersTableWithUniqueEmail extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -35,5 +34,4 @@ class AlterUsersTableWithUniqueEmail extends Migration
             }
         );
     }
-
 }

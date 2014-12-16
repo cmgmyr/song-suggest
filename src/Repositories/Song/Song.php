@@ -15,7 +15,6 @@ use Ss\Repositories\User\User;
 
 class Song extends BaseModel
 {
-
     use SoftDeletingTrait;
 
     /**
@@ -195,8 +194,7 @@ class Song extends BaseModel
      */
     public function getFollowers($user_id = null)
     {
-        $query = $this->follows()->whereHas('user', function($q)
-            {
+        $query = $this->follows()->whereHas('user', function ($q) {
                 $q->where('notify', 'y');
             });
 
@@ -336,7 +334,7 @@ class Song extends BaseModel
      */
     public static function updateCategory(Song $song, $category_id)
     {
-        if($song->category_id != $category_id) {
+        if ($song->category_id != $category_id) {
             $song->category_id = $category_id;
 
             $song->raise(new SongCategoryChanged($song));
@@ -372,4 +370,4 @@ class Song extends BaseModel
 
         return $song;
     }
-} 
+}

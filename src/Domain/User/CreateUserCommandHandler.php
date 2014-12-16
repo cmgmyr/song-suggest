@@ -8,7 +8,6 @@ use Ss\Repositories\User\UserInterface;
 
 class CreateUserCommandHandler implements CommandHandler
 {
-
     use DispatchableTrait;
 
     /**
@@ -16,7 +15,7 @@ class CreateUserCommandHandler implements CommandHandler
      */
     protected $user;
 
-    function __construct(UserInterface $user)
+    public function __construct(UserInterface $user)
     {
         $this->user = $user;
     }

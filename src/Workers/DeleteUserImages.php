@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\File;
 
 class DeleteUserImages
 {
-
     /**
      * Deletes all obsolete user images from the filesystem
      *
@@ -26,4 +25,4 @@ class DeleteUserImages
 
         File::delete($directory . '/' . $data['image'] . '.jpg');
     }
-} 
+}

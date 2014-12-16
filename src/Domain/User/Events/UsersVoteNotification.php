@@ -5,7 +5,6 @@ use Ss\Repositories\Song\Song;
 
 class UsersVoteNotification
 {
-
     /**
      * @var Song
      */
@@ -16,9 +15,9 @@ class UsersVoteNotification
      */
     public $users;
 
-    function __construct(Song $song, $users)
+    public function __construct(Song $song, $users)
     {
         $this->song = $song;
         $this->users = $users;
     }
-} 
+}

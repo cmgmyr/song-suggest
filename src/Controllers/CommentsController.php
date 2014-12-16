@@ -8,13 +8,12 @@ use Ss\Forms\CommentForm;
 
 class CommentsController extends BaseController
 {
-
     /**
      * @var CommentForm
      */
     protected $commentForm;
 
-    function __construct(CommentForm $commentForm)
+    public function __construct(CommentForm $commentForm)
     {
         $this->commentForm = $commentForm;
     }
@@ -33,4 +32,4 @@ class CommentsController extends BaseController
 
         return $this->redirectBackWithSuccess('Your comment has been added!');
     }
-} 
+}

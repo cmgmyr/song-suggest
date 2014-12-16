@@ -10,7 +10,7 @@ class EloquentActivity implements ActivityInterface
      */
     protected $activity;
 
-    function __construct(Model $activity)
+    public function __construct(Model $activity)
     {
         $this->activity = $activity;
     }
@@ -32,4 +32,4 @@ class EloquentActivity implements ActivityInterface
 
         return $activity;
     }
-} 
+}

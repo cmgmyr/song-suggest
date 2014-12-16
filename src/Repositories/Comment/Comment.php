@@ -6,7 +6,6 @@ use Ss\Models\BaseModel;
 
 class Comment extends BaseModel
 {
-
     /**
      * The database table used by the model.
      *
@@ -57,4 +56,4 @@ class Comment extends BaseModel
 
         return $newComment;
     }
-} 
+}

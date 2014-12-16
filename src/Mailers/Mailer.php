@@ -6,7 +6,6 @@ use Ss\Repositories\User\User;
 
 abstract class Mailer
 {
-
     /**
      * @var \Illuminate\Mail\Mailer
      */
@@ -15,7 +14,7 @@ abstract class Mailer
     /**
      * @param Mail $mailer
      */
-    function __construct(Mail $mailer)
+    public function __construct(Mail $mailer)
     {
         $this->mailer = $mailer;
     }
@@ -30,9 +29,8 @@ abstract class Mailer
      */
     public function sendTo(User $user, $subject, $view, $data = [])
     {
-        $this->mailer->queue($view, $data, function($message) use ($user, $subject)
-        {
+        $this->mailer->queue($view, $data, function ($message) use ($user, $subject) {
             $message->to($user->email)->subject($subject);
         });
     }
-} 
+}

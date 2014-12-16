@@ -7,13 +7,12 @@ use Ss\Repositories\Song\SongInterface;
 
 class BandsController extends BaseController
 {
-
     /**
      * @var \Ss\Repositories\Song\SongInterface
      */
     protected $song;
 
-    function __construct(SongInterface $song)
+    public function __construct(SongInterface $song)
     {
         $this->song = $song;
     }
@@ -27,7 +26,7 @@ class BandsController extends BaseController
         $bands = $this->song->getArtistsApi($query);
         $return = [];
 
-        foreach($bands as $band) {
+        foreach ($bands as $band) {
             $return[] = $band->artist;
         }
 

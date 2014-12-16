@@ -3,11 +3,11 @@
 use Ss\Repositories\Setting\Setting;
 use Ss\Repositories\User\User;
 
-class SettingsSeeder extends Seeder {
-
-	public function run()
-	{
-		// Get the count of current users
+class SettingsSeeder extends Seeder
+{
+    public function run()
+    {
+        // Get the count of current users
         $usersCount = User::count();
 
         if ($usersCount == 1) {
@@ -29,6 +29,5 @@ class SettingsSeeder extends Seeder {
                 'value' => 3
             ]
         );
-	}
-
+    }
 }

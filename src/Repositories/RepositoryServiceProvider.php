@@ -21,7 +21,6 @@ use Ss\Repositories\Vote\Vote;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
-
     /**
      * Register the service provider.
      *

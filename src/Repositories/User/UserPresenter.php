@@ -8,7 +8,6 @@ use Laracasts\Presenter\Presenter;
 
 class UserPresenter extends Presenter
 {
-
     /**
      * Gets the URL for the user's avatar image
      *
@@ -50,8 +49,7 @@ class UserPresenter extends Presenter
     {
         $thumbnailName = Config::get('uploads.location') . '/' . $this->image . '_' . $size . '.jpg';
 
-        if (!File::exists($thumbnailName))
-        {
+        if (!File::exists($thumbnailName)) {
             $image = Image::make(Config::get('uploads.location') . '/' . $this->image . '.jpg');
 
             $image->fit($size, $size, function ($constraint) {
@@ -61,5 +59,4 @@ class UserPresenter extends Presenter
             $image->save($thumbnailName);
         }
     }
-
 }

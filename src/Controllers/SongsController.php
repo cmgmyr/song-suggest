@@ -20,7 +20,6 @@ use Ss\Repositories\Song\SongNotFoundException;
 
 class SongsController extends BaseController
 {
-
     /**
      * @var \Ss\Repositories\Category\CategoryInterface
      */
@@ -36,7 +35,7 @@ class SongsController extends BaseController
      */
     protected $songForm;
 
-    function __construct(CategoryInterface $category, SongInterface $song, SongForm $songForm)
+    public function __construct(CategoryInterface $category, SongInterface $song, SongForm $songForm)
     {
         $this->category = $category;
         $this->song = $song;
@@ -255,7 +254,7 @@ class SongsController extends BaseController
 
         if (Input::hasFile('mp3_file')) {
             $file = Input::file('mp3_file');
-            if($file->getClientOriginalExtension() == 'mp3') {
+            if ($file->getClientOriginalExtension() == 'mp3') {
                 $fileName = $input['artist'] . ' - ' . $input['title'] . '.mp3';
                 $file->move(Config::get('uploads.location'), $fileName);
 

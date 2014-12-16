@@ -5,13 +5,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class EloquentSetting implements SettingInterface
 {
-
     /**
      * @var \Illuminate\Database\Eloquent\Model
      */
     protected $model;
 
-    function __construct(Model $model)
+    public function __construct(Model $model)
     {
         $this->model = $model;
     }
@@ -65,7 +64,7 @@ class EloquentSetting implements SettingInterface
         // recalculate threshold
         if ($userCount == 1) {
             $setting->value = 1;
-        } else if($userCount % 2 == 0) {
+        } elseif ($userCount % 2 == 0) {
             // if even amount of users, add 1 for majority
             $setting->value = ($userCount / 2) + 1;
         } else {

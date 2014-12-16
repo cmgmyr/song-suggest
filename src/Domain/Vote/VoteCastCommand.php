@@ -2,7 +2,6 @@
 
 class VoteCastCommand
 {
-
     /**
      * @var
      */
@@ -18,11 +17,10 @@ class VoteCastCommand
      */
     public $vote;
 
-    function __construct($song_id, $user_id, $vote)
+    public function __construct($song_id, $user_id, $vote)
     {
         $this->song_id = $song_id;
         $this->user_id = $user_id;
         $this->vote = $vote;
     }
-
 }

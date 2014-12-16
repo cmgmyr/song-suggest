@@ -5,14 +5,13 @@ use Ss\Repositories\User\User;
 
 class UserUpdated
 {
-
     /**
      * @var User
      */
     public $user;
 
-    function __construct(User $user)
+    public function __construct(User $user)
     {
         $this->user = $user;
     }
-} 
+}

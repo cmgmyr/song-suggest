@@ -10,7 +10,7 @@ class EloquentComment implements CommentInterface
      */
     protected $comment;
 
-    function __construct(Model $comment)
+    public function __construct(Model $comment)
     {
         $this->comment = $comment;
     }
@@ -32,4 +32,4 @@ class EloquentComment implements CommentInterface
 
         return $comment;
     }
-} 
+}

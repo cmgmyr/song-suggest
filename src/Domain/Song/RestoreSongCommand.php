@@ -6,7 +6,6 @@ use Ss\Repositories\User\User;
 
 class RestoreSongCommand
 {
-
     /**
      * @var Song
      */
@@ -17,9 +16,9 @@ class RestoreSongCommand
      */
     public $editor;
 
-    function __construct(Song $song, User $editor)
+    public function __construct(Song $song, User $editor)
     {
         $this->song = $song;
         $this->editor = $editor;
     }
-} 
+}

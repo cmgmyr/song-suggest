@@ -14,7 +14,6 @@ use Ss\Repositories\User\UserNotFoundException;
 
 class UsersController extends BaseController
 {
-
     /**
      * @var \Ss\Repositories\User\UserInterface
      */
@@ -25,7 +24,7 @@ class UsersController extends BaseController
      */
     protected $userForm;
 
-    function __construct(UserInterface $user, UserForm $userForm)
+    public function __construct(UserInterface $user, UserForm $userForm)
     {
         $this->user = $user;
         $this->userForm = $userForm;
@@ -145,7 +144,7 @@ class UsersController extends BaseController
 
     /**
      * Restores a user
-     * 
+     *
      * @param $id
      * @return mixed
      */
@@ -166,4 +165,4 @@ class UsersController extends BaseController
             return $this->redirectBackWithError($e->getMessage());
         }
     }
-} 
+}

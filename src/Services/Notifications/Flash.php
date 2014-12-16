@@ -9,4 +9,4 @@ class Flash extends Facade
     {
         return 'flash';
     }
-} 
+}

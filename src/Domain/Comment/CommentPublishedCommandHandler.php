@@ -14,7 +14,7 @@ class CommentPublishedCommandHandler implements CommandHandler
      */
     protected $comment;
 
-    function __construct(CommentInterface $comment)
+    public function __construct(CommentInterface $comment)
     {
         $this->comment = $comment;
     }
@@ -35,5 +35,4 @@ class CommentPublishedCommandHandler implements CommandHandler
 
         return $comment;
     }
-
 }

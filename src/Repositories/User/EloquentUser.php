@@ -7,13 +7,12 @@ use Ss\Repositories\Vote\Vote;
 
 class EloquentUser implements UserInterface
 {
-
     /**
      * @var \Illuminate\Database\Eloquent\Model
      */
     protected $user;
 
-    function __construct(Model $user)
+    public function __construct(Model $user)
     {
         $this->user = $user;
     }

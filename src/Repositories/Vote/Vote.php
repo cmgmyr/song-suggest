@@ -7,7 +7,6 @@ use Ss\Models\BaseModel;
 
 class Vote extends BaseModel
 {
-
     /**
      * The database table used by the model.
      *
@@ -70,4 +69,4 @@ class Vote extends BaseModel
 
         return $newVote;
     }
-} 
+}

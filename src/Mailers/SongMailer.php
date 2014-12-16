@@ -6,7 +6,6 @@ use Ss\Repositories\User\User;
 
 class SongMailer extends Mailer
 {
-
     /**
      * Notifies a user if a new song has been added
      *
@@ -75,4 +74,4 @@ class SongMailer extends Mailer
 
         $this->sendTo($user, $subject, $view, $data);
     }
-} 
+}

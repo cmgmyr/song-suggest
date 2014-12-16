@@ -7,7 +7,6 @@ use Ss\Repositories\User\User;
 
 class EmailsController extends BaseController
 {
-
     /**
      * Shows the song suggestion email
      *
@@ -65,4 +64,4 @@ class EmailsController extends BaseController
 
         return View::make('emails.auth.reminder', $data);
     }
-} 
+}

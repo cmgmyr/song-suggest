@@ -5,13 +5,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class EloquentCategory implements CategoryInterface
 {
-
     /**
      * @var \Illuminate\Database\Eloquent\Model
      */
     protected $category;
 
-    function __construct(Model $category)
+    public function __construct(Model $category)
     {
         $this->category = $category;
     }

@@ -78,4 +78,4 @@ interface SongInterface
      * @return object
      */
     public function remindable($days = 3);
-} 
+}

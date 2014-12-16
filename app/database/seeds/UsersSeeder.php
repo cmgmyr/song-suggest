@@ -5,7 +5,6 @@ use Faker\Factory as Faker;
 
 class UsersSeeder extends Seeder
 {
-
     public function run()
     {
         $faker = Faker::create();
@@ -36,4 +35,4 @@ class UsersSeeder extends Seeder
             );
         }*/
     }
-} 
+}

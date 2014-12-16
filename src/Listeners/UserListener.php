@@ -11,7 +11,6 @@ use Ss\Repositories\User\UserInterface;
 
 class UserListener extends EventListener
 {
-
     /**
      * @var SettingInterface
      */
@@ -22,7 +21,7 @@ class UserListener extends EventListener
      */
     protected $user;
 
-    function __construct(SettingInterface $setting, UserInterface $user)
+    public function __construct(SettingInterface $setting, UserInterface $user)
     {
         $this->setting = $setting;
         $this->user = $user;
@@ -76,4 +75,4 @@ class UserListener extends EventListener
         $userCount = $this->user->countAll();
         $this->setting->updateThreshold($userCount);
     }
-} 
+}

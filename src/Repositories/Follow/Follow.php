@@ -52,4 +52,4 @@ class Follow extends BaseModel
 
         return $follow;
     }
-} 
+}

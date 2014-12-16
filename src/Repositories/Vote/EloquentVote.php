@@ -10,7 +10,7 @@ class EloquentVote implements VoteInterface
      */
     protected $vote;
 
-    function __construct(Model $vote)
+    public function __construct(Model $vote)
     {
         $this->vote = $vote;
     }
@@ -72,4 +72,4 @@ class EloquentVote implements VoteInterface
 
         return true;
     }
-} 
+}

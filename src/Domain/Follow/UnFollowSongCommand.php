@@ -2,7 +2,6 @@
 
 class UnFollowSongCommand
 {
-
     /**
      * @var
      */
@@ -13,10 +12,9 @@ class UnFollowSongCommand
      */
     public $user_id;
 
-    function __construct($song_id, $user_id)
+    public function __construct($song_id, $user_id)
     {
         $this->song_id = $song_id;
         $this->user_id = $user_id;
     }
-
 }

@@ -5,7 +5,6 @@ use Ss\Repositories\User\User;
 
 class UpdateUserCommand
 {
-
     /**
      * @var User
      */
@@ -16,9 +15,9 @@ class UpdateUserCommand
      */
     public $input;
 
-    function __construct(User $user, $input)
+    public function __construct(User $user, $input)
     {
         $this->user = $user;
         $this->input = $input;
     }
-} 
+}

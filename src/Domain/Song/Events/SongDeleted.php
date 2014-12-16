@@ -6,7 +6,6 @@ use Ss\Repositories\User\User;
 
 class SongDeleted
 {
-
     /**
      * @var Song
      */
@@ -17,9 +16,9 @@ class SongDeleted
      */
     public $editor;
 
-    function __construct(Song $song, User $editor)
+    public function __construct(Song $song, User $editor)
     {
         $this->song = $song;
         $this->editor = $editor;
     }
-} 
+}

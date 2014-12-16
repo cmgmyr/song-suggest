@@ -2,7 +2,6 @@
 
 class CommentPublishedCommand
 {
-
     /**
      * @var
      */
@@ -18,11 +17,10 @@ class CommentPublishedCommand
      */
     public $comment;
 
-    function __construct($song_id, $user_id, $comment)
+    public function __construct($song_id, $user_id, $comment)
     {
         $this->song_id = $song_id;
         $this->user_id = $user_id;
         $this->comment = $comment;
     }
-
 }

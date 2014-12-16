@@ -9,7 +9,6 @@ use Ss\Repositories\User\UserInterface;
 
 class FollowsController extends BaseController
 {
-
     /**
      * @var Follow
      */
@@ -20,7 +19,7 @@ class FollowsController extends BaseController
      */
     protected $user;
 
-    function __construct(Follow $follow, UserInterface $user)
+    public function __construct(Follow $follow, UserInterface $user)
     {
         $this->follow = $follow;
         $this->user = $user;
@@ -36,7 +35,7 @@ class FollowsController extends BaseController
     {
         $input = ['song_id' => $songId, 'user_id' => Auth::id()];
 
-        if(Input::get('follow') == 'y') {
+        if (Input::get('follow') == 'y') {
             $this->execute(FollowSongCommand::class, $input);
 
             return $this->redirectBackWithSuccess('You have started following this song!');
@@ -61,5 +60,4 @@ class FollowsController extends BaseController
             $this->execute(FollowSongCommand::class, $input);
         }
     }
-
 }

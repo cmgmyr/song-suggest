@@ -11,7 +11,7 @@ class EloquentSong implements SongInterface
      */
     protected $song;
 
-    function __construct(Model $song)
+    public function __construct(Model $song)
     {
         $this->song = $song;
     }
@@ -154,7 +154,7 @@ class EloquentSong implements SongInterface
         $records = \DB::select(\DB::raw($query), ['comment_song_id' => $song->id, 'activity_song_id' => $song->id]);
         $data = new \Illuminate\Database\Eloquent\Collection;
 
-        foreach($records as $record) {
+        foreach ($records as $record) {
             $record->user = \Ss\Repositories\User\User::withTrashed()->where('id', $record->user_id)->first();
             $record->created_at = new Carbon($record->created_at);
 
@@ -173,7 +173,7 @@ class EloquentSong implements SongInterface
     public function remindable($days = 3)
     {
         return $this->song
-            ->where(function($q) use ($days) {
+            ->where(function ($q) use ($days) {
                 $q->where('reminded_at', '<=', Carbon::now()->subDays($days)->toDateTimeString());
                 $q->orWhere('reminded_at', null);
             })
@@ -186,7 +186,7 @@ class EloquentSong implements SongInterface
         return $this->song
             ->select(\DB::raw('DISTINCT artist'))
             ->where('artist', 'LIKE', '%' . $query . '%')
-            ->orderBy('artist','ASC')
+            ->orderBy('artist', 'ASC')
             ->get();
     }
-} 
+}
