@@ -1,6 +1,17 @@
 # Song Suggestion Manager for Bands
 For cover bands, managing new songs to potentially learn can be a burden. Too many lists, emails, text messages...who can remember what we talked about 2 months ago? What did we say we were going to learn next??? This is where Song Suggest comes in.
 
+## Features
+
+* Simple, responsive design using the Bootstrap framework
+* Add unlimited band members
+* User functions - log in, log out, reset password, update account, turn on/off email notification options, upload profile image or default to Gravatar
+* Suggest unlimited songs
+* Optional linking to a YouTube video and/or upload MP3 file
+* Detailed layout of songs broken down by category (Pending, Approved, Denied, Learning, Learned, Archived), then ordered by positive votes and number of comments so it's easier to pick the next song to learn
+* Song details page which includes: artist, title, youtube embedded video, voting capabilities, vote totals, notification options, download MP3 option, comment form, activity feed, and for admin users there is also: update category, reset votes, and delete song
+* Users who opt in to email notifications get them for: new song suggestions, new/changed votes, when songs are moved into a different category, when a song is edited, or a new comment is made
+
 ## Technologies Used
 
 * Laravel
