@@ -37,7 +37,7 @@ class Activity extends BaseModel
      */
     public function user()
     {
-        return $this->belongsTo('Ss\Repositories\User\User');
+        return $this->belongsTo('Ss\Repositories\User\User')->withTrashed();
     }
 
     public static function add($song_id, $user_id, $message, $color_class)

@@ -26,7 +26,7 @@ class Follow extends BaseModel
      */
     public function user()
     {
-        return $this->belongsTo('Ss\Repositories\User\User');
+        return $this->belongsTo('Ss\Repositories\User\User')->withTrashed();
     }
 
     /**
