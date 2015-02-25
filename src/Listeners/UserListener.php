@@ -1,6 +1,7 @@
 <?php
 namespace Ss\Listeners;
 
+use Illuminate\Support\Facades\Queue;
 use Laracasts\Commander\Events\EventListener;
 use Ss\Domain\User\Events\UserAdded;
 use Ss\Domain\User\Events\UserDeleted;
@@ -44,6 +45,7 @@ class UserListener extends EventListener
      */
     public function whenUserDeleted(UserDeleted $event)
     {
+        Queue::push('Ss\Workers\UpdateSongCategories');
         $this->updateThreshold();
     }
 
