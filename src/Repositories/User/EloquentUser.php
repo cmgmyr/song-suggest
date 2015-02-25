@@ -111,6 +111,7 @@ class EloquentUser implements UserInterface
      */
     public function delete(User $user)
     {
+        $user->votes()->delete();
         $user->delete();
 
         return true;
