@@ -9,7 +9,6 @@ use Ss\Repositories\Song\SongInterface;
 
 class UpdateSongCategories
 {
-
     use CommanderTrait;
 
     /**
@@ -17,7 +16,7 @@ class UpdateSongCategories
      */
     protected $song;
 
-    function __construct(SongInterface $song)
+    public function __construct(SongInterface $song)
     {
         $this->song = $song;
     }
