@@ -3,6 +3,7 @@ namespace Ss\Repositories\Song;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Ss\Services\Media\Embeder;
 
 class EloquentSong implements SongInterface
 {
@@ -157,6 +158,7 @@ class EloquentSong implements SongInterface
         foreach ($records as $record) {
             $record->user = \Ss\Repositories\User\User::withTrashed()->where('id', $record->user_id)->first();
             $record->created_at = new Carbon($record->created_at);
+            $record->text = Embeder::embed($record->text);
 
             $data->add($record);
         }
