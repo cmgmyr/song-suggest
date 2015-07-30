@@ -123,7 +123,7 @@ return array(
         'Illuminate\Workbench\WorkbenchServiceProvider',
 
         'Laracasts\Commander\CommanderServiceProvider',
-        'Way\Generators\GeneratorsServiceProvider',
+        //'Way\Generators\GeneratorsServiceProvider',
         'Intervention\Image\ImageServiceProvider',
         'Indatus\Dispatcher\ServiceProvider',
 
