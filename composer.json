@@ -10,7 +10,8 @@
         "iron-io/iron_mq": "1.5.*",
         "intervention/image": "2.*",
         "indatus/dispatcher": "1.*",
-        "dereuromark/media-embed": "0.2.*"
+        "dereuromark/media-embed": "0.2.*",
+        "vlucas/phpdotenv": "^2.0"
     },
     "require-dev": {
         "way/generators": "2.*",
