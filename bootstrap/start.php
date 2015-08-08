@@ -11,6 +11,10 @@
 |
 */
 
+// .env file handling
+$dotenv = new \Dotenv\Dotenv(__DIR__.'/../');
+$dotenv->load();
+
 $app = new Illuminate\Foundation\Application;
 
 /*
