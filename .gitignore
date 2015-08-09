@@ -9,7 +9,6 @@ tests/codeception/_data/*
 !tests/codeception/_data/.gitkeep
 /vendor
 .DS_Store
-.env.*.php
-.env.php
+.env
 composer.phar
 Thumbs.db
