@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Repositories\Setting;
 
 use Illuminate\Database\Eloquent\Model;
@@ -16,7 +17,7 @@ class EloquentSetting implements SettingInterface
     }
 
     /**
-     * Fetches and returns setting data associated with a key
+     * Fetches and returns setting data associated with a key.
      *
      * @param $key
      * @return object
@@ -33,7 +34,7 @@ class EloquentSetting implements SettingInterface
     }
 
     /**
-     * Accept setting data that will be persisted in data source
+     * Accept setting data that will be persisted in data source.
      *
      * @param Setting $setting
      * @return \Ss\Repositories\Setting\Setting
@@ -52,7 +53,7 @@ class EloquentSetting implements SettingInterface
 
     /**
      * Updates the rating threshold after user is added,
-     * updated, deleted, or restored
+     * updated, deleted, or restored.
      *
      * @param $userCount
      * @return object

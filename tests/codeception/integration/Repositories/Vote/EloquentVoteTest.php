@@ -4,7 +4,6 @@ use Laracasts\TestDummy\Factory as TestDummy;
 
 class EloquentVoteTest extends \Codeception\TestCase\Test
 {
-
     /**
      * @var \IntegrationTester
      */
@@ -25,14 +24,14 @@ class EloquentVoteTest extends \Codeception\TestCase\Test
         TestDummy::times(2)->create(
             'Ss\Repositories\Vote\Vote',
             [
-                'user_id' => $users[0]->id
+                'user_id' => $users[0]->id,
             ]
         );
 
         TestDummy::times(2)->create(
             'Ss\Repositories\Vote\Vote',
             [
-                'user_id' => $users[1]->id
+                'user_id' => $users[1]->id,
             ]
         );
 
@@ -83,5 +82,4 @@ class EloquentVoteTest extends \Codeception\TestCase\Test
 
         $this->assertTrue($deleted);
     }
-
 }

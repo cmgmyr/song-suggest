@@ -10,5 +10,6 @@ tests/codeception/_data/*
 /vendor
 .DS_Store
 .env
+.php_cs.cache
 composer.phar
 Thumbs.db

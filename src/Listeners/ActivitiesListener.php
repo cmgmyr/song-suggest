@@ -1,4 +1,6 @@
-<?php namespace Ss\Listeners;
+<?php
+
+namespace Ss\Listeners;
 
 use Laracasts\Commander\CommanderTrait;
 use Ss\Domain\Activity\CreateActivityCommand;
@@ -24,7 +26,7 @@ class ActivitiesListener
     }
 
     /**
-     * Adds a new activity for the song that was suggested
+     * Adds a new activity for the song that was suggested.
      *
      * @param $event
      */
@@ -35,7 +37,7 @@ class ActivitiesListener
     }
 
     /**
-     * Adds a new activity for the song that was deleted
+     * Adds a new activity for the song that was deleted.
      *
      * @param $event
      */
@@ -46,7 +48,7 @@ class ActivitiesListener
     }
 
     /**
-     * Adds a new activity for the song that was restored
+     * Adds a new activity for the song that was restored.
      *
      * @param $event
      */
@@ -57,7 +59,7 @@ class ActivitiesListener
     }
 
     /**
-     * Adds a new activity for the song that was edited
+     * Adds a new activity for the song that was edited.
      *
      * @param $event
      */
@@ -68,7 +70,7 @@ class ActivitiesListener
     }
 
     /**
-     * Adds a new activity for when a vote was cast
+     * Adds a new activity for when a vote was cast.
      *
      * @param $event
      */
@@ -87,7 +89,7 @@ class ActivitiesListener
     }
 
     /**
-     * Adds a new activity for when a vote was changed
+     * Adds a new activity for when a vote was changed.
      *
      * @param $event
      */
@@ -106,7 +108,7 @@ class ActivitiesListener
     }
 
     /**
-     * Sets the activity for a song
+     * Sets the activity for a song.
      *
      * @param $song_id
      * @param $user_id

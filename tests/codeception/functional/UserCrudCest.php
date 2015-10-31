@@ -2,7 +2,6 @@
 
 class UserCrudCest
 {
-
     public function _before(FunctionalTester $I)
     {
         $I->signInAsAdmin();

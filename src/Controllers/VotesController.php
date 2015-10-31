@@ -1,4 +1,6 @@
-<?php namespace Ss\Controllers;
+<?php
+
+namespace Ss\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
@@ -35,7 +37,7 @@ class VotesController extends BaseController
     }
 
     /**
-     * Casts a new vote from the song details page
+     * Casts a new vote from the song details page.
      *
      * @param $songId
      * @return mixed
@@ -50,7 +52,7 @@ class VotesController extends BaseController
     }
 
     /**
-     * Adds a new vote for the song that was just suggested
+     * Adds a new vote for the song that was just suggested.
      *
      * @param $event
      */
@@ -61,7 +63,7 @@ class VotesController extends BaseController
     }
 
     /**
-     * Potentially moves a song to a new category after a vote was cast
+     * Potentially moves a song to a new category after a vote was cast.
      *
      * @param $event
      */

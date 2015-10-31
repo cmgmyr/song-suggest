@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Repositories\Comment;
 
 use Ss\Domain\Comment\Events\CommentPublished;
@@ -21,7 +22,7 @@ class Comment extends BaseModel
     protected $fillable = ['user_id', 'song_id', 'comment'];
 
     /**
-     * A comment belongs to a user
+     * A comment belongs to a user.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -31,7 +32,7 @@ class Comment extends BaseModel
     }
 
     /**
-     * A comment belongs to a song
+     * A comment belongs to a song.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -41,7 +42,7 @@ class Comment extends BaseModel
     }
 
     /**
-     * Publish a new comment for a song
+     * Publish a new comment for a song.
      *
      * @param $song_id
      * @param $user_id

@@ -17,7 +17,6 @@ class AddNotifyToUsersTable extends Migration
         });
     }
 
-
     /**
      * Reverse the migrations.
      *

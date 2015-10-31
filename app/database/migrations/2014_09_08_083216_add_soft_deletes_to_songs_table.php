@@ -17,7 +17,6 @@ class AddSoftDeletesToSongsTable extends Migration
         });
     }
 
-
     /**
      * Reverse the migrations.
      *

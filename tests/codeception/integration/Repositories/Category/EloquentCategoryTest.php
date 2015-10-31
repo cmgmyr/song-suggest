@@ -2,7 +2,6 @@
 
 class EloquentCategoryTest extends \Codeception\TestCase\Test
 {
-
     /**
      * @var \IntegrationTester
      */
@@ -22,5 +21,4 @@ class EloquentCategoryTest extends \Codeception\TestCase\Test
 
         $this->assertCount(6, $all);
     }
-
 }

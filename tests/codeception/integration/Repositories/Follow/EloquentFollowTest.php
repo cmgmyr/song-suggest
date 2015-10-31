@@ -4,7 +4,6 @@ use Laracasts\TestDummy\Factory as TestDummy;
 
 class EloquentFollowTest extends \Codeception\TestCase\Test
 {
-
     /**
      * @var \IntegrationTester
      */
@@ -36,5 +35,4 @@ class EloquentFollowTest extends \Codeception\TestCase\Test
 
         $this->assertTrue($deleted);
     }
-
 }

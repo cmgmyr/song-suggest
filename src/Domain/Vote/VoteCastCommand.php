@@ -1,4 +1,6 @@
-<?php namespace Ss\Domain\Vote;
+<?php
+
+namespace Ss\Domain\Vote;
 
 class VoteCastCommand
 {

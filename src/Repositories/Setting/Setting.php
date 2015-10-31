@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Repositories\Setting;
 
 use Ss\Models\BaseModel;

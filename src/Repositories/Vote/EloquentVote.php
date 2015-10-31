@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Repositories\Vote;
 
 use Illuminate\Database\Eloquent\Model;
@@ -16,7 +17,7 @@ class EloquentVote implements VoteInterface
     }
 
     /**
-     * Fetches all votes from data source
+     * Fetches all votes from data source.
      *
      * @return object
      */
@@ -26,7 +27,7 @@ class EloquentVote implements VoteInterface
     }
 
     /**
-     * Fetches and returns vote data associated with an id
+     * Fetches and returns vote data associated with an id.
      *
      * @param $id
      * @return object
@@ -43,7 +44,7 @@ class EloquentVote implements VoteInterface
     }
 
     /**
-     * Accept new vote data that will be persisted in data source
+     * Accept new vote data that will be persisted in data source.
      *
      * @param Vote $vote
      * @return \Ss\Repositories\Vote\Vote
@@ -61,7 +62,7 @@ class EloquentVote implements VoteInterface
     }
 
     /**
-     * Removes a vote from data source
+     * Removes a vote from data source.
      *
      * @param Vote $vote
      * @return boolean

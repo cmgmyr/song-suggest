@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Listeners;
 
 use Illuminate\Support\Facades\Queue;
@@ -29,7 +30,7 @@ class UserListener extends EventListener
     }
 
     /**
-     * Updates the voting threshold when a user was added
+     * Updates the voting threshold when a user was added.
      *
      * @param UserAdded $event
      */
@@ -39,7 +40,7 @@ class UserListener extends EventListener
     }
 
     /**
-     * Updates the voting threshold when a user was deleted
+     * Updates the voting threshold when a user was deleted.
      *
      * @param UserDeleted $event
      */
@@ -50,7 +51,7 @@ class UserListener extends EventListener
     }
 
     /**
-     * Updates the voting threshold when a user was restored
+     * Updates the voting threshold when a user was restored.
      *
      * @param UserRestored $event
      */
@@ -60,7 +61,7 @@ class UserListener extends EventListener
     }
 
     /**
-     * Updates the voting threshold when a user was updated
+     * Updates the voting threshold when a user was updated.
      *
      * @param UserUpdated $event
      */
@@ -70,7 +71,7 @@ class UserListener extends EventListener
     }
 
     /**
-     * Updates the voting threshold when a user action took place
+     * Updates the voting threshold when a user action took place.
      */
     protected function updateThreshold()
     {

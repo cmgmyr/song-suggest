@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Domain\Comment\Events;
 
 use Ss\Repositories\Comment\Comment;

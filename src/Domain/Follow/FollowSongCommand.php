@@ -1,4 +1,6 @@
-<?php namespace Ss\Domain\Follow;
+<?php
+
+namespace Ss\Domain\Follow;
 
 class FollowSongCommand
 {

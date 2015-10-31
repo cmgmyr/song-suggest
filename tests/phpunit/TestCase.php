@@ -1,9 +1,9 @@
 <?php
 
-class TestCase extends Illuminate\Foundation\Testing\TestCase {
-
+class TestCase extends Illuminate\Foundation\Testing\TestCase
+{
     /**
-     * Default preparation for each test
+     * Default preparation for each test.
      */
     public function setUp()
     {
@@ -12,27 +12,26 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
         $this->prepareForTests();
     }
 
-	/**
-	 * Creates the application.
-	 *
-	 * @return \Symfony\Component\HttpKernel\HttpKernelInterface
-	 */
-	public function createApplication()
-	{
-		$unitTesting = true;
+    /**
+     * Creates the application.
+     *
+     * @return \Symfony\Component\HttpKernel\HttpKernelInterface
+     */
+    public function createApplication()
+    {
+        $unitTesting = true;
 
-		$testEnvironment = 'testing';
+        $testEnvironment = 'testing';
 
-		return require __DIR__ . '/../../bootstrap/start.php';
-	}
+        return require __DIR__ . '/../../bootstrap/start.php';
+    }
 
     /**
-     * Migrate and seed the database
+     * Migrate and seed the database.
      */
     private function prepareForTests()
     {
         Artisan::call('migrate');
         $this->seed();
     }
-
 }

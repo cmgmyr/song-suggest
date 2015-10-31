@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Services\Notifications;
 
 use Illuminate\Session\Store;

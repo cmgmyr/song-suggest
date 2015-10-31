@@ -13,7 +13,7 @@ return array(
     |
     */
 
-    'paths' => array(base_path().'/src/Views'),
+    'paths' => array(base_path() . '/src/Views'),
 
     /*
     |--------------------------------------------------------------------------

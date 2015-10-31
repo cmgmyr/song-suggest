@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Domain\User;
 
 use Ss\Repositories\User\User;

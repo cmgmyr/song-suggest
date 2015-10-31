@@ -1,11 +1,12 @@
 <?php
+
 namespace Ss\Controllers;
 
-use Laracasts\Commander\CommanderTrait;
-use Ss\Services\Notifications\Flash;
 use Controller;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
+use Laracasts\Commander\CommanderTrait;
+use Ss\Services\Notifications\Flash;
 
 abstract class BaseController extends Controller
 {
@@ -29,7 +30,7 @@ abstract class BaseController extends Controller
     }
 
     /**
-     * Redirects to specified route with a successful message
+     * Redirects to specified route with a successful message.
      *
      * @param $route
      * @param $message
@@ -39,11 +40,12 @@ abstract class BaseController extends Controller
     public function redirectRouteWithSuccess($route, $message, $params = [])
     {
         Flash::success($message);
+
         return Redirect::route($route, $params);
     }
 
     /**
-     * * Redirects to specified route with an error message
+     * * Redirects to specified route with an error message.
      *
      * @param $route
      * @param $message
@@ -53,11 +55,12 @@ abstract class BaseController extends Controller
     public function redirectRouteWithError($route, $message, $params = [])
     {
         Flash::error($message);
+
         return Redirect::route($route, $params);
     }
 
     /**
-     * Redirects back with a successful message
+     * Redirects back with a successful message.
      *
      * @param $message
      * @return mixed
@@ -65,11 +68,12 @@ abstract class BaseController extends Controller
     public function redirectBackWithSuccess($message)
     {
         Flash::success($message);
+
         return Redirect::back();
     }
 
     /**
-     * Redirects back with an error message
+     * Redirects back with an error message.
      *
      * @param $message
      * @return mixed
@@ -77,6 +81,7 @@ abstract class BaseController extends Controller
     public function redirectBackWithError($message)
     {
         Flash::error($message);
+
         return Redirect::back();
     }
 }

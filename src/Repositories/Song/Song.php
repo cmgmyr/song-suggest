@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Repositories\Song;
 
 use Carbon\Carbon;
@@ -39,7 +40,7 @@ class Song extends BaseModel
     protected $dates = ['reminded_at', 'created_at', 'updated_at', 'deleted_at'];
 
     /**
-     * Song has many activities
+     * Song has many activities.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -49,7 +50,7 @@ class Song extends BaseModel
     }
 
     /**
-     * Each song belongs to a category
+     * Each song belongs to a category.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -59,7 +60,7 @@ class Song extends BaseModel
     }
 
     /**
-     * A song has many comments
+     * A song has many comments.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -69,7 +70,7 @@ class Song extends BaseModel
     }
 
     /**
-     * A song has many follows
+     * A song has many follows.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -79,7 +80,7 @@ class Song extends BaseModel
     }
 
     /**
-     * Each song belongs to a user
+     * Each song belongs to a user.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -89,7 +90,7 @@ class Song extends BaseModel
     }
 
     /**
-     * A song has many votes
+     * A song has many votes.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -99,7 +100,7 @@ class Song extends BaseModel
     }
 
     /**
-     * Count all positive (yes) votes from a song
+     * Count all positive (yes) votes from a song.
      *
      * @return mixed
      */
@@ -109,7 +110,7 @@ class Song extends BaseModel
     }
 
     /**
-     * Count all negative (no) votes from a song
+     * Count all negative (no) votes from a song.
      *
      * @return mixed
      */
@@ -119,7 +120,7 @@ class Song extends BaseModel
     }
 
     /**
-     * Get all positive (yes) users from a song
+     * Get all positive (yes) users from a song.
      *
      * @return mixed
      */
@@ -129,7 +130,7 @@ class Song extends BaseModel
     }
 
     /**
-     * Get all negative (no) users from a song
+     * Get all negative (no) users from a song.
      *
      * @return mixed
      */
@@ -139,7 +140,7 @@ class Song extends BaseModel
     }
 
     /**
-     * Count all votes on a song
+     * Count all votes on a song.
      *
      * @return mixed
      */
@@ -149,7 +150,7 @@ class Song extends BaseModel
     }
 
     /**
-     * Count all comments from a song
+     * Count all comments from a song.
      *
      * @return mixed
      */
@@ -159,7 +160,7 @@ class Song extends BaseModel
     }
 
     /**
-     * Get a user's vote for the song
+     * Get a user's vote for the song.
      *
      * @param $user_id
      * @return mixed
@@ -170,7 +171,7 @@ class Song extends BaseModel
     }
 
     /**
-     * Sees if a user is following this song
+     * Sees if a user is following this song.
      *
      * @param $user_id
      * @return bool
@@ -187,7 +188,7 @@ class Song extends BaseModel
     }
 
     /**
-     * Returns all followers of a song, except for user id given
+     * Returns all followers of a song, except for user id given.
      *
      * @param null $user_id
      * @return mixed
@@ -206,7 +207,7 @@ class Song extends BaseModel
     }
 
     /**
-     * See if the song can be edited by the user
+     * See if the song can be edited by the user.
      *
      * @param User $user
      * @return bool
@@ -221,7 +222,7 @@ class Song extends BaseModel
     }
 
     /**
-     * See if the song can be deleted by the user
+     * See if the song can be deleted by the user.
      *
      * @param User $user
      * @return bool
@@ -236,7 +237,7 @@ class Song extends BaseModel
     }
 
     /**
-     * Parses the YouTube link and returns just the video id
+     * Parses the YouTube link and returns just the video id.
      *
      * @return bool
      */
@@ -249,7 +250,7 @@ class Song extends BaseModel
     }
 
     /**
-     * Suggest a new song
+     * Suggest a new song.
      *
      * @param $artist
      * @param $title
@@ -271,7 +272,7 @@ class Song extends BaseModel
     }
 
     /**
-     * Edit a current song
+     * Edit a current song.
      *
      * @param Song $song
      * @param \Ss\Repositories\User\User $editor
@@ -298,7 +299,7 @@ class Song extends BaseModel
     }
 
     /**
-     * Delete a current song
+     * Delete a current song.
      *
      * @param Song $song
      * @param \Ss\Repositories\User\User $editor
@@ -312,7 +313,7 @@ class Song extends BaseModel
     }
 
     /**
-     * Restore a song
+     * Restore a song.
      *
      * @param Song $song
      * @param \Ss\Repositories\User\User $editor
@@ -326,7 +327,7 @@ class Song extends BaseModel
     }
 
     /**
-     * Updates the category of a song
+     * Updates the category of a song.
      *
      * @param Song $song
      * @param $category_id
@@ -344,7 +345,7 @@ class Song extends BaseModel
     }
 
     /**
-     * Updates the reminded_at date for the song
+     * Updates the reminded_at date for the song.
      *
      * @param Song $song
      * @return Song
@@ -357,7 +358,7 @@ class Song extends BaseModel
     }
 
     /**
-     * Resets the votes for a given song
+     * Resets the votes for a given song.
      *
      * @param Song $song
      * @return Song

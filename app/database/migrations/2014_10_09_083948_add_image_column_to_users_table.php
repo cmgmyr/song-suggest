@@ -17,7 +17,6 @@ class AddImageColumnToUsersTable extends Migration
         });
     }
 
-
     /**
      * Reverse the migrations.
      *

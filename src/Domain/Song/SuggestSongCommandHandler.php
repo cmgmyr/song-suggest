@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Domain\Song;
 
 use Laracasts\Commander\CommandHandler;
@@ -9,7 +10,6 @@ use Ss\Repositories\Song\SongInterface;
 class SuggestSongCommandHandler implements CommandHandler
 {
     use DispatchableTrait;
-
 
     /**
      * @var SongInterface
@@ -22,7 +22,7 @@ class SuggestSongCommandHandler implements CommandHandler
     }
 
     /**
-     * Handle the command
+     * Handle the command.
      *
      * @param $command
      * @return mixed

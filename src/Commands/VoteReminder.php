@@ -1,10 +1,11 @@
 <?php
+
 namespace Ss\Commands;
 
 use Illuminate\Support\Facades\Config;
-use Indatus\Dispatcher\Scheduling\ScheduledCommand;
-use Indatus\Dispatcher\Scheduling\Schedulable;
 use Indatus\Dispatcher\Drivers\Cron\Scheduler;
+use Indatus\Dispatcher\Scheduling\Schedulable;
+use Indatus\Dispatcher\Scheduling\ScheduledCommand;
 use Laracasts\Commander\Events\DispatchableTrait;
 use Laracasts\Commander\Events\EventGenerator;
 use Ss\Domain\User\Events\UsersVoteNotification;
@@ -55,7 +56,7 @@ class VoteReminder extends ScheduledCommand
     }
 
     /**
-     * When a command should run
+     * When a command should run.
      *
      * @param Scheduler|Schedulable $scheduler
      * @return \Indatus\Dispatcher\Scheduling\Schedulable

@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Repositories\Vote;
 
 use Ss\Domain\Vote\Events\VoteCast;
@@ -22,7 +23,7 @@ class Vote extends BaseModel
     protected $fillable = ['user_id', 'song_id', 'vote'];
 
     /**
-     * A vote belongs to a user
+     * A vote belongs to a user.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -32,7 +33,7 @@ class Vote extends BaseModel
     }
 
     /**
-     * A vote belongs to a song
+     * A vote belongs to a song.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -42,7 +43,7 @@ class Vote extends BaseModel
     }
 
     /**
-     * Cast a new vote for a song
+     * Cast a new vote for a song.
      *
      * @param $song_id
      * @param $user_id

@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Domain\Vote\Events;
 
 use Ss\Repositories\Vote\Vote;

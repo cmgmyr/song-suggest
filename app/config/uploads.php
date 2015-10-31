@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'location' => 'assets/uploads'
+    'location' => 'assets/uploads',
 ];

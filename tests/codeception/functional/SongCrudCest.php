@@ -2,7 +2,6 @@
 
 class SongCrudCest
 {
-
     public function _before(FunctionalTester $I)
     {
         $I->signIn();

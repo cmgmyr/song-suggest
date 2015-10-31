@@ -22,7 +22,6 @@ class AddIndexesToTables extends Migration
         });
     }
 
-
     /**
      * Reverse the migrations.
      *

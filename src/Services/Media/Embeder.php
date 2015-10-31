@@ -1,4 +1,6 @@
-<?php namespace Ss\Services\Media;
+<?php
+
+namespace Ss\Services\Media;
 
 use MediaEmbed\MediaEmbed;
 
@@ -10,7 +12,7 @@ class Embeder
     protected $mediaEmbeder;
 
     /**
-     * Convenience function to embed media
+     * Convenience function to embed media.
      *
      * @param $text
      * @return mixed
@@ -18,11 +20,12 @@ class Embeder
     public static function embed($text)
     {
         $embeder = new Embeder();
+
         return $embeder->autoLink($text);
     }
 
     /**
-     * Runs the regex in order to find links to embed within text
+     * Runs the regex in order to find links to embed within text.
      *
      * @param $text
      * @return mixed
@@ -34,7 +37,7 @@ class Embeder
     }
 
     /**
-     * Links any matches within the given text
+     * Links any matches within the given text.
      *
      * @param $matches
      * @return string

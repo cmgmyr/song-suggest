@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Repositories\User;
 
 use Illuminate\Support\Facades\Config;
@@ -9,7 +10,7 @@ use Laracasts\Presenter\Presenter;
 class UserPresenter extends Presenter
 {
     /**
-     * Gets the URL for the user's avatar image
+     * Gets the URL for the user's avatar image.
      *
      * @param int $size
      * @return string
@@ -28,7 +29,7 @@ class UserPresenter extends Presenter
     }
 
     /**
-     * Prepares the gravatar URL
+     * Prepares the gravatar URL.
      *
      * @param $size
      * @return string
@@ -41,7 +42,7 @@ class UserPresenter extends Presenter
     }
 
     /**
-     * Sees if the thumbnail has already been made, or create a new one
+     * Sees if the thumbnail has already been made, or create a new one.
      *
      * @param $size
      */

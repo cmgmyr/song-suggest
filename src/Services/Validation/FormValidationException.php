@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Services\Validation;
 
 use Illuminate\Support\MessageBag;

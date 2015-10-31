@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Domain\Activity;
 
 class CreateActivityCommand

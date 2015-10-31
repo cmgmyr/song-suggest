@@ -1,15 +1,16 @@
 <?php
+
 namespace Ss\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\View;
 use Ss\Domain\User\CreateUserCommand;
 use Ss\Domain\User\DeleteUserCommand;
 use Ss\Domain\User\RestoreUserCommand;
 use Ss\Domain\User\UpdateUserCommand;
-use Ss\Repositories\User\UserInterface;
 use Ss\Forms\UserForm;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\View;
+use Ss\Repositories\User\UserInterface;
 use Ss\Repositories\User\UserNotFoundException;
 
 class UsersController extends BaseController
@@ -31,7 +32,7 @@ class UsersController extends BaseController
     }
 
     /**
-     * Shows all of the non-deleted users
+     * Shows all of the non-deleted users.
      */
     public function index()
     {
@@ -41,7 +42,7 @@ class UsersController extends BaseController
     }
 
     /**
-     * Shows all of the deleted users
+     * Shows all of the deleted users.
      */
     public function deleted()
     {
@@ -51,7 +52,7 @@ class UsersController extends BaseController
     }
 
     /**
-     * Shows the form to create a new user
+     * Shows the form to create a new user.
      */
     public function create()
     {
@@ -66,7 +67,7 @@ class UsersController extends BaseController
     }
 
     /**
-     * Saves the user from the create form
+     * Saves the user from the create form.
      *
      * @return mixed
      * @throws \Ss\Services\Validation\FormValidationException
@@ -81,7 +82,7 @@ class UsersController extends BaseController
     }
 
     /**
-     * Shows the form to edit a user
+     * Shows the form to edit a user.
      *
      * @param $id
      * @return mixed
@@ -98,7 +99,7 @@ class UsersController extends BaseController
     }
 
     /**
-     * Saves the user from the edit form
+     * Saves the user from the edit form.
      *
      * @param $id
      * @return mixed
@@ -124,7 +125,7 @@ class UsersController extends BaseController
     }
 
     /**
-     * Deletes a user
+     * Deletes a user.
      *
      * @param $id
      * @return mixed
@@ -143,7 +144,7 @@ class UsersController extends BaseController
     }
 
     /**
-     * Restores a user
+     * Restores a user.
      *
      * @param $id
      * @return mixed
@@ -155,6 +156,7 @@ class UsersController extends BaseController
 
             if (Auth::user()->is_admin != 'y') {
                 $message = 'Sorry, this user cannot currently be restored or you don\'t have the correct access to do so.';
+
                 return $this->redirectRouteWithError('users.show', $message, ['id' => $id]);
             }
 

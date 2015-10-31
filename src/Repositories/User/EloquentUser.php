@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Repositories\User;
 
 use Illuminate\Database\Eloquent\Model;
@@ -18,7 +19,7 @@ class EloquentUser implements UserInterface
     }
 
     /**
-     * Fetches all users from data source
+     * Fetches all users from data source.
      *
      * @return object
      */
@@ -28,7 +29,7 @@ class EloquentUser implements UserInterface
     }
 
     /**
-     * Counts all active users
+     * Counts all active users.
      *
      * @return integer
      */
@@ -38,7 +39,7 @@ class EloquentUser implements UserInterface
     }
 
     /**
-     * Fetches all deleted users from data source
+     * Fetches all deleted users from data source.
      *
      * @return object
      */
@@ -49,7 +50,7 @@ class EloquentUser implements UserInterface
 
     /**
      * Fetches all users from data source and formats for
-     * a Laravel form select
+     * a Laravel form select.
      *
      * @return array
      */
@@ -69,7 +70,7 @@ class EloquentUser implements UserInterface
     }
 
     /**
-     * Fetches and returns user data associated with an id
+     * Fetches and returns user data associated with an id.
      *
      * @param $id
      * @return object
@@ -86,7 +87,7 @@ class EloquentUser implements UserInterface
     }
 
     /**
-     * Accept new user data that will be persisted in a data source
+     * Accept new user data that will be persisted in a data source.
      *
      * @param User $user
      * @throws UserNotSavedException
@@ -104,7 +105,7 @@ class EloquentUser implements UserInterface
     }
 
     /**
-     * Removes a user from data source
+     * Removes a user from data source.
      *
      * @param User $user
      * @return boolean
@@ -118,7 +119,7 @@ class EloquentUser implements UserInterface
     }
 
     /**
-     * Find all of the users that can be emailed
+     * Find all of the users that can be emailed.
      *
      * @param null $except user id exception
      * @return object
@@ -135,7 +136,7 @@ class EloquentUser implements UserInterface
     }
 
     /**
-     * Fetches and returns user data associated with a deleted id
+     * Fetches and returns user data associated with a deleted id.
      *
      * @param $id
      * @return object
@@ -152,7 +153,7 @@ class EloquentUser implements UserInterface
     }
 
     /**
-     * Restores a user from being soft deleted
+     * Restores a user from being soft deleted.
      *
      * @param User $user
      * @internal param $id
@@ -167,7 +168,7 @@ class EloquentUser implements UserInterface
 
     /**
      * Find all following and notifiable users that haven't voted
-     * for a specific song
+     * for a specific song.
      *
      * @param $song_id
      * @return array
@@ -175,12 +176,12 @@ class EloquentUser implements UserInterface
     public function getNotifiesForSong($song_id)
     {
         // @todo: maybe make this more "laravel" like
-        
+
         $usersTable = $this->user->getTable();
         $followsTable = (new Follow)->getTable();
         $votesTable = (new Vote)->getTable();
 
-        $query = "SELECT u.* FROM " . $usersTable . " u INNER JOIN " . $followsTable . " f ON (u.id = f.user_id AND f.song_id = ?) WHERE u.id NOT IN (SELECT user_id FROM " . $votesTable . " WHERE song_id = ?) AND notify = 'y'";
+        $query = 'SELECT u.* FROM ' . $usersTable . ' u INNER JOIN ' . $followsTable . ' f ON (u.id = f.user_id AND f.song_id = ?) WHERE u.id NOT IN (SELECT user_id FROM ' . $votesTable . " WHERE song_id = ?) AND notify = 'y'";
 
         return \DB::select(\DB::raw($query), [$song_id, $song_id]);
     }

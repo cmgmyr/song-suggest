@@ -4,7 +4,6 @@ use Laracasts\TestDummy\Factory as TestDummy;
 
 class EloquentSongTest extends \Codeception\TestCase\Test
 {
-
     /**
      * @var \IntegrationTester
      */
@@ -25,14 +24,14 @@ class EloquentSongTest extends \Codeception\TestCase\Test
         TestDummy::times(2)->create(
             'Ss\Repositories\Song\Song',
             [
-                'user_id' => $users[0]->id
+                'user_id' => $users[0]->id,
             ]
         );
 
         TestDummy::times(2)->create(
             'Ss\Repositories\Song\Song',
             [
-                'user_id' => $users[1]->id
+                'user_id' => $users[1]->id,
             ]
         );
 
@@ -133,5 +132,4 @@ class EloquentSongTest extends \Codeception\TestCase\Test
     {
         $this->repo->deletedWithId(0);
     }
-
 }

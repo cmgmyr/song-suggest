@@ -17,7 +17,6 @@ class AddMp3FileToSongsTable extends Migration
         });
     }
 
-
     /**
      * Reverse the migrations.
      *

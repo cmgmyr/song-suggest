@@ -4,7 +4,6 @@ use Laracasts\TestDummy\Factory as TestDummy;
 
 class EloquentSettingTest extends \Codeception\TestCase\Test
 {
-
     /**
      * @var \IntegrationTester
      */
@@ -65,5 +64,4 @@ class EloquentSettingTest extends \Codeception\TestCase\Test
         $threshold = $this->repo->updateThreshold(5);
         $this->assertEquals(3, $threshold->value);
     }
-
 }

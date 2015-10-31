@@ -1,4 +1,6 @@
-<?php namespace Ss\Controllers;
+<?php
+
+namespace Ss\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
@@ -26,7 +28,7 @@ class FollowsController extends BaseController
     }
 
     /**
-     * Follows a song
+     * Follows a song.
      *
      * @param $songId
      * @return mixed
@@ -47,7 +49,7 @@ class FollowsController extends BaseController
     }
 
     /**
-     * Follows the song that was just suggested
+     * Follows the song that was just suggested.
      *
      * @param $event
      */

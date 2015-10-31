@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Repositories\Category;
 
 use Illuminate\Database\Eloquent\Model;
@@ -16,7 +17,7 @@ class EloquentCategory implements CategoryInterface
     }
 
     /**
-     * Fetches all songs from data source
+     * Fetches all songs from data source.
      *
      * @return object
      */

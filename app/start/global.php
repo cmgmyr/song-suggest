@@ -25,7 +25,7 @@ ini_set('xdebug.max_nesting_level', 200);
 
 ClassLoader::addDirectories(array(
 
-    app_path().'/database/seeds',
+    app_path() . '/database/seeds',
 
 ));
 
@@ -40,7 +40,7 @@ ClassLoader::addDirectories(array(
 |
 */
 
-Log::useFiles(storage_path().'/logs/laravel.log');
+Log::useFiles(storage_path() . '/logs/laravel.log');
 
 /*
 |--------------------------------------------------------------------------
@@ -71,6 +71,7 @@ App::error(function (Exception $exception, $code) {
 
 App::error(function (\Ss\Services\Validation\FormValidationException $exception, $code) {
     Flash::validation($exception->getErrors());
+
     return Redirect::back()->withInput();
 });
 
@@ -86,5 +87,5 @@ App::error(function (\Ss\Services\Validation\FormValidationException $exception,
 */
 
 App::down(function () {
-    return Response::make("Be right back!", 503);
+    return Response::make('Be right back!', 503);
 });

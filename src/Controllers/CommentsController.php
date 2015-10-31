@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Controllers;
 
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,7 @@ class CommentsController extends BaseController
     }
 
     /**
-     * Casts a new vote from the song details page
+     * Casts a new vote from the song details page.
      *
      * @param $songId
      * @return mixed

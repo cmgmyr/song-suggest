@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Domain\User;
 
 use Laracasts\Commander\CommandHandler;
@@ -21,7 +22,7 @@ class RestoreUserCommandHandler implements CommandHandler
     }
 
     /**
-     * Handle the command
+     * Handle the command.
      *
      * @param $command
      * @return mixed

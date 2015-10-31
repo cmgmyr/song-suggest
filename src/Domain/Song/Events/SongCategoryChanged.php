@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Domain\Song\Events;
 
 use Ss\Repositories\Song\Song;

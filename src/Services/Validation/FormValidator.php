@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Services\Validation;
 
 use Illuminate\Support\Facades\Input;
@@ -9,7 +10,6 @@ abstract class FormValidator
     /**
      * @var \Illuminate\Validation\Factory
      */
-
     protected $validator;
 
     /**

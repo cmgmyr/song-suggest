@@ -4,7 +4,6 @@ use Laracasts\TestDummy\Factory as TestDummy;
 
 class EloquentActivityTest extends \Codeception\TestCase\Test
 {
-
     /**
      * @var \IntegrationTester
      */
@@ -30,5 +29,4 @@ class EloquentActivityTest extends \Codeception\TestCase\Test
 
         $this->assertEquals($repoActivity->message, $newActivity);
     }
-
 }

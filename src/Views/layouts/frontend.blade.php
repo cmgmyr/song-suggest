@@ -7,7 +7,9 @@
     <title>Song Suggest</title>
 
     <!-- CSS Files -->
-    <link href="/assets/css/frontend.css<?php if($env != 'testing') echo '?' . filemtime('assets/css/frontend.css')?>" rel="stylesheet">
+    <link href="/assets/css/frontend.css<?php if ($env != 'testing') {
+    echo '?' . filemtime('assets/css/frontend.css');
+}?>" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -24,6 +26,8 @@
     </div>
 
     <!-- Scripts -->
-    <script src="/assets/js/frontend.js<?php if($env != 'testing') echo '?' . filemtime('assets/js/frontend.js')?>" type="text/javascript"></script>
+    <script src="/assets/js/frontend.js<?php if ($env != 'testing') {
+    echo '?' . filemtime('assets/js/frontend.js');
+}?>" type="text/javascript"></script>
 </body>
 </html>

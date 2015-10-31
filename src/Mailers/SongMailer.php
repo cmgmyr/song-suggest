@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Mailers;
 
 use Ss\Repositories\Song\Song;
@@ -7,7 +8,7 @@ use Ss\Repositories\User\User;
 class SongMailer extends Mailer
 {
     /**
-     * Notifies a user if a new song has been added
+     * Notifies a user if a new song has been added.
      *
      * @param User $user
      * @param Song $song
@@ -23,14 +24,14 @@ class SongMailer extends Mailer
             'song_id'              => $song->id,
             'song_title'           => $song->title,
             'song_artist'          => $song->artist,
-            'suggester_first_name' => $suggester->first_name
+            'suggester_first_name' => $suggester->first_name,
         ];
 
         $this->sendTo($user, $subject, $view, $data);
     }
 
     /**
-     * Notifies a user if there is new activity on a song
+     * Notifies a user if there is new activity on a song.
      *
      * @param User $user
      * @param Song $song
@@ -46,14 +47,14 @@ class SongMailer extends Mailer
             'song_id'         => $song->id,
             'song_title'      => $song->title,
             'song_artist'     => $song->artist,
-            'notification'    => $notification
+            'notification'    => $notification,
         ];
 
         $this->sendTo($user, $subject, $view, $data);
     }
 
     /**
-     * Notifies a user if they haven't voted for a song yet
+     * Notifies a user if they haven't voted for a song yet.
      *
      * @param User $user
      * @param Song $song
@@ -69,7 +70,7 @@ class SongMailer extends Mailer
             'song_id'         => $song->id,
             'song_title'      => $song->title,
             'song_artist'     => $song->artist,
-            'notification'    => $notification
+            'notification'    => $notification,
         ];
 
         $this->sendTo($user, $subject, $view, $data);

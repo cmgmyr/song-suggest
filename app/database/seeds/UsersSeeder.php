@@ -1,7 +1,7 @@
 <?php
 
-use Ss\Repositories\User\User;
 use Faker\Factory as Faker;
+use Ss\Repositories\User\User;
 
 class UsersSeeder extends Seeder
 {

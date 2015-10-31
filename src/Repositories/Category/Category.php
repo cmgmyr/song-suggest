@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Repositories\Category;
 
 use Ss\Models\BaseModel;
@@ -6,32 +7,32 @@ use Ss\Models\BaseModel;
 class Category extends BaseModel
 {
     /**
-     * ID for "Pending" category
+     * ID for "Pending" category.
      */
     const PENDING = 1;
 
     /**
-     * ID for "Approved" category
+     * ID for "Approved" category.
      */
     const APPROVED = 2;
 
     /**
-     * ID for "Declined" category
+     * ID for "Declined" category.
      */
     const DECLINED = 3;
 
     /**
-     * ID for "Archived" category
+     * ID for "Archived" category.
      */
     const ARCHIVED = 4;
 
     /**
-     * ID for "Learning" category
+     * ID for "Learning" category.
      */
     const LEARNING = 5;
 
     /**
-     * ID for "Learned" category
+     * ID for "Learned" category.
      */
     const LEARNED = 6;
 
@@ -51,7 +52,7 @@ class Category extends BaseModel
 
     /**
      * Create and return protected categories. Songs in these categories
-     * won't be moved to Approved/Declined
+     * won't be moved to Approved/Declined.
      *
      * @return array
      */
@@ -61,7 +62,7 @@ class Category extends BaseModel
     }
 
     /**
-     * An category has many songs
+     * An category has many songs.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Workers;
 
 use Illuminate\Support\Facades\Config;
@@ -7,7 +8,7 @@ use Illuminate\Support\Facades\File;
 class DeleteUserImages
 {
     /**
-     * Deletes all obsolete user images from the filesystem
+     * Deletes all obsolete user images from the filesystem.
      *
      * @param $job
      * @param $data
@@ -25,7 +26,7 @@ class DeleteUserImages
     }
 
     /**
-     * Returns the directory where the user images are stored
+     * Returns the directory where the user images are stored.
      *
      * @return mixed
      */
@@ -35,7 +36,7 @@ class DeleteUserImages
     }
 
     /**
-     * Checks to see if the image name matches the file name
+     * Checks to see if the image name matches the file name.
      *
      * @param $image
      * @param $file
@@ -47,7 +48,7 @@ class DeleteUserImages
     }
 
     /**
-     * Deletes a file if found
+     * Deletes a file if found.
      *
      * @param $image
      * @param $file

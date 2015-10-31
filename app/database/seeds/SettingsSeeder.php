@@ -19,14 +19,14 @@ class SettingsSeeder extends Seeder
         Setting::create(
             [
                 'key' => 'threshold',
-                'value' => $threshold
+                'value' => $threshold,
             ]
         );
 
         Setting::create(
             [
                 'key' => 'vote_reminder_days',
-                'value' => 3
+                'value' => 3,
             ]
         );
     }

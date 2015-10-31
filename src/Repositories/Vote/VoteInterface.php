@@ -1,17 +1,18 @@
 <?php
+
 namespace Ss\Repositories\Vote;
 
 interface VoteInterface
 {
     /**
-     * Fetches all votes from data source
+     * Fetches all votes from data source.
      *
      * @return object
      */
     public function all();
 
     /**
-     * Fetches and returns vote data associated with an id
+     * Fetches and returns vote data associated with an id.
      *
      * @param $id
      * @return object
@@ -20,7 +21,7 @@ interface VoteInterface
     public function byId($id);
 
     /**
-     * Accept new vote data that will be persisted in data source
+     * Accept new vote data that will be persisted in data source.
      *
      * @param Vote $vote
      * @return \Ss\Repositories\Vote\Vote
@@ -29,7 +30,7 @@ interface VoteInterface
     public function save(Vote $vote);
 
     /**
-     * Removes a vote from data source
+     * Removes a vote from data source.
      *
      * @param Vote $vote
      * @internal param $id

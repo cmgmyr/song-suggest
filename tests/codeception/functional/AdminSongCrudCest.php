@@ -2,7 +2,6 @@
 
 class AdminSongCrudCest
 {
-
     public function _before(FunctionalTester $I)
     {
         $I->signIn(null, null, 'y');

@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Domain\Song;
 
 use Ss\Repositories\User\User;

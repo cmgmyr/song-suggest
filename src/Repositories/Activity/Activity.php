@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Repositories\Activity;
 
 use Ss\Domain\Activity\Events\ActivityAdded;
@@ -21,7 +22,7 @@ class Activity extends BaseModel
     protected $fillable = ['user_id', 'song_id', 'message', 'color_class'];
 
     /**
-     * An activity belongs to a song
+     * An activity belongs to a song.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -31,7 +32,7 @@ class Activity extends BaseModel
     }
 
     /**
-     * An activity belongs to a user
+     * An activity belongs to a user.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

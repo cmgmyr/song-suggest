@@ -17,7 +17,6 @@ class AddSoftDeletesToUsersTable extends Migration
         });
     }
 
-
     /**
      * Reverse the migrations.
      *

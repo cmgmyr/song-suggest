@@ -20,7 +20,6 @@ class CreateFollowsTable extends Migration
         });
     }
 
-
     /**
      * Reverse the migrations.
      *

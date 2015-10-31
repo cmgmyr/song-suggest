@@ -1,6 +1,8 @@
 <?php
+
 namespace Ss\Repositories;
 
+use Illuminate\Support\ServiceProvider;
 use Ss\Repositories\Activity\Activity;
 use Ss\Repositories\Activity\EloquentActivity;
 use Ss\Repositories\Category\Category;
@@ -14,7 +16,6 @@ use Ss\Repositories\Setting\Setting;
 use Ss\Repositories\Song\EloquentSong;
 use Ss\Repositories\Song\Song;
 use Ss\Repositories\User\EloquentUser;
-use Illuminate\Support\ServiceProvider;
 use Ss\Repositories\User\User;
 use Ss\Repositories\Vote\EloquentVote;
 use Ss\Repositories\Vote\Vote;

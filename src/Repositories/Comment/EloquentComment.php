@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Repositories\Comment;
 
 use Illuminate\Database\Eloquent\Model;
@@ -16,7 +17,7 @@ class EloquentComment implements CommentInterface
     }
 
     /**
-     * Accept new comment data that will be persisted in data source
+     * Accept new comment data that will be persisted in data source.
      *
      * @param Comment $comment
      * @return \Ss\Repositories\Comment\Comment

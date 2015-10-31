@@ -17,7 +17,6 @@ class AddRemindedAtToSongsTable extends Migration
         });
     }
 
-
     /**
      * Reverse the migrations.
      *

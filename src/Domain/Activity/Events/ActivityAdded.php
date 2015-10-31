@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Domain\Activity\Events;
 
 use Ss\Repositories\Activity\Activity;

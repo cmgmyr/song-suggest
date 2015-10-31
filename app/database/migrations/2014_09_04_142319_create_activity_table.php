@@ -22,7 +22,6 @@ class CreateActivityTable extends Migration
         });
     }
 
-
     /**
      * Reverse the migrations.
      *

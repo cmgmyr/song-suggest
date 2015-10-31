@@ -4,7 +4,6 @@ use Laracasts\TestDummy\Factory as TestDummy;
 
 class EloquentUserTest extends \Codeception\TestCase\Test
 {
-
     /**
      * @var \IntegrationTester
      */
@@ -91,5 +90,4 @@ class EloquentUserTest extends \Codeception\TestCase\Test
 
         $this->assertCount(1, $users);
     }
-
 }

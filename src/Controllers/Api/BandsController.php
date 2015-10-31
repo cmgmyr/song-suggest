@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Controllers\Api;
 
 use Illuminate\Support\Facades\Input;
@@ -18,7 +19,7 @@ class BandsController extends BaseController
     }
 
     /**
-     * Shows all of the unique artist names
+     * Shows all of the unique artist names.
      */
     public function index()
     {

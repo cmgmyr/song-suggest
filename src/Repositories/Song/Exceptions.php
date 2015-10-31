@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Repositories\Song;
 
 class SongNotFoundException extends \OutOfBoundsException

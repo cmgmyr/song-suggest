@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Controllers;
 
 use Illuminate\Support\Facades\App;

@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Repositories\Song;
 
 use Carbon\Carbon;
@@ -18,7 +19,7 @@ class EloquentSong implements SongInterface
     }
 
     /**
-     * Fetches all songs from data source
+     * Fetches all songs from data source.
      *
      * @return object
      */
@@ -28,7 +29,7 @@ class EloquentSong implements SongInterface
     }
 
     /**
-     * Fetches all deleted songs from data source
+     * Fetches all deleted songs from data source.
      *
      * @return object
      */
@@ -38,7 +39,7 @@ class EloquentSong implements SongInterface
     }
 
     /**
-     * Fetches and returns song data associated with an id
+     * Fetches and returns song data associated with an id.
      *
      * @param $id
      * @return object
@@ -55,7 +56,7 @@ class EloquentSong implements SongInterface
     }
 
     /**
-     * Accept new song data that will be persisted in data source
+     * Accept new song data that will be persisted in data source.
      *
      * @param Song $song
      * @return \Ss\Repositories\Song\Song
@@ -73,7 +74,7 @@ class EloquentSong implements SongInterface
     }
 
     /**
-     * Removes a song from data source
+     * Removes a song from data source.
      *
      * @param Song $song
      * @return boolean
@@ -86,7 +87,7 @@ class EloquentSong implements SongInterface
     }
 
     /**
-     * Fetches and returns song data associated with a deleted id
+     * Fetches and returns song data associated with a deleted id.
      *
      * @param $id
      * @return object
@@ -103,7 +104,7 @@ class EloquentSong implements SongInterface
     }
 
     /**
-     * Restores a song from being deleted
+     * Restores a song from being deleted.
      *
      * @param Song $song
      * @internal param $id
@@ -117,7 +118,7 @@ class EloquentSong implements SongInterface
     }
 
     /**
-     * Removes a song from data source
+     * Removes a song from data source.
      *
      * @param Song $song
      * @internal param $id
@@ -135,7 +136,7 @@ class EloquentSong implements SongInterface
     }
 
     /**
-     * Get all comments and activities for a song
+     * Get all comments and activities for a song.
      *
      * @param Song $song
      * @return \Illuminate\Database\Eloquent\Collection
@@ -167,7 +168,7 @@ class EloquentSong implements SongInterface
     }
 
     /**
-     * Fetches all songs that need reminders sent to users
+     * Fetches all songs that need reminders sent to users.
      *
      * @param int $days
      * @return object

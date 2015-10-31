@@ -1,4 +1,6 @@
-<?php namespace Ss\Domain\Follow;
+<?php
+
+namespace Ss\Domain\Follow;
 
 use Laracasts\Commander\CommandHandler;
 use Ss\Repositories\Follow\Follow;
@@ -17,7 +19,7 @@ class FollowSongCommandHandler implements CommandHandler
     }
 
     /**
-     * Handle the command
+     * Handle the command.
      *
      * @param $command
      * @return mixed

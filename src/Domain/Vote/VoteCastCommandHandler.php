@@ -1,4 +1,6 @@
-<?php namespace Ss\Domain\Vote;
+<?php
+
+namespace Ss\Domain\Vote;
 
 use Laracasts\Commander\CommandHandler;
 use Laracasts\Commander\Events\DispatchableTrait;
@@ -20,7 +22,7 @@ class VoteCastCommandHandler implements CommandHandler
     }
 
     /**
-     * Handle the command
+     * Handle the command.
      *
      * @param $command
      * @return mixed

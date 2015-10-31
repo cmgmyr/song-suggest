@@ -1,10 +1,11 @@
 <?php
+
 namespace Ss\Repositories\User;
 
-use Illuminate\Auth\UserTrait;
-use Illuminate\Auth\UserInterface;
-use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
+use Illuminate\Auth\Reminders\RemindableTrait;
+use Illuminate\Auth\UserInterface;
+use Illuminate\Auth\UserTrait;
 use Illuminate\Database\Eloquent\SoftDeletingTrait;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Queue;
@@ -53,7 +54,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     protected $presenter = 'Ss\Repositories\User\UserPresenter';
 
     /**
-     * Hashes the user's password before record is saved
+     * Hashes the user's password before record is saved.
      *
      * @param $value
      */
@@ -63,7 +64,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     }
 
     /**
-     * User has many activities
+     * User has many activities.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -73,7 +74,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     }
 
     /**
-     * A user has many follows
+     * A user has many follows.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -83,7 +84,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     }
 
     /**
-     * User has many songs
+     * User has many songs.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -93,7 +94,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     }
 
     /**
-     * A user has many votes
+     * A user has many votes.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -105,13 +106,14 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     public function unvotedSongs()
     {
         $user = $this->id;
+
         return \Ss\Repositories\Song\Song::whereHas('votes', function ($q) use ($user) {
             $q->where('user_id', '=', $user);
         }, '=', 0)->get();
     }
 
     /**
-     * Add a new user to the system
+     * Add a new user to the system.
      *
      * @param $first_name
      * @param $last_name
@@ -132,7 +134,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     }
 
     /**
-     * Updates a user in the system
+     * Updates a user in the system.
      *
      * @param $user
      * @param $input
@@ -172,7 +174,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     }
 
     /**
-     * Deletes a user from the system
+     * Deletes a user from the system.
      *
      * @param User $user
      * @return User
@@ -185,7 +187,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface
     }
 
     /**
-     * Restore a user
+     * Restore a user.
      *
      * @param User $user
      * @return User

@@ -21,7 +21,6 @@ class CreateVotesTable extends Migration
         });
     }
 
-
     /**
      * Reverse the migrations.
      *

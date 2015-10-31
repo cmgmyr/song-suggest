@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Controllers;
 
 use Illuminate\Support\Facades\View;
@@ -8,7 +9,7 @@ use Ss\Repositories\User\User;
 class EmailsController extends BaseController
 {
     /**
-     * Shows the song suggestion email
+     * Shows the song suggestion email.
      *
      * @return View
      */
@@ -23,14 +24,14 @@ class EmailsController extends BaseController
             'song_id'              => $song->id,
             'song_title'           => $song->title,
             'song_artist'          => $song->artist,
-            'suggester_first_name' => $suggester->first_name
+            'suggester_first_name' => $suggester->first_name,
         ];
 
         return View::make('emails.songs.suggestion', $data);
     }
 
     /**
-     * Shows the song activity email
+     * Shows the song activity email.
      *
      * @return View
      */
@@ -45,21 +46,21 @@ class EmailsController extends BaseController
             'song_id'         => $song->id,
             'song_title'      => $song->title,
             'song_artist'     => $song->artist,
-            'notification'    => $notification
+            'notification'    => $notification,
         ];
 
         return View::make('emails.songs.activity', $data);
     }
 
     /**
-     * Shows the password reminder email
+     * Shows the password reminder email.
      *
      * @return View
      */
     public function password()
     {
         $data = [
-            'token' => md5('abc123')
+            'token' => md5('abc123'),
         ];
 
         return View::make('emails.auth.reminder', $data);

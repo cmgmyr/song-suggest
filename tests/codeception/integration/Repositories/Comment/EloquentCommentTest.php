@@ -4,7 +4,6 @@ use Laracasts\TestDummy\Factory as TestDummy;
 
 class EloquentCommentTest extends \Codeception\TestCase\Test
 {
-
     /**
      * @var \IntegrationTester
      */
@@ -30,5 +29,4 @@ class EloquentCommentTest extends \Codeception\TestCase\Test
 
         $this->assertEquals($repoComment->comment, $newComment);
     }
-
 }

@@ -1,4 +1,6 @@
-<?php namespace Ss\Domain\Comment;
+<?php
+
+namespace Ss\Domain\Comment;
 
 class CommentPublishedCommand
 {

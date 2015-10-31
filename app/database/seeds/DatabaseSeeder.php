@@ -57,7 +57,7 @@ class DatabaseSeeder extends Seeder
     }
 
     /**
-     * Clean the database for new seeds
+     * Clean the database for new seeds.
      */
     private function cleanDatabase()
     {

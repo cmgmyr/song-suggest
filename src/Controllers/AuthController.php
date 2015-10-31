@@ -1,16 +1,17 @@
 <?php
+
 namespace Ss\Controllers;
 
-use Illuminate\Support\Facades\Config;
-use Ss\Domain\User\UpdateUserCommand;
-use Ss\Forms\UserForm;
-use Ss\Repositories\User\UserInterface;
-use Ss\Services\Notifications\Flash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\View;
+use Ss\Domain\User\UpdateUserCommand;
+use Ss\Forms\UserForm;
+use Ss\Repositories\User\UserInterface;
+use Ss\Services\Notifications\Flash;
 
 class AuthController extends BaseController
 {
@@ -34,7 +35,7 @@ class AuthController extends BaseController
     }
 
     /**
-     * Display a login form
+     * Display a login form.
      *
      * @return Response
      */
@@ -44,7 +45,7 @@ class AuthController extends BaseController
     }
 
     /**
-     * Attempt to log the user in
+     * Attempt to log the user in.
      *
      * @return Response
      */
@@ -53,7 +54,7 @@ class AuthController extends BaseController
         $credentials = [
             'email'     => Input::get('email'),
             'password'  => Input::get('password'),
-            'is_active' => 'y'
+            'is_active' => 'y',
         ];
 
         $remember = Input::get('remember') == 'y' ? true : false;
@@ -68,7 +69,7 @@ class AuthController extends BaseController
     }
 
     /**
-     * Log the user out
+     * Log the user out.
      *
      * @return Response
      */
@@ -80,7 +81,7 @@ class AuthController extends BaseController
     }
 
     /**
-     * Shows the account form to the user
+     * Shows the account form to the user.
      */
     public function account()
     {
@@ -90,7 +91,7 @@ class AuthController extends BaseController
     }
 
     /**
-     * Updates the user's account information
+     * Updates the user's account information.
      *
      * @return Response
      * @throws \Ss\Services\Validation\FormValidationException
@@ -117,7 +118,7 @@ class AuthController extends BaseController
     }
 
     /**
-     * Handles jpg uploads from the account form
+     * Handles jpg uploads from the account form.
      *
      * @param $id
      * @param $input

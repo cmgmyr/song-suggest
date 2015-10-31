@@ -1,24 +1,25 @@
 <?php
+
 namespace Ss\Repositories\User;
 
 interface UserInterface
 {
     /**
-     * Fetches all users from data source
+     * Fetches all users from data source.
      *
      * @return object
      */
     public function all();
 
     /**
-     * Counts all active users
+     * Counts all active users.
      *
      * @return integer
      */
     public function countAll();
 
     /**
-     * Fetches all deleted users from data source
+     * Fetches all deleted users from data source.
      *
      * @return object
      */
@@ -26,14 +27,14 @@ interface UserInterface
 
     /**
      * Fetches all users from data source and formats for
-     * a Laravel form select
+     * a Laravel form select.
      *
      * @return array
      */
     public function listAll();
 
     /**
-     * Fetches and returns user data associated with an id
+     * Fetches and returns user data associated with an id.
      *
      * @param $id
      * @return object
@@ -42,7 +43,7 @@ interface UserInterface
     public function byId($id);
 
     /**
-     * Accept new user data that will be persisted in a data source
+     * Accept new user data that will be persisted in a data source.
      *
      * @param User $user
      * @throws UserNotSavedException
@@ -51,7 +52,7 @@ interface UserInterface
     public function save(User $user);
 
     /**
-     * Removes a user from data source
+     * Removes a user from data source.
      *
      * @param User $user
      * @return boolean
@@ -59,7 +60,7 @@ interface UserInterface
     public function delete(User $user);
 
     /**
-     * Find all of the users that can be emailed
+     * Find all of the users that can be emailed.
      *
      * @param null $except user id exception
      * @return object
@@ -67,7 +68,7 @@ interface UserInterface
     public function getAllEmailableUsers($except = null);
 
     /**
-     * Fetches and returns user data associated with a deleted id
+     * Fetches and returns user data associated with a deleted id.
      *
      * @param $id
      * @return object
@@ -76,7 +77,7 @@ interface UserInterface
     public function deletedWithId($id);
 
     /**
-     * Restores a user from being soft deleted
+     * Restores a user from being soft deleted.
      *
      * @param User $user
      * @internal param $id
@@ -86,7 +87,7 @@ interface UserInterface
 
     /**
      * Find all following and notifiable users that haven't voted
-     * for a specific song
+     * for a specific song.
      *
      * @param $song_id
      * @return array

@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Listeners;
 
 use Laracasts\Commander\Events\EventListener;
@@ -36,7 +37,7 @@ class EmailNotifier extends EventListener
     }
 
     /**
-     * Sends an email when a song was suggested
+     * Sends an email when a song was suggested.
      *
      * @param SongSuggested $event
      */
@@ -52,7 +53,7 @@ class EmailNotifier extends EventListener
     }
 
     /**
-     * Sends an email when an activity is added to a song
+     * Sends an email when an activity is added to a song.
      *
      * @param ActivityAdded $event
      */
@@ -71,7 +72,7 @@ class EmailNotifier extends EventListener
     }
 
     /**
-     * Sends an email when a comment was left on a song
+     * Sends an email when a comment was left on a song.
      *
      * @param CommentPublished $event
      */
@@ -90,7 +91,7 @@ class EmailNotifier extends EventListener
     }
 
     /**
-     * Sends an email when a song category has changed
+     * Sends an email when a song category has changed.
      *
      * @param SongCategoryChanged $event
      */
@@ -109,7 +110,7 @@ class EmailNotifier extends EventListener
     }
 
     /**
-     * Sends emails to users that need to vote for a song
+     * Sends emails to users that need to vote for a song.
      *
      * @param UsersVoteNotification $event
      */

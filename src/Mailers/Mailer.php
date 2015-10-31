@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Mailers;
 
 use Illuminate\Mail\Mailer as Mail;
@@ -20,7 +21,7 @@ abstract class Mailer
     }
 
     /**
-     * Sends an email to a user
+     * Sends an email to a user.
      *
      * @param User $user
      * @param $subject

@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Repositories\Follow;
 
 use Illuminate\Database\Eloquent\Model;
@@ -16,7 +17,7 @@ class EloquentFollow implements FollowInterface
     }
 
     /**
-     * Accept new follow data that will be persisted in data source
+     * Accept new follow data that will be persisted in data source.
      *
      * @param Follow $follow
      * @return \Ss\Repositories\Follow\Follow
@@ -34,7 +35,7 @@ class EloquentFollow implements FollowInterface
     }
 
     /**
-     * Removes a follow from data source
+     * Removes a follow from data source.
      *
      * @param $songId
      * @param $userId

@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Workers;
 
 use Illuminate\Support\Facades\Config;
@@ -22,7 +23,7 @@ class UpdateSongCategories
     }
 
     /**
-     * Recalculates the song categories
+     * Recalculates the song categories.
      *
      * @param $job
      * @param $data

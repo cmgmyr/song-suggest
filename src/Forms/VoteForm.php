@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Forms;
 
 use Ss\Services\Validation\FormValidator;

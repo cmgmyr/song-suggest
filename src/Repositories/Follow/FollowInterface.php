@@ -1,10 +1,11 @@
 <?php
+
 namespace Ss\Repositories\Follow;
 
 interface FollowInterface
 {
     /**
-     * Accept new follow data that will be persisted in data source
+     * Accept new follow data that will be persisted in data source.
      *
      * @param Follow $follow
      * @return \Ss\Repositories\Follow\Follow
@@ -13,7 +14,7 @@ interface FollowInterface
     public function save(Follow $follow);
 
     /**
-     * Removes a follow from data source
+     * Removes a follow from data source.
      *
      * @param $songId
      * @param $userId

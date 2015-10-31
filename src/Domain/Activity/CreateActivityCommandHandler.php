@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Domain\Activity;
 
 use Laracasts\Commander\CommandHandler;
@@ -21,7 +22,7 @@ class CreateActivityCommandHandler implements CommandHandler
     }
 
     /**
-     * Handle the command
+     * Handle the command.
      *
      * @param $command
      * @return mixed

@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Repositories\Vote;
 
 class VoteNotFoundException extends \OutOfBoundsException

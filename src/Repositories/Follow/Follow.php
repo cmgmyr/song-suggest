@@ -1,4 +1,5 @@
 <?php
+
 namespace Ss\Repositories\Follow;
 
 use Ss\Models\BaseModel;
@@ -20,7 +21,7 @@ class Follow extends BaseModel
     protected $fillable = ['user_id', 'song_id'];
 
     /**
-     * A follow belongs to a user
+     * A follow belongs to a user.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -30,7 +31,7 @@ class Follow extends BaseModel
     }
 
     /**
-     * A follow belongs to a song
+     * A follow belongs to a song.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -40,7 +41,7 @@ class Follow extends BaseModel
     }
 
     /**
-     * A user follows a song
+     * A user follows a song.
      *
      * @param $song_id
      * @param $user_id
