@@ -24,7 +24,7 @@ class SongsController extends BaseController
     /**
      * @var \Ss\Repositories\Category\CategoryInterface
      */
-    private $category;
+    protected $category;
 
     /**
      * @var \Ss\Repositories\Song\SongInterface

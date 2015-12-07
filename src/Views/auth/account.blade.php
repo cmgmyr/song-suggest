@@ -1,7 +1,7 @@
 @section('pageTitle', 'Update Account')
 
 @section('content')
-{{ Form::model($user, ['route' => ['account.update', $user->id],  'method' => 'put', 'files' => true]) }}
+{{ Form::model($user, ['route' => 'account.update',  'method' => 'put', 'files' => true]) }}
 <div class="row">
     <div class="col-md-6">
         <div class="form-group">
